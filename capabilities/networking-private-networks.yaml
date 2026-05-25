@@ -1,0 +1,19 @@
+name: paperspace-networking-private-networks
+description: |
+  Naftiko capability for Paperspace private networks (VPCs) and public IPs.
+api: paperspace-networking-api
+operations:
+- listPrivateNetworks
+- createPrivateNetwork
+- getPrivateNetwork
+- updatePrivateNetwork
+- deletePrivateNetwork
+- listPublicIps
+- claimPublicIp
+- assignPublicIp
+- releasePublicIp
+auth:
+  type: bearer
+  header: Authorization
+  prefix: Bearer
+  env: PAPERSPACE_API_TOKEN

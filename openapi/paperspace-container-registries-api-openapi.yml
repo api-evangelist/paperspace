@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries API
+  version: v1
+  description: |
+    Manage container registry credentials used by Paperspace Deployments to
+    pull private images. Authenticate with a team-scoped API key as
+    `Authorization: Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Container Registries
+paths:
+  /container-registries:
+    get:
+      tags: [Container Registries]
+      operationId: listContainerRegistries
+      summary: List Container Registries
+      description: Lists container registries for the current team.
+      responses:
+        '200':
+          description: Registry list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContainerRegistry'
+    post:
+      tags: [Container Registries]
+      operationId: createContainerRegistry
+      summary: Create Container Registry
+      description: Creates a container registry for the current team.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainerRegistryCreate'
+      responses:
+        '201':
+          description: Registry created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerRegistry'
+  /container-registries/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Container Registries]
+      operationId: getContainerRegistry
+      summary: Get Container Registry
+      description: Gets a container registry for the current team.
+      responses:
+        '200':
+          description: Container registry.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerRegistry'
+    put:
+      tags: [Container Registries]
+      operationId: updateContainerRegistry
+      summary: Update Container Registry
+      description: Updates a container registry for the current team.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainerRegistryCreate'
+      responses:
+        '200':
+          description: Updated registry.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerRegistry'
+    delete:
+      tags: [Container Registries]
+      operationId: deleteContainerRegistry
+      summary: Delete Container Registry
+      description: Deletes a container registry for the current team.
+      responses:
+        '204':
+          description: Deleted.
+  /container-registries/{id}/test-connection:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Container Registries]
+      operationId: testContainerRegistryConnection
+      summary: Test Container Registry Connection
+      description: Validates that a container registry can be connected to using the provided credentials.
+      responses:
+        '200':
+          description: Connection result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  schemas:
+    ContainerRegistry:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        username:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    ContainerRegistryCreate:
+      type: object
+      required: [name, url, username, password]
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        username:
+          type: string
+        password:
+          type: string

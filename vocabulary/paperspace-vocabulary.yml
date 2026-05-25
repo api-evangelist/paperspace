@@ -1,0 +1,104 @@
+name: Paperspace Vocabulary
+description: |
+  Operational and capability vocabulary for the Paperspace (DigitalOcean) GPU
+  cloud platform. Mirrors the resources exposed at api.paperspace.com/v1 and
+  organises them into Compute, Containers, Storage, Networking, Templating,
+  Data, Models, Team, and Authentication concepts.
+namespace: paperspace
+terms:
+- id: Machine
+  label: Machine
+  description: A Paperspace virtual machine — GPU or CPU compute instance.
+  category: Compute
+- id: MachineType
+  label: Machine Type
+  description: A specific GPU or CPU SKU (e.g. H100, A100-80G, A6000, A5000, V100, P6000).
+  category: Compute
+- id: MachineEvent
+  label: Machine Event
+  description: An event in the lifecycle of a machine (start, stop, restart, provision, etc.).
+  category: Compute
+- id: Snapshot
+  label: Snapshot
+  description: A point-in-time copy of a machine's storage.
+  category: Storage
+- id: SharedDrive
+  label: Shared Drive
+  description: A shared persistent volume attached to a private network.
+  category: Storage
+- id: StorageProvider
+  label: Storage Provider
+  description: External storage credentials (S3, GCS, Azure Blob) used by datasets and models.
+  category: Storage
+- id: PrivateNetwork
+  label: Private Network
+  description: A VPC-like network connecting machines and shared drives.
+  category: Networking
+- id: PublicIp
+  label: Public IP
+  description: A claimed public IPv4 address that can be assigned to a machine.
+  category: Networking
+- id: Deployment
+  label: Deployment
+  description: A container-based service running on Paperspace with managed endpoint and autoscaling.
+  category: Containers
+- id: ContainerRegistry
+  label: Container Registry
+  description: Credentials for a private container registry used by Deployments.
+  category: Containers
+- id: OsTemplate
+  label: OS Template
+  description: An official Paperspace OS image used to provision a machine.
+  category: Templating
+- id: CustomTemplate
+  label: Custom Template
+  description: A user-created machine image template.
+  category: Templating
+- id: StartupScript
+  label: Startup Script
+  description: A bash script that runs on machine first-boot.
+  category: Templating
+- id: Project
+  label: Project
+  description: Top-level container owning deployments, models, secrets, and tags.
+  category: Organization
+- id: Collaborator
+  label: Collaborator
+  description: A team member with explicit access to a project.
+  category: Organization
+- id: Dataset
+  label: Dataset
+  description: A versioned data collection used by Gradient.
+  category: Data
+- id: DatasetVersion
+  label: Dataset Version
+  description: A specific version of a dataset.
+  category: Data
+- id: Model
+  label: Model
+  description: A trained ML model registered in the Gradient model registry.
+  category: AI/ML
+- id: Team
+  label: Team
+  description: A Paperspace billing and access boundary.
+  category: Identity
+- id: TeamMember
+  label: Team Member
+  description: A user who belongs to a Paperspace team.
+  category: Identity
+- id: User
+  label: User
+  description: An authenticated Paperspace user.
+  category: Identity
+- id: Secret
+  label: Secret
+  description: An encrypted key/value pair scoped to a project or team.
+  category: Security
+- id: Session
+  label: Session
+  description: The result of the /auth/session lookup describing current user and team.
+  category: Identity
+- id: Tag
+  label: Tag
+  description: A free-form label attached to a project.
+  category: Organization

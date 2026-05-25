@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Models API
+  version: v1
+  description: |
+    Register and manage trained machine learning models in the Paperspace
+    Gradient model registry. Models can be associated with projects and
+    consumed by deployments. Authenticate with a team-scoped API key as
+    `Authorization: Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Models
+paths:
+  /models:
+    get:
+      tags: [Models]
+      operationId: listModels
+      summary: List Models
+      description: Lists models accessible to the team.
+      responses:
+        '200':
+          description: Model list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Model'
+    post:
+      tags: [Models]
+      operationId: createModel
+      summary: Create Model
+      description: Registers a new model with the Gradient model registry.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCreate'
+      responses:
+        '201':
+          description: Model created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+  /models/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Models]
+      operationId: getModel
+      summary: Get Model
+      description: Gets a model by ID.
+      responses:
+        '200':
+          description: Model.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+    delete:
+      tags: [Models]
+      operationId: deleteModel
+      summary: Delete Model
+      description: Deletes a model from the registry.
+      responses:
+        '204':
+          description: Deleted.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  schemas:
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        modelType:
+          type: string
+          enum: [Custom, Tensorflow, ONNX]
+        url:
+          type: string
+        projectId:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    ModelCreate:
+      type: object
+      required: [name, modelType]
+      properties:
+        name:
+          type: string
+        modelType:
+          type: string
+        url:
+          type: string
+        projectId:
+          type: string

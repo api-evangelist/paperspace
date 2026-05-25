@@ -1,0 +1,20 @@
+name: paperspace-deployments-deployments
+description: |
+  Naftiko capability for Paperspace container-as-a-service Deployments —
+  create/update, list, get, delete, runs, metrics, logs, and revision history.
+api: paperspace-deployments-api
+operations:
+- listDeployments
+- upsertDeployment
+- getDeployment
+- deleteDeployment
+- listDeploymentRuns
+- getDeploymentMetrics
+- getDeploymentLogs
+- getDeploymentHistory
+- listProjectDeployments
+auth:
+  type: bearer
+  header: Authorization
+  prefix: Bearer
+  env: PAPERSPACE_API_TOKEN

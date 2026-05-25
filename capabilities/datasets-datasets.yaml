@@ -1,0 +1,20 @@
+name: paperspace-datasets-datasets
+description: |
+  Naftiko capability for Paperspace Gradient versioned Datasets.
+api: paperspace-datasets-api
+operations:
+- listDatasets
+- createDataset
+- getDataset
+- updateDataset
+- deleteDataset
+- listDatasetVersions
+- createDatasetVersion
+- getDatasetVersion
+- updateDatasetVersion
+- deleteDatasetVersion
+auth:
+  type: bearer
+  header: Authorization
+  prefix: Bearer
+  env: PAPERSPACE_API_TOKEN

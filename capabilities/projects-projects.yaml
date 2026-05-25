@@ -1,0 +1,31 @@
+name: paperspace-projects-projects
+description: |
+  Naftiko capability for Paperspace Projects, including project lifecycle,
+  collaborators, secrets, tags, activity feed, and model linkage.
+api: paperspace-projects-api
+operations:
+- listProjects
+- createProject
+- getProject
+- updateProject
+- deleteProject
+- listProjectActivity
+- listProjectCollaborators
+- addProjectCollaborator
+- removeProjectCollaborator
+- listProjectSecrets
+- createProjectSecret
+- getProjectSecret
+- updateProjectSecret
+- deleteProjectSecret
+- listProjectTags
+- addProjectTag
+- removeProjectTag
+- listProjectModels
+- addProjectModel
+- removeProjectModel
+auth:
+  type: bearer
+  header: Authorization
+  prefix: Bearer
+  env: PAPERSPACE_API_TOKEN

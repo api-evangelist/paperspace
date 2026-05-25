@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.paperspace.com/v1/machines",
+    "headers": {
+      "Authorization": "Bearer $PAPERSPACE_API_TOKEN",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "h100-training-01",
+      "machineType": "H100",
+      "region": "East Coast (NY2)",
+      "templateId": "tmpl_ubuntu2204_cuda12",
+      "diskSize": 250,
+      "startOnCreate": true,
+      "autoShutdownTimeoutHours": 2
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "psok2vd8",
+      "name": "h100-training-01",
+      "state": "provisioning",
+      "machineType": "H100",
+      "region": "East Coast (NY2)",
+      "os": "Ubuntu 22.04",
+      "cpus": 16,
+      "ram": 274877906944,
+      "gpu": "NVIDIA H100 80GB",
+      "storageTotal": 268435456000,
+      "publicIp": null,
+      "privateIp": "10.64.13.4",
+      "autoShutdownEnabled": true,
+      "autoSnapshotEnabled": false,
+      "teamId": "tspaperevangelist",
+      "userId": "uxyz123",
+      "dtCreated": "2026-05-25T14:02:11Z"
+    }
+  }
+}

@@ -1,0 +1,474 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Machines API
+  version: v1
+  description: |
+    Programmatic management of Paperspace virtual machines — GPU and CPU compute
+    instances offered by Paperspace (now part of DigitalOcean). The Machines API
+    covers lifecycle (create, start, stop, restart, delete), team access,
+    desktop streaming configuration, and the machine-events stream. Authenticate
+    with a team-scoped API key as `Authorization: Bearer $API_TOKEN`.
+  contact:
+    name: Paperspace Support
+    url: https://www.paperspace.com/contact-sales
+  license:
+    name: Paperspace Terms of Service
+    url: https://www.paperspace.com/legal/terms-of-service
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Machines
+  description: Virtual machine lifecycle and metadata.
+- name: Machine Events
+  description: Machine-event history stream.
+- name: Machine Access
+  description: Team-member access grants on individual machines.
+- name: Machine Types
+  description: Region/availability lookups for machine types.
+paths:
+  /machines:
+    get:
+      tags: [Machines]
+      operationId: listMachines
+      summary: List Machines
+      description: Fetches a list of machines visible to the caller's team.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/OrderBy'
+      - $ref: '#/components/parameters/Order'
+      responses:
+        '200':
+          description: A page of machines.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineList'
+    post:
+      tags: [Machines]
+      operationId: createMachine
+      summary: Create Machine
+      description: Provisions a new Paperspace machine in the specified region with the chosen machine type and template.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MachineCreate'
+      responses:
+        '201':
+          description: Machine created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+  /machines/{id}:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    get:
+      tags: [Machines]
+      operationId: getMachine
+      summary: Get Machine
+      description: Fetches a single machine by ID.
+      responses:
+        '200':
+          description: Machine.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+    put:
+      tags: [Machines]
+      operationId: updateMachine
+      summary: Update Machine
+      description: Updates a machine — name, auto-shutdown, public IP, machine type, and other mutable fields.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MachineUpdate'
+      responses:
+        '200':
+          description: Updated machine.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+    delete:
+      tags: [Machines]
+      operationId: deleteMachine
+      summary: Delete Machine
+      description: Deletes a single machine by ID and releases the associated resources.
+      responses:
+        '204':
+          description: Deleted.
+  /machines/{id}/start:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    patch:
+      tags: [Machines]
+      operationId: startMachine
+      summary: Start Machine
+      description: Starts a stopped machine.
+      responses:
+        '200':
+          description: Machine state transition acknowledged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+  /machines/{id}/stop:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    patch:
+      tags: [Machines]
+      operationId: stopMachine
+      summary: Stop Machine
+      description: Stops a running machine — compute billing pauses; storage continues to bill.
+      responses:
+        '200':
+          description: Machine state transition acknowledged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+  /machines/{id}/restart:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    patch:
+      tags: [Machines]
+      operationId: restartMachine
+      summary: Restart Machine
+      description: Restarts a machine.
+      responses:
+        '200':
+          description: Machine state transition acknowledged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+  /machines/{id}/accessors:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    get:
+      tags: [Machine Access]
+      operationId: listMachineAccessors
+      summary: List Machine Accessors
+      description: Lists team members with explicit access to the machine.
+      responses:
+        '200':
+          description: Accessor list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Accessor'
+    post:
+      tags: [Machine Access]
+      operationId: grantMachineAccess
+      summary: Grant Machine Access
+      description: Grants machine access to a team member.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId]
+              properties:
+                userId:
+                  type: string
+      responses:
+        '201':
+          description: Access granted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accessor'
+  /machines/{id}/accessors/{userId}:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Machine Access]
+      operationId: getMachineAccessor
+      summary: Get Machine Accessor
+      description: Retrieves accessor information for a specific user.
+      responses:
+        '200':
+          description: Accessor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accessor'
+    delete:
+      tags: [Machine Access]
+      operationId: revokeMachineAccess
+      summary: Revoke Machine Access
+      description: Revokes a user's machine access.
+      responses:
+        '204':
+          description: Access revoked.
+  /machines/{id}/desktop:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    get:
+      tags: [Machines]
+      operationId: getMachineDesktop
+      summary: Get Desktop Streaming Configuration
+      description: Retrieves desktop streaming configuration settings used by the Paperspace client.
+      responses:
+        '200':
+          description: Desktop configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesktopConfig'
+  /machine-events:
+    get:
+      tags: [Machine Events]
+      operationId: listMachineEvents
+      summary: List Machine Events
+      description: Fetches a page of machine events across the team.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Event list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineEventList'
+  /machine-events/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Machine Events]
+      operationId: getMachineEvent
+      summary: Get Machine Event
+      description: Fetches a single machine event by ID.
+      responses:
+        '200':
+          description: Event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineEvent'
+  /machine-availability:
+    get:
+      tags: [Machine Types]
+      operationId: getMachineAvailability
+      summary: Get Machine Availability
+      description: Gets the machine availability for a given region and machine type.
+      parameters:
+      - in: query
+        name: machineType
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: region
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Availability response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  available:
+                    type: boolean
+                  machineType:
+                    type: string
+                  region:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  parameters:
+    MachineId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+      description: Pagination cursor.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 120
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        enum: [asc, desc]
+  schemas:
+    Machine:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+          enum: [ready, off, starting, stopping, restarting, provisioning, serviceready, upgrading, failed]
+        machineType:
+          type: string
+          description: "e.g. H100, A100-80G, A6000, V100, A5000, A4000, P6000."
+        region:
+          type: string
+        os:
+          type: string
+        cpus:
+          type: integer
+        ram:
+          type: integer
+        gpu:
+          type: string
+        storageTotal:
+          type: integer
+        publicIp:
+          type: string
+          nullable: true
+        privateIp:
+          type: string
+          nullable: true
+        autoShutdownEnabled:
+          type: boolean
+        autoSnapshotEnabled:
+          type: boolean
+        teamId:
+          type: string
+        userId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+        dtLastRun:
+          type: string
+          format: date-time
+    MachineCreate:
+      type: object
+      required: [name, machineType, region, templateId]
+      properties:
+        name:
+          type: string
+        machineType:
+          type: string
+        region:
+          type: string
+        templateId:
+          type: string
+        diskSize:
+          type: integer
+        startOnCreate:
+          type: boolean
+        publicIp:
+          type: string
+        autoShutdownTimeoutHours:
+          type: integer
+    MachineUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        machineType:
+          type: string
+        autoShutdownTimeoutHours:
+          type: integer
+        autoSnapshotFrequency:
+          type: string
+    MachineList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Machine'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
+    Accessor:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+        machineId:
+          type: string
+        access:
+          type: string
+          enum: [admin, user]
+    DesktopConfig:
+      type: object
+      properties:
+        host:
+          type: string
+        token:
+          type: string
+        port:
+          type: integer
+        protocol:
+          type: string
+    MachineEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        machineId:
+          type: string
+        type:
+          type: string
+        state:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    MachineEventList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineEvent'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string

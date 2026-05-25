@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.paperspace.com/v1/deployments",
+    "headers": {
+      "Authorization": "Bearer $PAPERSPACE_API_TOKEN",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "llama3-inference",
+      "projectId": "prpaperevangelist",
+      "image": "ghcr.io/api-evangelist/llama3-server:1.2.0",
+      "machineType": "A100-80G",
+      "replicas": 2,
+      "ports": [8080],
+      "env": {
+        "MODEL_PATH": "/models/llama3-8b",
+        "PORT": "8080"
+      },
+      "autoscaling": {
+        "min": 1,
+        "max": 8,
+        "target": 70,
+        "metric": "cpu"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "depllm3a1",
+      "name": "llama3-inference",
+      "image": "ghcr.io/api-evangelist/llama3-server:1.2.0",
+      "projectId": "prpaperevangelist",
+      "machineType": "A100-80G",
+      "clusterId": "clny2",
+      "endpoint": "https://depllm3a1.paperspaceusercontent.com",
+      "replicas": 2,
+      "state": "deploying",
+      "autoscaling": {
+        "min": 1,
+        "max": 8,
+        "target": 70,
+        "metric": "cpu"
+      },
+      "dtCreated": "2026-05-25T14:08:33Z"
+    }
+  }
+}

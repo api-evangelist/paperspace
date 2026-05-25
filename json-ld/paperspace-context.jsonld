@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "paperspace": "https://raw.githubusercontent.com/api-evangelist/paperspace/main/vocabulary/paperspace-vocabulary.yml#",
+    "Machine": "paperspace:Machine",
+    "Deployment": "paperspace:Deployment",
+    "Project": "paperspace:Project",
+    "Dataset": "paperspace:Dataset",
+    "Model": "paperspace:Model",
+    "SharedDrive": "paperspace:SharedDrive",
+    "Snapshot": "paperspace:Snapshot",
+    "PrivateNetwork": "paperspace:PrivateNetwork",
+    "PublicIp": "paperspace:PublicIp",
+    "ContainerRegistry": "paperspace:ContainerRegistry",
+    "StartupScript": "paperspace:StartupScript",
+    "OsTemplate": "paperspace:OsTemplate",
+    "CustomTemplate": "paperspace:CustomTemplate",
+    "Team": "paperspace:Team",
+    "User": "paperspace:User",
+    "Secret": "paperspace:Secret",
+    "machineType": "paperspace:machineType",
+    "region": "paperspace:region",
+    "state": "paperspace:state",
+    "gpu": "paperspace:gpu",
+    "replicas": "paperspace:replicas",
+    "endpoint": "paperspace:endpoint",
+    "dtCreated": { "@id": "paperspace:dtCreated", "@type": "xsd:dateTime" },
+    "dtLastRun": { "@id": "paperspace:dtLastRun", "@type": "xsd:dateTime" },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

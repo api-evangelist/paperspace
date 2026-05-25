@@ -1,0 +1,343 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Templates and Startup Scripts API
+  version: v1
+  description: |
+    Templates (OS and custom) and startup scripts that configure newly
+    provisioned Paperspace machines. Templates describe the base OS image and
+    custom user-created images; startup scripts are bash payloads executed at
+    first boot. Authenticate with a team-scoped API key as `Authorization:
+    Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: OS Templates
+- name: Custom Templates
+- name: Startup Scripts
+paths:
+  /os-templates:
+    get:
+      tags: [OS Templates]
+      operationId: listOsTemplates
+      summary: List OS Templates
+      description: Fetches a list of available OS templates with optional filtering and pagination.
+      parameters:
+      - in: query
+        name: after
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 120
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+      - in: query
+        name: order
+        schema:
+          type: string
+          enum: [asc, desc]
+      - in: query
+        name: name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OS template list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OsTemplate'
+  /custom-templates:
+    get:
+      tags: [Custom Templates]
+      operationId: listCustomTemplates
+      summary: List Custom Templates
+      description: Fetches a list of custom machine templates.
+      responses:
+        '200':
+          description: Template list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomTemplate'
+    post:
+      tags: [Custom Templates]
+      operationId: createCustomTemplate
+      summary: Create Custom Template
+      description: Creates a custom template from a machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [machineId, name]
+              properties:
+                machineId:
+                  type: string
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '201':
+          description: Custom template.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTemplate'
+  /custom-templates/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Custom Templates]
+      operationId: getCustomTemplate
+      summary: Get Custom Template
+      description: Fetches a single template by ID.
+      responses:
+        '200':
+          description: Custom template.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTemplate'
+    put:
+      tags: [Custom Templates]
+      operationId: updateCustomTemplate
+      summary: Update Custom Template
+      description: Updates a single template by ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '200':
+          description: Updated template.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTemplate'
+    delete:
+      tags: [Custom Templates]
+      operationId: deleteCustomTemplate
+      summary: Delete Custom Template
+      description: Deletes a custom template.
+      responses:
+        '204':
+          description: Deleted.
+  /startup-scripts:
+    get:
+      tags: [Startup Scripts]
+      operationId: listStartupScripts
+      summary: List Startup Scripts
+      description: Fetches a list of startup scripts.
+      responses:
+        '200':
+          description: Script list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StartupScript'
+    post:
+      tags: [Startup Scripts]
+      operationId: createStartupScript
+      summary: Create Startup Script
+      description: Generates a new startup script.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartupScriptCreate'
+      responses:
+        '201':
+          description: Created script.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartupScript'
+  /startup-scripts/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Startup Scripts]
+      operationId: getStartupScript
+      summary: Get Startup Script
+      description: Fetches a single startup script by ID.
+      responses:
+        '200':
+          description: Script.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartupScript'
+    put:
+      tags: [Startup Scripts]
+      operationId: updateStartupScript
+      summary: Update Startup Script
+      description: Modifies an existing startup script.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartupScriptCreate'
+      responses:
+        '200':
+          description: Updated script.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartupScript'
+    delete:
+      tags: [Startup Scripts]
+      operationId: deleteStartupScript
+      summary: Delete Startup Script
+      description: Removes a startup script.
+      responses:
+        '204':
+          description: Deleted.
+  /startup-scripts/{id}/assign:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      tags: [Startup Scripts]
+      operationId: assignStartupScript
+      summary: Assign Startup Script
+      description: Links a startup script to a machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [machineId]
+              properties:
+                machineId:
+                  type: string
+      responses:
+        '200':
+          description: Assigned.
+  /startup-scripts/{id}/unassign:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      tags: [Startup Scripts]
+      operationId: unassignStartupScript
+      summary: Unassign Startup Script
+      description: Disconnects a startup script from a machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [machineId]
+              properties:
+                machineId:
+                  type: string
+      responses:
+        '200':
+          description: Unassigned.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  schemas:
+    OsTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        os:
+          type: string
+        defaultUser:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    CustomTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        note:
+          type: string
+        machineId:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    StartupScript:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        runOnce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    StartupScriptCreate:
+      type: object
+      required: [name, script]
+      properties:
+        name:
+          type: string
+        script:
+          type: string
+        runOnce:
+          type: boolean
+        isEnabled:
+          type: boolean

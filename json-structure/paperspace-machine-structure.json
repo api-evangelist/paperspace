@@ -1,0 +1,25 @@
+{
+  "structure": "Paperspace Machine",
+  "version": "v1",
+  "source": "https://api.paperspace.com/v1/machines/{id}",
+  "fields": [
+    { "path": "id", "type": "string", "description": "Machine identifier (e.g. psok2vd8)." },
+    { "path": "name", "type": "string" },
+    { "path": "state", "type": "string", "enum": ["ready","off","starting","stopping","restarting","provisioning","serviceready","upgrading","failed"] },
+    { "path": "machineType", "type": "string", "description": "H100, A100-80G, A6000, A5000, A4000, V100, P6000, etc." },
+    { "path": "region", "type": "string" },
+    { "path": "os", "type": "string" },
+    { "path": "cpus", "type": "integer" },
+    { "path": "ram", "type": "integer", "unit": "bytes" },
+    { "path": "gpu", "type": "string" },
+    { "path": "storageTotal", "type": "integer", "unit": "bytes" },
+    { "path": "publicIp", "type": "string", "nullable": true },
+    { "path": "privateIp", "type": "string", "nullable": true },
+    { "path": "autoShutdownEnabled", "type": "boolean" },
+    { "path": "autoSnapshotEnabled", "type": "boolean" },
+    { "path": "teamId", "type": "string" },
+    { "path": "userId", "type": "string" },
+    { "path": "dtCreated", "type": "string", "format": "date-time" },
+    { "path": "dtLastRun", "type": "string", "format": "date-time" }
+  ]
+}

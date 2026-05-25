@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paperspace/main/json-schema/paperspace-machine-schema.json",
+  "title": "Paperspace Machine",
+  "description": "A Paperspace virtual machine (GPU or CPU compute instance).",
+  "type": "object",
+  "required": ["id", "name", "state", "machineType", "region"],
+  "properties": {
+    "id": { "type": "string", "description": "Unique machine identifier." },
+    "name": { "type": "string" },
+    "state": {
+      "type": "string",
+      "enum": ["ready", "off", "starting", "stopping", "restarting", "provisioning", "serviceready", "upgrading", "failed"]
+    },
+    "machineType": { "type": "string", "description": "GPU/CPU sku such as H100, A100-80G, A6000, V100, A5000, A4000, P6000." },
+    "region": { "type": "string" },
+    "os": { "type": "string" },
+    "cpus": { "type": "integer", "minimum": 1 },
+    "ram": { "type": "integer", "description": "RAM in bytes." },
+    "gpu": { "type": "string" },
+    "storageTotal": { "type": "integer", "description": "Storage in bytes." },
+    "publicIp": { "type": ["string", "null"] },
+    "privateIp": { "type": ["string", "null"] },
+    "autoShutdownEnabled": { "type": "boolean" },
+    "autoSnapshotEnabled": { "type": "boolean" },
+    "teamId": { "type": "string" },
+    "userId": { "type": "string" },
+    "dtCreated": { "type": "string", "format": "date-time" },
+    "dtLastRun": { "type": "string", "format": "date-time" }
+  }
+}

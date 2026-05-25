@@ -1,0 +1,119 @@
+specification: API Commons Plans
+version: '0.1'
+provider: paperspace
+url: https://www.paperspace.com/pricing
+plans:
+- id: free
+  name: Free
+  description: |
+    Free Gradient tier — public projects, basic free-GPU instances, 12-hour
+    auto-shutdown, 5 GB persistent storage. Per-second on-demand compute is
+    billed separately.
+  entries:
+  - geo: US
+    unit: 1
+    label: User
+    limit: 1
+    price: 0
+    metric: user
+    timeFrame: month
+- id: pro
+  name: Pro
+  description: |
+    Pro Gradient tier — private projects, mid-range instances, faster free
+    GPUs, 15 GB persistent storage, configurable auto-shutdown.
+  entries:
+  - geo: US
+    unit: 1
+    label: User
+    limit: 1
+    price: 8
+    metric: user
+    timeFrame: month
+- id: growth
+  name: Growth
+  description: |
+    Growth Gradient tier — private projects, 50 GB persistent storage,
+    high-end instances, expert support.
+  entries:
+  - geo: US
+    unit: 1
+    label: User
+    limit: 1
+    price: 39
+    metric: user
+    timeFrame: month
+- id: team-t1
+  name: Team T1
+  description: Mid-size team Gradient plan.
+  entries:
+  - geo: US
+    unit: 1
+    label: User
+    limit: 1
+    price: 12
+    metric: user
+    timeFrame: month
+- id: team-t2
+  name: Team T2
+  description: Custom-priced plan for large teams; contact sales.
+  entries:
+  - geo: US
+    unit: 1
+    label: Custom
+    price: Call
+    metric: user
+    timeFrame: month
+- id: gpu-on-demand
+  name: GPU On-Demand
+  type: Compute
+  description: |
+    Per-second on-demand GPU pricing. Listed hourly rates are reference points
+    from the public pricing page; some rates reflect multi-year commitment.
+  entries:
+  - geo: US
+    unit: 1
+    label: H100 (per hour)
+    price: 2.24
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: A100-80G (per hour)
+    price: 1.15
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: A6000 (per hour)
+    price: 1.89
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: V100 (per hour)
+    price: 2.30
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: P6000 (per hour)
+    price: 1.10
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: A5000 (per hour)
+    price: 1.38
+    metric: hour
+    timeFrame: usage
+  - geo: US
+    unit: 1
+    label: A4000 (per hour)
+    price: 0.76
+    metric: hour
+    timeFrame: usage
+sources:
+- https://www.paperspace.com/pricing
+- https://docs.digitalocean.com/products/paperspace/
+updated: '2026-05-25'

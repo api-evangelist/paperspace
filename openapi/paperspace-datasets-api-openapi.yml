@@ -1,0 +1,259 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Datasets API
+  version: v1
+  description: |
+    Datasets are versioned data collections used by Paperspace Gradient
+    notebooks, workflows, and deployments. The Datasets API exposes the
+    dataset lifecycle and versioned data revisions. Authenticate with a
+    team-scoped API key as `Authorization: Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Datasets
+- name: Dataset Versions
+paths:
+  /datasets:
+    get:
+      tags: [Datasets]
+      operationId: listDatasets
+      summary: List Datasets
+      description: Lists datasets available to the team.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Dataset list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dataset'
+    post:
+      tags: [Datasets]
+      operationId: createDataset
+      summary: Create Dataset
+      description: Creates a new dataset.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetCreate'
+      responses:
+        '201':
+          description: Dataset created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+  /datasets/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Datasets]
+      operationId: getDataset
+      summary: Get Dataset
+      description: Gets a dataset by ID.
+      responses:
+        '200':
+          description: Dataset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+    put:
+      tags: [Datasets]
+      operationId: updateDataset
+      summary: Update Dataset
+      description: Updates a dataset's metadata.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Updated dataset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+    delete:
+      tags: [Datasets]
+      operationId: deleteDataset
+      summary: Delete Dataset
+      description: Deletes a dataset and its versions.
+      responses:
+        '204':
+          description: Deleted.
+  /datasets/{datasetId}/versions:
+    parameters:
+    - in: path
+      name: datasetId
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Dataset Versions]
+      operationId: listDatasetVersions
+      summary: List Dataset Versions
+      description: Lists versions of a dataset.
+      responses:
+        '200':
+          description: Dataset version list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatasetVersion'
+    post:
+      tags: [Dataset Versions]
+      operationId: createDatasetVersion
+      summary: Create Dataset Version
+      description: Creates a new dataset version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetVersionCreate'
+      responses:
+        '201':
+          description: Version created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+  /datasets/{datasetId}/versions/{version}:
+    parameters:
+    - in: path
+      name: datasetId
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: version
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Dataset Versions]
+      operationId: getDatasetVersion
+      summary: Get Dataset Version
+      description: Gets a specific dataset version.
+      responses:
+        '200':
+          description: Dataset version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+    put:
+      tags: [Dataset Versions]
+      operationId: updateDatasetVersion
+      summary: Update Dataset Version
+      description: Updates the metadata or message of a dataset version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Updated version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+    delete:
+      tags: [Dataset Versions]
+      operationId: deleteDatasetVersion
+      summary: Delete Dataset Version
+      description: Deletes a dataset version.
+      responses:
+        '204':
+          description: Deleted.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+  schemas:
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        teamId:
+          type: string
+        storageProviderId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    DatasetCreate:
+      type: object
+      required: [name, storageProviderId]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        storageProviderId:
+          type: string
+    DatasetVersion:
+      type: object
+      properties:
+        datasetId:
+          type: string
+        version:
+          type: string
+        message:
+          type: string
+        size:
+          type: integer
+        dtCreated:
+          type: string
+          format: date-time
+    DatasetVersionCreate:
+      type: object
+      properties:
+        message:
+          type: string

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paperspace/main/json-schema/paperspace-deployment-schema.json",
+  "title": "Paperspace Deployment",
+  "description": "A Paperspace container-as-a-service Deployment.",
+  "type": "object",
+  "required": ["id", "name", "image", "machineType"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "image": { "type": "string", "description": "Container image reference." },
+    "projectId": { "type": "string" },
+    "machineType": { "type": "string" },
+    "clusterId": { "type": "string" },
+    "endpoint": { "type": "string", "format": "uri" },
+    "replicas": { "type": "integer", "minimum": 0 },
+    "state": {
+      "type": "string",
+      "enum": ["ready", "scaling", "deploying", "error", "stopped"]
+    },
+    "autoscaling": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "integer" },
+        "max": { "type": "integer" },
+        "target": { "type": "integer" },
+        "metric": { "type": "string", "enum": ["cpu", "memory", "requests"] }
+      }
+    },
+    "dtCreated": { "type": "string", "format": "date-time" }
+  }
+}

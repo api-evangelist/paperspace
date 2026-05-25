@@ -1,0 +1,341 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Deployments API
+  version: v1
+  description: |
+    Paperspace Deployments — containers-as-a-service that run user-provided
+    container images on Paperspace GPU instances and expose them behind a
+    managed endpoint. Supports auto-scaling, rolling updates, runs, logs,
+    metrics, and configuration history. Authenticate with a team-scoped API
+    key as `Authorization: Bearer $API_TOKEN`.
+  contact:
+    name: Paperspace Support
+    url: https://www.paperspace.com/contact-sales
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Deployments
+  description: Container-based deployment lifecycle.
+paths:
+  /deployments:
+    get:
+      tags: [Deployments]
+      operationId: listDeployments
+      summary: List Deployments
+      description: Fetches a list of deployments for the authenticated team.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of deployments.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentList'
+    post:
+      tags: [Deployments]
+      operationId: upsertDeployment
+      summary: Create or Update Deployment
+      description: Submits a new deployment configuration. If the deployment does not exist one is created; otherwise a new run is started against the existing deployment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeploymentSpec'
+      responses:
+        '200':
+          description: Upserted deployment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+  /deployments/{id}:
+    parameters:
+    - $ref: '#/components/parameters/DeploymentId'
+    get:
+      tags: [Deployments]
+      operationId: getDeployment
+      summary: Get Deployment
+      description: Fetches a single deployment by deployment ID.
+      responses:
+        '200':
+          description: Deployment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+    delete:
+      tags: [Deployments]
+      operationId: deleteDeployment
+      summary: Delete Deployment
+      description: Removes a deployment using its identifier.
+      responses:
+        '204':
+          description: Deleted.
+  /deployments/{id}/runs:
+    parameters:
+    - $ref: '#/components/parameters/DeploymentId'
+    get:
+      tags: [Deployments]
+      operationId: listDeploymentRuns
+      summary: List Deployment Runs
+      description: Lists the active deployment runs for a deployment.
+      responses:
+        '200':
+          description: Run list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeploymentRun'
+  /deployments/{id}/metrics:
+    parameters:
+    - $ref: '#/components/parameters/DeploymentId'
+    get:
+      tags: [Deployments]
+      operationId: getDeploymentMetrics
+      summary: Get Deployment Metrics
+      description: Retrieves performance data for a given deployment over a time range.
+      parameters:
+      - in: query
+        name: start
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: end
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Metrics response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentMetrics'
+  /deployments/{id}/logs:
+    parameters:
+    - $ref: '#/components/parameters/DeploymentId'
+    get:
+      tags: [Deployments]
+      operationId: getDeploymentLogs
+      summary: Get Deployment Logs
+      description: Obtains log entries associated with a deployment.
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Log stream.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LogLine'
+  /deployments/{id}/history:
+    parameters:
+    - $ref: '#/components/parameters/DeploymentId'
+    get:
+      tags: [Deployments]
+      operationId: getDeploymentHistory
+      summary: Get Deployment History
+      description: Accesses configuration change records for a deployment.
+      responses:
+        '200':
+          description: History records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeploymentRevision'
+  /projects/{id}/deployments:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Deployments]
+      operationId: listProjectDeployments
+      summary: List Project Deployments
+      description: Fetches a list of deployments scoped to a specific project.
+      responses:
+        '200':
+          description: Deployment list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentList'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  parameters:
+    DeploymentId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+  schemas:
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+        projectId:
+          type: string
+        machineType:
+          type: string
+        clusterId:
+          type: string
+        endpoint:
+          type: string
+        replicas:
+          type: integer
+        state:
+          type: string
+          enum: [ready, scaling, deploying, error, stopped]
+        autoscaling:
+          $ref: '#/components/schemas/AutoscalingPolicy'
+        dtCreated:
+          type: string
+          format: date-time
+    DeploymentSpec:
+      type: object
+      required: [name, image, machineType]
+      properties:
+        name:
+          type: string
+        projectId:
+          type: string
+        image:
+          type: string
+        machineType:
+          type: string
+        replicas:
+          type: integer
+        ports:
+          type: array
+          items:
+            type: integer
+        env:
+          type: object
+          additionalProperties:
+            type: string
+        command:
+          type: array
+          items:
+            type: string
+        autoscaling:
+          $ref: '#/components/schemas/AutoscalingPolicy'
+    AutoscalingPolicy:
+      type: object
+      properties:
+        min:
+          type: integer
+        max:
+          type: integer
+        target:
+          type: integer
+        metric:
+          type: string
+          enum: [cpu, memory, requests]
+    DeploymentList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deployment'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
+    DeploymentRun:
+      type: object
+      properties:
+        id:
+          type: string
+        deploymentId:
+          type: string
+        state:
+          type: string
+        replicas:
+          type: integer
+        dtStarted:
+          type: string
+          format: date-time
+    DeploymentMetrics:
+      type: object
+      properties:
+        deploymentId:
+          type: string
+        series:
+          type: array
+          items:
+            type: object
+            properties:
+              metric:
+                type: string
+              values:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    t:
+                      type: string
+                      format: date-time
+                    v:
+                      type: number
+    LogLine:
+      type: object
+      properties:
+        t:
+          type: string
+          format: date-time
+        stream:
+          type: string
+          enum: [stdout, stderr]
+        message:
+          type: string
+    DeploymentRevision:
+      type: object
+      properties:
+        revision:
+          type: integer
+        spec:
+          $ref: '#/components/schemas/DeploymentSpec'
+        dtCreated:
+          type: string
+          format: date-time
+        userId:
+          type: string

@@ -1,0 +1,50 @@
+specification: API Commons Rate Limits
+version: '0.1'
+provider: paperspace
+url: https://docs.digitalocean.com/reference/paperspace/api-reference/
+description: |
+  Paperspace does not publish numeric per-key rate limits in the public API
+  reference; the documented limits are operational (concurrency and quota
+  rather than request-per-second). This file captures the observable
+  enforcement surfaces so downstream tooling can model them.
+policies:
+- id: default-api
+  name: Default REST API request rate
+  scope: per-api-key
+  description: |
+    api.paperspace.com/v1 enforces unspecified per-key request limits.
+    Excessive request rates are throttled with HTTP 429 responses. Treat as a
+    soft-limit; back off using `Retry-After` if present.
+  units: requests
+  window: minute
+  limit: null
+  burst: null
+  enforcement: HTTP 429
+- id: machine-concurrency
+  name: Concurrent machine count per team
+  scope: per-team
+  description: |
+    Maximum simultaneous active machines is enforced per team and SKU. Per-SKU
+    quotas can be raised by contacting support.
+  units: machines
+  enforcement: HTTP 4xx with `quota_exceeded`
+- id: public-ip-quota
+  name: Public IPs per team
+  scope: per-team
+  description: |
+    Claimed public IPs are limited per team. Excess claim attempts return a
+    quota error.
+  units: ip
+  enforcement: HTTP 4xx with `quota_exceeded`
+- id: storage-quota
+  name: Storage quota per plan
+  scope: per-plan
+  description: |
+    Persistent storage is capped by Gradient plan (Free 5 GB, Pro 15 GB,
+    Growth 50 GB). Additional storage incurs metered billing.
+  units: bytes
+  enforcement: HTTP 4xx with `quota_exceeded`
+sources:
+- https://docs.digitalocean.com/reference/paperspace/api-reference/
+- https://docs.digitalocean.com/products/paperspace/
+updated: '2026-05-25'

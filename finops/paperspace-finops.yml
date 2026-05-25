@@ -1,0 +1,55 @@
+specification: FinOps Framework / FOCUS Data Spec alignment
+version: '0.1'
+provider: paperspace
+url: https://www.paperspace.com/pricing
+description: |
+  Paperspace billing aligned to the FinOps Framework. Compute is billed per
+  second (advertised hourly), storage is billed per GB-month, public IPs and
+  network egress are billed separately. Paperspace billing is part of the
+  DigitalOcean account-level billing surface post-acquisition.
+billing:
+- id: compute
+  category: Compute
+  description: Per-second GPU/CPU machine billing for running machines.
+  unit: second
+  meteringPrecision: 1
+  billingPrecision: hour
+- id: storage-persistent
+  category: Storage
+  description: Persistent disk and shared drive storage.
+  unit: GB-month
+- id: snapshots
+  category: Storage
+  description: Snapshot storage retained per snapshot.
+  unit: GB-month
+- id: public-ip
+  category: Networking
+  description: Per-IP/hour billing for claimed but idle public IPs.
+  unit: hour
+- id: egress
+  category: Networking
+  description: Egress data transfer pooled across the DigitalOcean account.
+  unit: GB
+- id: deployment-replicas
+  category: Containers
+  description: |
+    Container deployment replicas inherit the per-second compute meter for the
+    selected machine type.
+  unit: second
+focus:
+  costAllocation:
+    by:
+    - team
+    - project
+    - tag
+  identity:
+    teamId: paperspace:Team
+    projectId: paperspace:Project
+notes: |
+  Post-DigitalOcean acquisition, Paperspace usage is consolidated into the
+  DigitalOcean billing surface. Tags on Paperspace projects can be used as
+  cost allocation dimensions when combined with DigitalOcean's usage exports.
+sources:
+- https://www.paperspace.com/pricing
+- https://docs.digitalocean.com/products/paperspace/
+updated: '2026-05-25'

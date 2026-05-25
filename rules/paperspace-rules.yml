@@ -1,0 +1,53 @@
+extends: spectral:oas
+rules:
+  # Paperspace path style — kebab-case at every path segment.
+  paperspace-kebab-case-paths:
+    description: Path segments use kebab-case (not snake_case or camelCase).
+    message: '{{property}} must use kebab-case'
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(\/([a-z0-9-]+|\{[a-zA-Z]+\}))+$'
+  # camelCase property names on JSON bodies.
+  paperspace-camel-case-properties:
+    description: Schema property names use camelCase.
+    message: '{{property}} must be camelCase'
+    severity: warn
+    given: $.components.schemas..properties.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  # operationId convention.
+  paperspace-operation-id-camel:
+    description: operationId is camelCase.
+    given: $.paths..operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  # Bearer auth required.
+  paperspace-bearer-auth-required:
+    description: Operations must use bearerAuth.
+    severity: error
+    given: $.paths.*.*.security
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            required: [bearerAuth]
+  # Tags in Title Case.
+  paperspace-tag-title-case:
+    description: Tag names use Title Case.
+    given: $.tags[*].name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)( [A-Z][a-zA-Z0-9]*)*$'

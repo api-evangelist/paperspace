@@ -1,0 +1,24 @@
+name: paperspace-templates-templates
+description: |
+  Naftiko capability for Paperspace OS and custom templates plus startup
+  scripts used to configure newly provisioned machines.
+api: paperspace-templates-api
+operations:
+- listOsTemplates
+- listCustomTemplates
+- createCustomTemplate
+- getCustomTemplate
+- updateCustomTemplate
+- deleteCustomTemplate
+- listStartupScripts
+- createStartupScript
+- getStartupScript
+- updateStartupScript
+- deleteStartupScript
+- assignStartupScript
+- unassignStartupScript
+auth:
+  type: bearer
+  header: Authorization
+  prefix: Bearer
+  env: PAPERSPACE_API_TOKEN
