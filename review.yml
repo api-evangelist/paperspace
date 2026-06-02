@@ -1,0 +1,58 @@
+aid: paperspace
+name: Paperspace
+reviewed: '2026-05-29'
+reviewer: Kin Lane
+scope: Public WebSocket / streaming API availability
+finding: >-
+  No public WebSocket or streaming API documented — Paperspace (now a
+  DigitalOcean product) exposes a synchronous REST surface only at
+  api.paperspace.com/v1 for machines, deployments, projects, datasets,
+  networking, storage, templates, container registries, models, and team /
+  authentication.
+details: >-
+  Paperspace, acquired by DigitalOcean in 2023, publishes its full API surface
+  under the DigitalOcean documentation site at
+  docs.digitalocean.com/reference/paperspace/api-reference/. Every documented
+  resource — Machines, Deployments, Projects, Datasets, Private Networks,
+  Public IPs, Shared Drives, Snapshots, Storage Providers, OS Templates,
+  Custom Templates, Startup Scripts, Container Registries, Models, Teams,
+  Team Members, Secrets, and Auth Session — is a request/response REST
+  endpoint authenticated with a team-scoped Bearer API key. There is no
+  WebSocket endpoint, no Server-Sent Events channel, no AsyncAPI document,
+  and no documented webhook surface. The closest streaming-adjacent feature
+  is the Machines API "desktop streaming configuration" property, which
+  controls in-product remote-desktop streaming for a virtual machine — it
+  configures a session, it is not an API channel that emits events to
+  integrators. Deployment runs, metrics, and logs are surfaced as REST
+  pull endpoints, not as a streaming feed. Real-time machine state, job
+  status, deployment health, and dataset version events must therefore be
+  polled. Paperspace also does not inherit DigitalOcean's webhook or event
+  streaming surfaces — the Paperspace API is documented as a distinct
+  product family under the DigitalOcean docs umbrella.
+sources:
+  - https://docs.digitalocean.com/products/paperspace/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/project/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/model/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - https://docs.digitalocean.com/reference/paperspace/api-keys/
+  - https://docs.digitalocean.com/reference/paperspace/cli/
+asyncapi: null
+decision: >-
+  Skip AsyncAPI specification — no public WebSocket, SSE, or webhook channel
+  exists to model. Re-evaluate if DigitalOcean publishes a Paperspace events
+  / streaming surface (deployment-run logs, machine-state events, or dataset
+  version notifications) with self-serve documentation.
