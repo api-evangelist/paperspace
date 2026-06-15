@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paperspace Networking API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Private Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Private Networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/private-networks",
+            "params": [
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches a list of private networks."
+        },
+        {
+          "info": {
+            "name": "Create Private Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/private-networks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new private network in a region."
+        },
+        {
+          "info": {
+            "name": "Get Private Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches a single private network by ID."
+        },
+        {
+          "info": {
+            "name": "Update Private Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a private network by ID."
+        },
+        {
+          "info": {
+            "name": "Delete Private Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a private network by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Public IPs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Public IPs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/public-ips"
+          },
+          "docs": "Fetches a list of public IPs claimed by the team."
+        },
+        {
+          "info": {
+            "name": "Claim Public IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/public-ips",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Claims a new public IP address for the team."
+        },
+        {
+          "info": {
+            "name": "Assign Public IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/public-ips/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns a public IP to a machine."
+        },
+        {
+          "info": {
+            "name": "Release Public IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/public-ips/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Releases a public IP back to the pool."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

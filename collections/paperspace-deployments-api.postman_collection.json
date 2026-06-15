@@ -1,0 +1,941 @@
+{
+  "item": [
+    {
+      "id": "accfc7ff-f7d4-4607-81bf-d583058f216d",
+      "name": "Deployments",
+      "description": {
+        "content": "Container-based deployment lifecycle.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4113ee3d-8a52-40de-82c3-596fb72c7e9f",
+          "name": "List Deployments",
+          "request": {
+            "name": "List Deployments",
+            "description": {
+              "content": "Fetches a list of deployments for the authenticated team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1da2220-2638-4b84-8a9d-9f5e5fc7e8db",
+              "name": "A page of deployments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 4866,\n      \"state\": \"stopped\",\n      \"autoscaling\": {\n        \"min\": 1504,\n        \"max\": 6670,\n        \"target\": 8187,\n        \"metric\": \"requests\"\n      },\n      \"dtCreated\": \"2011-07-29T23:36:53.157Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 7691,\n      \"state\": \"error\",\n      \"autoscaling\": {\n        \"min\": 6619,\n        \"max\": 2533,\n        \"target\": 3069,\n        \"metric\": \"memory\"\n      },\n      \"dtCreated\": \"1976-10-04T05:04:42.876Z\"\n    }\n  ],\n  \"hasMore\": false,\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d3e8d68-56bd-4045-83f6-f59132967eaa",
+          "name": "Create or Update Deployment",
+          "request": {
+            "name": "Create or Update Deployment",
+            "description": {
+              "content": "Submits a new deployment configuration. If the deployment does not exist one is created; otherwise a new run is started against the existing deployment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1ef740b-bc89-4c68-9862-f4ce0b86ebd1",
+              "name": "Upserted deployment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"key_0\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2484,\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"1992-07-24T12:52:30.485Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "984f65bf-d185-42f2-ad09-1682ffdf8218",
+          "name": "Get Deployment",
+          "request": {
+            "name": "Get Deployment",
+            "description": {
+              "content": "Fetches a single deployment by deployment ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c4acf75-0544-40b0-a031-393117a6f527",
+              "name": "Deployment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2484,\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"1992-07-24T12:52:30.485Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb512745-5ce1-4aef-9e49-7d22d4b541bc",
+          "name": "Delete Deployment",
+          "request": {
+            "name": "Delete Deployment",
+            "description": {
+              "content": "Removes a deployment using its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfeeda58-c77d-4c54-b90f-af79ceecc1fb",
+              "name": "Deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f0d1f97-0503-41ce-89a3-72b57d77eefa",
+          "name": "List Deployment Runs",
+          "request": {
+            "name": "List Deployment Runs",
+            "description": {
+              "content": "Lists the active deployment runs for a deployment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id",
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "757e725d-b9b4-4f50-80d0-752b4a5824c8",
+              "name": "Run list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 6304,\n    \"dtStarted\": \"2007-03-09T10:51:47.667Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 5781,\n    \"dtStarted\": \"1970-11-12T22:45:35.884Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60b77074-d57d-4621-a009-5659d1391aa6",
+          "name": "Get Deployment Metrics",
+          "request": {
+            "name": "Get Deployment Metrics",
+            "description": {
+              "content": "Retrieves performance data for a given deployment over a time range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2c4f4a2-5dee-4416-8109-84474adc05d9",
+              "name": "Metrics response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deploymentId\": \"string\",\n  \"series\": [\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"1986-01-03T12:47:43.862Z\",\n          \"v\": 8391.467783835798\n        },\n        {\n          \"t\": \"1982-12-08T16:52:29.010Z\",\n          \"v\": 2307.47729474286\n        }\n      ]\n    },\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"2021-01-20T22:35:58.570Z\",\n          \"v\": 3409.794553281209\n        },\n        {\n          \"t\": \"1962-04-04T14:44:46.198Z\",\n          \"v\": 6494.995879827983\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3b0e6e5-0ac3-4998-9ddb-63d03209a628",
+          "name": "Get Deployment Logs",
+          "request": {
+            "name": "Get Deployment Logs",
+            "description": {
+              "content": "Obtains log entries associated with a deployment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id",
+                "logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92a4e393-6b35-43e2-9026-68df29907dc5",
+              "name": "Log stream.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"t\": \"2020-08-18T22:45:32.678Z\",\n    \"stream\": \"stderr\",\n    \"message\": \"string\"\n  },\n  {\n    \"t\": \"1978-12-17T19:29:21.968Z\",\n    \"stream\": \"stdout\",\n    \"message\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9387306-b45c-4995-bcff-6eb877a27a7e",
+          "name": "Get Deployment History",
+          "request": {
+            "name": "Get Deployment History",
+            "description": {
+              "content": "Accesses configuration change records for a deployment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deployments",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84f94729-4d71-4b96-ba2f-ae03bdd93fcc",
+              "name": "History records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deployments",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"revision\": 9045,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1980-10-31T12:48:37.099Z\",\n    \"userId\": \"string\"\n  },\n  {\n    \"revision\": 8332,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1977-06-19T15:39:53.330Z\",\n    \"userId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f8cfb2b-3315-4a75-a82d-5d09234af25d",
+          "name": "List Project Deployments",
+          "request": {
+            "name": "List Project Deployments",
+            "description": {
+              "content": "Fetches a list of deployments scoped to a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5dab317-3fb7-44cc-8815-1211d2402ad5",
+              "name": "Deployment list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 1239,\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"2019-05-28T11:15:42.092Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 769,\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"1962-10-13T10:35:55.508Z\"\n    }\n  ],\n  \"hasMore\": false,\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paperspace.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6229e354-def8-4b7e-888b-b4725fa95f25",
+    "name": "Paperspace Deployments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Paperspace Deployments — containers-as-a-service that run user-provided\ncontainer images on Paperspace GPU instances and expose them behind a\nmanaged endpoint. Supports auto-scaling, rolling updates, runs, logs,\nmetrics, and configuration history. Authenticate with a team-scoped API\nkey as `Authorization: Bearer $API_TOKEN`.\n\n\nContact Support:\n Name: Paperspace Support",
+      "type": "text/plain"
+    }
+  }
+}

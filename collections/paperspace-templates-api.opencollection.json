@@ -1,0 +1,290 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paperspace Templates and Startup Scripts API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OS Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List OS Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/os-templates",
+            "params": [
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches a list of available OS templates with optional filtering and pagination."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Custom Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/custom-templates"
+          },
+          "docs": "Fetches a list of custom machine templates."
+        },
+        {
+          "info": {
+            "name": "Create Custom Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/custom-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a custom template from a machine."
+        },
+        {
+          "info": {
+            "name": "Get Custom Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/custom-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches a single template by ID."
+        },
+        {
+          "info": {
+            "name": "Update Custom Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/custom-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a single template by ID."
+        },
+        {
+          "info": {
+            "name": "Delete Custom Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/custom-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a custom template."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Startup Scripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Startup Scripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/startup-scripts"
+          },
+          "docs": "Fetches a list of startup scripts."
+        },
+        {
+          "info": {
+            "name": "Create Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/startup-scripts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a new startup script."
+        },
+        {
+          "info": {
+            "name": "Get Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches a single startup script by ID."
+        },
+        {
+          "info": {
+            "name": "Update Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies an existing startup script."
+        },
+        {
+          "info": {
+            "name": "Delete Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a startup script."
+        },
+        {
+          "info": {
+            "name": "Assign Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id/assign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Links a startup script to a machine."
+        },
+        {
+          "info": {
+            "name": "Unassign Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id/unassign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disconnects a startup script from a machine."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paperspace Container Registries API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Container Registries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Container Registries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/container-registries"
+          },
+          "docs": "Lists container registries for the current team."
+        },
+        {
+          "info": {
+            "name": "Create Container Registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/container-registries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a container registry for the current team."
+        },
+        {
+          "info": {
+            "name": "Get Container Registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a container registry for the current team."
+        },
+        {
+          "info": {
+            "name": "Update Container Registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a container registry for the current team."
+        },
+        {
+          "info": {
+            "name": "Delete Container Registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a container registry for the current team."
+        },
+        {
+          "info": {
+            "name": "Test Container Registry Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Validates that a container registry can be connected to using the provided credentials."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

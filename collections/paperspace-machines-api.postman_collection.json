@@ -1,0 +1,1711 @@
+{
+  "item": [
+    {
+      "id": "364228a4-5909-4939-9fa3-2e9a0734f5d8",
+      "name": "Machines",
+      "description": {
+        "content": "Virtual machine lifecycle and metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d6b7abf-69ae-45b1-bbc1-358f6da9754d",
+          "name": "List Machines",
+          "request": {
+            "name": "List Machines",
+            "description": {
+              "content": "Fetches a list of machines visible to the caller's team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "Pagination cursor."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f4ff8ec-4d66-4f8b-b02b-c478db2e1d0b",
+              "name": "A page of machines.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"stopping\",\n      \"machineType\": \"string\",\n      \"region\": \"string\",\n      \"os\": \"string\",\n      \"cpus\": 1230,\n      \"ram\": 2644,\n      \"gpu\": \"string\",\n      \"storageTotal\": 1644,\n      \"publicIp\": \"string\",\n      \"privateIp\": \"string\",\n      \"autoShutdownEnabled\": true,\n      \"autoSnapshotEnabled\": false,\n      \"teamId\": \"string\",\n      \"userId\": \"string\",\n      \"dtCreated\": \"2019-03-14T17:31:43.661Z\",\n      \"dtLastRun\": \"1967-03-29T11:31:00.436Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"provisioning\",\n      \"machineType\": \"string\",\n      \"region\": \"string\",\n      \"os\": \"string\",\n      \"cpus\": 1869,\n      \"ram\": 2261,\n      \"gpu\": \"string\",\n      \"storageTotal\": 5472,\n      \"publicIp\": \"string\",\n      \"privateIp\": \"string\",\n      \"autoShutdownEnabled\": false,\n      \"autoSnapshotEnabled\": false,\n      \"teamId\": \"string\",\n      \"userId\": \"string\",\n      \"dtCreated\": \"1994-05-25T08:57:25.312Z\",\n      \"dtLastRun\": \"1956-06-17T00:37:49.424Z\"\n    }\n  ],\n  \"hasMore\": false,\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21d76862-4f03-429d-bf46-d16da5186217",
+          "name": "Create Machine",
+          "request": {
+            "name": "Create Machine",
+            "description": {
+              "content": "Provisions a new Paperspace machine in the specified region with the chosen machine type and template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"region\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"diskSize\": \"<integer>\",\n  \"startOnCreate\": \"<boolean>\",\n  \"publicIp\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8bc30027-2772-4f3e-a485-7150d16a0902",
+              "name": "Machine created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"region\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"diskSize\": \"<integer>\",\n  \"startOnCreate\": \"<boolean>\",\n  \"publicIp\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c2c18bf-8551-4fbc-ab34-2ee48d954e62",
+          "name": "Get Machine",
+          "request": {
+            "name": "Get Machine",
+            "description": {
+              "content": "Fetches a single machine by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c106af8d-44b3-44d2-8aa4-db15c5c91045",
+              "name": "Machine.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2c2a9a3-f1d9-4a02-b912-bd51920e4c64",
+          "name": "Update Machine",
+          "request": {
+            "name": "Update Machine",
+            "description": {
+              "content": "Updates a machine — name, auto-shutdown, public IP, machine type, and other mutable fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\",\n  \"autoSnapshotFrequency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a90d249-3e1f-4154-aab5-48068981c32d",
+              "name": "Updated machine.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\",\n  \"autoSnapshotFrequency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4930fbf-f921-463d-8da1-47d62f73b6ec",
+          "name": "Delete Machine",
+          "request": {
+            "name": "Delete Machine",
+            "description": {
+              "content": "Deletes a single machine by ID and releases the associated resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5966196a-66bf-4c3b-8adf-3b79d99aeaf5",
+              "name": "Deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3636a4a8-7bdf-481a-ba39-616141362f1d",
+          "name": "Start Machine",
+          "request": {
+            "name": "Start Machine",
+            "description": {
+              "content": "Starts a stopped machine.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5eab0b38-4a86-494b-9b62-189404e7cae0",
+              "name": "Machine state transition acknowledged.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "202e032e-57a8-4212-8dde-ac97cb8f89f6",
+          "name": "Stop Machine",
+          "request": {
+            "name": "Stop Machine",
+            "description": {
+              "content": "Stops a running machine — compute billing pauses; storage continues to bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4cbf03f-c32f-464b-aa38-695a7fe9a91b",
+              "name": "Machine state transition acknowledged.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf7eabbf-faa4-4d99-8635-ef36ae6945f1",
+          "name": "Restart Machine",
+          "request": {
+            "name": "Restart Machine",
+            "description": {
+              "content": "Restarts a machine.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "restart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09b67ac5-ce03-4e77-8385-73ce1086d0a8",
+              "name": "Machine state transition acknowledged.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "restart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"stopping\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 1594,\n  \"ram\": 2231,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4472,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"2023-01-29T19:20:12.836Z\",\n  \"dtLastRun\": \"1982-05-02T11:51:10.550Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cc66f30-4f4e-4d8a-8289-8f5982d688ed",
+          "name": "Get Desktop Streaming Configuration",
+          "request": {
+            "name": "Get Desktop Streaming Configuration",
+            "description": {
+              "content": "Retrieves desktop streaming configuration settings used by the Paperspace client.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "desktop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2069c2cd-29ae-4ed5-9f99-9163740e35c2",
+              "name": "Desktop configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "desktop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"host\": \"string\",\n  \"token\": \"string\",\n  \"port\": 1833,\n  \"protocol\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "25b799ff-fcaf-4a85-8a99-8a857487f5bf",
+      "name": "Machine Events",
+      "description": {
+        "content": "Machine-event history stream.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64f9126c-a233-4e1c-a9b4-0a1ba2a90498",
+          "name": "List Machine Events",
+          "request": {
+            "name": "List Machine Events",
+            "description": {
+              "content": "Fetches a page of machine events across the team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machine-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "Pagination cursor."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6353717a-ea83-4858-832f-dbbfad82c776",
+              "name": "Event list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machine-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"machineId\": \"string\",\n      \"type\": \"string\",\n      \"state\": \"string\",\n      \"dtCreated\": \"1948-05-16T14:05:12.502Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"machineId\": \"string\",\n      \"type\": \"string\",\n      \"state\": \"string\",\n      \"dtCreated\": \"2011-11-14T13:00:39.934Z\"\n    }\n  ],\n  \"hasMore\": true,\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d603d777-5bbd-40f3-b50d-5bd41976137b",
+          "name": "Get Machine Event",
+          "request": {
+            "name": "Get Machine Event",
+            "description": {
+              "content": "Fetches a single machine event by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machine-events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bac21759-bda3-4130-a30f-066637c42082",
+              "name": "Event.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machine-events",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"machineId\": \"string\",\n  \"type\": \"string\",\n  \"state\": \"string\",\n  \"dtCreated\": \"1987-08-22T09:11:56.366Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "75db6aec-9654-402e-a9d9-17f4ebd01a7d",
+      "name": "Machine Access",
+      "description": {
+        "content": "Team-member access grants on individual machines.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f45cb755-ad21-46c7-9506-f4e6dffd8637",
+          "name": "List Machine Accessors",
+          "request": {
+            "name": "List Machine Accessors",
+            "description": {
+              "content": "Lists team members with explicit access to the machine.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "accessors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b4e58e0-ba21-4023-9b9d-8059f3538e1e",
+              "name": "Accessor list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"userId\": \"string\",\n    \"email\": \"string\",\n    \"machineId\": \"string\",\n    \"access\": \"user\"\n  },\n  {\n    \"userId\": \"string\",\n    \"email\": \"string\",\n    \"machineId\": \"string\",\n    \"access\": \"user\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58ebeb40-f922-470a-8ea6-93d937a77083",
+          "name": "Grant Machine Access",
+          "request": {
+            "name": "Grant Machine Access",
+            "description": {
+              "content": "Grants machine access to a team member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "accessors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b28a1082-0277-4589-a59a-a56b974d7480",
+              "name": "Access granted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"email\": \"string\",\n  \"machineId\": \"string\",\n  \"access\": \"admin\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fea8701-955c-4664-be03-1f9579fb8151",
+          "name": "Get Machine Accessor",
+          "request": {
+            "name": "Get Machine Accessor",
+            "description": {
+              "content": "Retrieves accessor information for a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "accessors",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a78db6c-9711-4a47-a3d4-d599d1669d2d",
+              "name": "Accessor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "accessors",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"email\": \"string\",\n  \"machineId\": \"string\",\n  \"access\": \"admin\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd9788c9-1638-4b35-b7a8-b609a5bc9065",
+          "name": "Revoke Machine Access",
+          "request": {
+            "name": "Revoke Machine Access",
+            "description": {
+              "content": "Revokes a user's machine access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machines",
+                ":id",
+                "accessors",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1cc168a8-c2b8-459d-a7d8-9ba0c4c47b17",
+              "name": "Access revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machines",
+                    ":id",
+                    "accessors",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "80fe0008-554d-469c-b3e7-4f136690d5d5",
+      "name": "Machine Types",
+      "description": {
+        "content": "Region/availability lookups for machine types.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60c9b033-7aeb-4189-b08d-ab7c1ae0066d",
+          "name": "Get Machine Availability",
+          "request": {
+            "name": "Get Machine Availability",
+            "description": {
+              "content": "Gets the machine availability for a given region and machine type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machine-availability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "machineType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecf7f410-9fe1-43d7-8bf9-4e1125d1faa2",
+              "name": "Availability response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machine-availability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "machineType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available\": false,\n  \"machineType\": \"string\",\n  \"region\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paperspace.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "71916674-d4f8-4347-941c-77281a116769",
+    "name": "Paperspace Machines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of Paperspace virtual machines — GPU and CPU compute\ninstances offered by Paperspace (now part of DigitalOcean). The Machines API\ncovers lifecycle (create, start, stop, restart, delete), team access,\ndesktop streaming configuration, and the machine-events stream. Authenticate\nwith a team-scoped API key as `Authorization: Bearer $API_TOKEN`.\n\n\nContact Support:\n Name: Paperspace Support",
+      "type": "text/plain"
+    }
+  }
+}

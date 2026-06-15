@@ -1,349 +1,340 @@
 aid: paperspace
 url: https://raw.githubusercontent.com/api-evangelist/paperspace/refs/heads/main/apis.yml
 apis:
-- aid: paperspace:paperspace-machines-api
-  name: Paperspace Machines API
-  tags:
-  - Compute
-  - GPU
-  - Machines
-  - Cloud
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
-    type: Documentation
-  - url: openapi/paperspace-machines-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paperspace-machine-schema.json
-    type: JSONSchema
-  - url: json-structure/paperspace-machine-structure.json
-    type: JSONStructure
-  - url: json-ld/paperspace-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/machines-machines.yaml
-  description: Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the
-    machine lifecycle (create, start, stop, restart, delete), machine events, team-member access grants per
-    machine, desktop streaming configuration, and a region-keyed machine-availability lookup.
-- aid: paperspace:paperspace-deployments-api
-  name: Paperspace Deployments API
-  tags:
-  - Containers
-  - Deployments
-  - GPU
-  - Inference
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
-    type: Documentation
-  - url: openapi/paperspace-deployments-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paperspace-deployment-schema.json
-    type: JSONSchema
-  - type: NaftikoCapability
-    url: capabilities/deployments-deployments.yaml
-  description: Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a
-    managed endpoint, autoscaling, rolling updates, runs, metrics, logs, and revision history. Includes the
-    project-scoped deployment listing.
-- aid: paperspace:paperspace-projects-api
-  name: Paperspace Projects API
-  tags:
-  - Organization
-  - Projects
-  - Collaboration
-  - Secrets
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
-    type: Documentation
-  - url: openapi/paperspace-projects-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/projects-projects.yaml
-  description: Projects are the top-level organizing container in Paperspace. The Projects API covers project
-    lifecycle, activity feeds, collaborator management, project-scoped secrets, tags, and model linkage.
-- aid: paperspace:paperspace-datasets-api
-  name: Paperspace Datasets API
-  tags:
-  - Data
-  - Datasets
-  - Versioning
-  - Gradient
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
-    type: Documentation
-  - url: openapi/paperspace-datasets-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/datasets-datasets.yaml
-  description: Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The
-    Datasets API exposes the dataset lifecycle plus a versioned data revision sub-resource.
-- aid: paperspace:paperspace-networking-api
-  name: Paperspace Networking API
-  tags:
-  - Networking
-  - VPC
-  - Private Networks
-  - Public IP
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
-    type: Documentation
-  - url: openapi/paperspace-networking-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/networking-private-networks.yaml
-  description: Networking primitives for Paperspace — private networks (VPCs) for east-west machine-to-machine
-    traffic and a claim-assign-release lifecycle for public IPv4 addresses.
-- aid: paperspace:paperspace-storage-api
-  name: Paperspace Storage API
-  tags:
-  - Storage
-  - Shared Drives
-  - Snapshots
-  - Object Storage
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
-    type: Documentation
-  - url: openapi/paperspace-storage-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/storage-shared-drives.yaml
-  description: Storage primitives — shared drives attached to a private network, machine snapshots with
-    point-in-time restore, and external storage provider credentials (S3, GCS, Azure Blob) plus a team utilization
-    breakdown.
-- aid: paperspace:paperspace-templates-api
-  name: Paperspace Templates and Startup Scripts API
-  tags:
-  - Templates
-  - Startup Scripts
-  - OS Images
-  - Custom Templates
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
-    type: Documentation
-  - url: openapi/paperspace-templates-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/templates-templates.yaml
-  description: OS templates, custom user-created machine templates, and startup scripts (with assign/unassign to
-    machines) used to configure freshly provisioned Paperspace machines.
-- aid: paperspace:paperspace-container-registries-api
-  name: Paperspace Container Registries API
-  tags:
-  - Containers
-  - Registry
-  - Credentials
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
-    type: Documentation
-  - url: openapi/paperspace-container-registries-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/container-registries-container-registries.yaml
-  description: Manage container registry credentials used by Paperspace Deployments to pull private images,
-    including a test-connection endpoint that verifies the configured credentials.
-- aid: paperspace:paperspace-models-api
-  name: Paperspace Models API
-  tags:
-  - AI
-  - ML
-  - Model Registry
-  - Gradient
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
-    type: Documentation
-  - url: openapi/paperspace-models-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/models-models.yaml
-  description: Register and manage trained ML models in the Paperspace Gradient model registry. Models can be
-    associated with projects and consumed by Deployments.
-- aid: paperspace:paperspace-team-auth-api
-  name: Paperspace Team and Authentication API
-  tags:
-  - Identity
-  - Teams
-  - Members
-  - Secrets
-  - Session
-  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
-  properties:
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
-    type: Documentation
-  - url: https://docs.digitalocean.com/reference/paperspace/api-keys/
-    type: Documentation
-  - url: openapi/paperspace-team-auth-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/team-auth-session.yaml
-  description: Session lookup (`/auth/session`), team-member roster with admin-status mutation, team-member
-    removal, and the team-scoped secrets surface used to share credentials across projects in a team.
+  - aid: paperspace:paperspace-machines-api
+    name: Paperspace Machines API
+    tags:
+      - Compute
+      - GPU
+      - Machines
+      - Cloud
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+        type: Documentation
+      - url: openapi/paperspace-machines-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/paperspace-machine-schema.json
+        type: JSONSchema
+      - url: json-structure/paperspace-machine-structure.json
+        type: JSONStructure
+      - url: json-ld/paperspace-context.jsonld
+        type: JSONLD
+    description: >-
+      Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the machine lifecycle
+      (create, start, stop, restart, delete), machine events, team-member access grants per machine, desktop streaming
+      configuration, and a region-keyed machine-availability lookup.
+  - aid: paperspace:paperspace-deployments-api
+    name: Paperspace Deployments API
+    tags:
+      - Containers
+      - Deployments
+      - GPU
+      - Inference
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
+        type: Documentation
+      - url: openapi/paperspace-deployments-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/paperspace-deployment-schema.json
+        type: JSONSchema
+    description: >-
+      Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a managed
+      endpoint, autoscaling, rolling updates, runs, metrics, logs, and revision history. Includes the project-scoped
+      deployment listing.
+  - aid: paperspace:paperspace-projects-api
+    name: Paperspace Projects API
+    tags:
+      - Organization
+      - Projects
+      - Collaboration
+      - Secrets
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
+        type: Documentation
+      - url: openapi/paperspace-projects-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Projects are the top-level organizing container in Paperspace. The Projects API covers project lifecycle, activity
+      feeds, collaborator management, project-scoped secrets, tags, and model linkage.
+  - aid: paperspace:paperspace-datasets-api
+    name: Paperspace Datasets API
+    tags:
+      - Data
+      - Datasets
+      - Versioning
+      - Gradient
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
+        type: Documentation
+      - url: openapi/paperspace-datasets-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The Datasets API
+      exposes the dataset lifecycle plus a versioned data revision sub-resource.
+  - aid: paperspace:paperspace-networking-api
+    name: Paperspace Networking API
+    tags:
+      - Networking
+      - VPC
+      - Private Networks
+      - Public IP
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+        type: Documentation
+      - url: openapi/paperspace-networking-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Networking primitives for Paperspace — private networks (VPCs) for east-west machine-to-machine traffic and a
+      claim-assign-release lifecycle for public IPv4 addresses.
+  - aid: paperspace:paperspace-storage-api
+    name: Paperspace Storage API
+    tags:
+      - Storage
+      - Shared Drives
+      - Snapshots
+      - Object Storage
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+        type: Documentation
+      - url: openapi/paperspace-storage-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Storage primitives — shared drives attached to a private network, machine snapshots with point-in-time restore,
+      and external storage provider credentials (S3, GCS, Azure Blob) plus a team utilization breakdown.
+  - aid: paperspace:paperspace-templates-api
+    name: Paperspace Templates and Startup Scripts API
+    tags:
+      - Templates
+      - Startup Scripts
+      - OS Images
+      - Custom Templates
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+        type: Documentation
+      - url: openapi/paperspace-templates-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      OS templates, custom user-created machine templates, and startup scripts (with assign/unassign to machines) used
+      to configure freshly provisioned Paperspace machines.
+  - aid: paperspace:paperspace-container-registries-api
+    name: Paperspace Container Registries API
+    tags:
+      - Containers
+      - Registry
+      - Credentials
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
+        type: Documentation
+      - url: openapi/paperspace-container-registries-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Manage container registry credentials used by Paperspace Deployments to pull private images, including a
+      test-connection endpoint that verifies the configured credentials.
+  - aid: paperspace:paperspace-models-api
+    name: Paperspace Models API
+    tags:
+      - AI
+      - ML
+      - Model Registry
+      - Gradient
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
+        type: Documentation
+      - url: openapi/paperspace-models-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Register and manage trained ML models in the Paperspace Gradient model registry. Models can be associated with
+      projects and consumed by Deployments.
+  - aid: paperspace:paperspace-team-auth-api
+    name: Paperspace Team and Authentication API
+    tags:
+      - Identity
+      - Teams
+      - Members
+      - Secrets
+      - Session
+    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+    properties:
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+        type: Documentation
+      - url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+        type: Documentation
+      - url: openapi/paperspace-team-auth-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Session lookup (`/auth/session`), team-member roster with admin-status mutation, team-member removal, and the
+      team-scoped secrets surface used to share credentials across projects in a team.
 name: Paperspace
 tags:
-- GPU
-- Cloud
-- AI
-- Machine Learning
-- Deep Learning
-- Compute
-- DigitalOcean
-- Containers
-- Notebooks
-- Gradient
+  - GPU
+  - Cloud
+  - AI
+  - Machine Learning
+  - Deep Learning
+  - Compute
+  - DigitalOcean
+  - Containers
+  - Notebooks
+  - Gradient
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- type: Portal
-  url: https://www.paperspace.com
-- type: Documentation
-  url: https://docs.digitalocean.com/products/paperspace/
-- type: Documentation
-  url: https://docs.digitalocean.com/reference/paperspace/api-reference/
-  name: Paperspace API Reference
-- type: Documentation
-  url: https://docs.digitalocean.com/reference/paperspace/api-keys/
-  name: API Keys
-- type: Documentation
-  url: https://docs.digitalocean.com/reference/paperspace/cli/
-  name: Paperspace CLI Reference
-- type: Pricing
-  url: https://www.paperspace.com/pricing
-- type: SignUp
-  url: https://console.paperspace.com/signup
-- type: Console
-  url: https://console.paperspace.com
-- type: Blog
-  url: https://blog.paperspace.com
-- type: Forum
-  url: https://community.paperspace.com
-- type: StatusPage
-  url: https://status.paperspace.com
-- type: TermsOfService
-  url: https://www.paperspace.com/legal/terms-of-service
-- type: PrivacyPolicy
-  url: https://www.paperspace.com/legal/privacy-policy
-- type: Support
-  url: https://www.paperspace.com/contact-sales
-- type: GitHubOrganization
-  url: https://github.com/Paperspace
-- url: https://github.com/Paperspace/cli
-  name: Paperspace CLI
-  type: CLI
-- url: https://github.com/Paperspace/CORE-API-Docs
-  name: Paperspace CORE API Docs (legacy)
-  type: Documentation
-- url: https://github.com/Paperspace/paperspace-node
-  name: paperspace-node (legacy Node SDK)
-  type: SDK
-- url: https://github.com/Paperspace/paperspace-go
-  name: paperspace-go (Go SDK)
-  type: SDK
-- url: https://github.com/Paperspace/paperspace-python
-  name: paperspace-python (legacy Python SDK)
-  type: SDK
-- url: https://github.com/Paperspace/gradient-cli
-  name: Gradient CLI
-  type: CLI
-- url: https://github.com/Paperspace/terraform-provider-paperspace
-  name: Terraform Provider
-  type: Tool
-- url: https://github.com/Paperspace/deploy-action
-  name: Paperspace Deploy GitHub Action
-  type: Tool
-- url: https://github.com/Paperspace/ml-in-a-box
-  name: ml-in-a-box
-  type: Tool
-- url: https://github.com/Paperspace/fastai-docker
-  name: fast.ai Docker image
-  type: Tool
-- url: https://github.com/Paperspace/app-template
-  name: Paperspace app template
-  type: CodeExamples
-- url: https://github.com/Paperspace/stable-diffusion-app
-  name: Stable Diffusion on Paperspace
-  type: CodeExamples
-- url: https://github.com/Paperspace/FastAPI-Template-App
-  name: FastAPI template
-  type: CodeExamples
-- url: https://github.com/Paperspace/FastAPI-Hugging-Face-Template-App
-  name: FastAPI Hugging Face template
-  type: CodeExamples
-- url: https://github.com/Paperspace/Flask-Template-App
-  name: Flask template
-  type: CodeExamples
-- url: https://github.com/Paperspace/PyTorch-101-Tutorial-Series
-  name: PyTorch 101 tutorial series
-  type: Courses
-- url: https://github.com/Paperspace/DataAugmentationForObjectDetection
-  name: Data Augmentation for Object Detection
-  type: CodeExamples
-- url: https://x.com/HelloPaperspace
-  type: X
-- url: https://www.linkedin.com/company/paperspace
-  type: LinkedIn
-- url: plans/paperspace-plans-pricing.yml
-  type: Plans
-- url: rate-limits/paperspace-rate-limits.yml
-  type: RateLimits
-- url: finops/paperspace-finops.yml
-  type: FinOps
-- url: vocabulary/paperspace-vocabulary.yml
-  type: Vocabulary
-- url: rules/paperspace-rules.yml
-  type: SpectralRules
-- type: Features
-  data:
-  - GPU and CPU virtual machines (Machines API) — H100, A100-80G, A6000, A5000, A4000, V100, P6000 SKUs
-  - Container-as-a-service Deployments with autoscaling, managed endpoint, rolling updates, runs, metrics, logs,
-    and revision history
-  - Gradient ML platform — Notebooks (Jupyter), versioned Datasets, and a model registry
-  - Projects as the organizing container with collaborators, secrets, tags, activity feeds, and model linkage
-  - Private networks (VPCs) and claim/assign/release lifecycle for public IPv4 addresses
-  - Shared drives attached to a private network and per-machine snapshots with point-in-time restore
-  - External storage providers (S3, GCS, Azure Blob) plus a team-level storage utilization breakdown
-  - OS and custom machine templates plus startup scripts with assign/unassign-to-machine semantics
-  - Container registry credentials with a test-connection endpoint, consumed by Deployments
-  - Team-scoped API keys (Bearer auth) and a session lookup endpoint that returns user, team, and preferences
-  - Team-member roster management plus team-scoped secrets shared across projects in a team
-  - Per-second compute billing with up to 70% advertised savings vs. major cloud providers
-  - Terraform provider, GitHub Action for deployments, Paperspace CLI, and a Gradient Python CLI
-  - DigitalOcean acquisition — Paperspace billing is consolidated into the DigitalOcean account billing surface
-  sources:
-  - https://docs.digitalocean.com/products/paperspace/
-  - https://docs.digitalocean.com/reference/paperspace/api-reference/
-  - https://www.paperspace.com/pricing
-  - https://www.paperspace.com/about
-  updated: '2026-05-25'
+  - type: Portal
+    url: https://www.paperspace.com
+  - type: Documentation
+    url: https://docs.digitalocean.com/products/paperspace/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/
+    name: Paperspace API Reference
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+    name: API Keys
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/cli/
+    name: Paperspace CLI Reference
+  - type: Pricing
+    url: https://www.paperspace.com/pricing
+  - type: SignUp
+    url: https://console.paperspace.com/signup
+  - type: Console
+    url: https://console.paperspace.com
+  - type: Blog
+    url: https://blog.paperspace.com
+  - type: Forum
+    url: https://community.paperspace.com
+  - type: StatusPage
+    url: https://status.paperspace.com
+  - type: TermsOfService
+    url: https://www.paperspace.com/legal/terms-of-service
+  - type: PrivacyPolicy
+    url: https://www.paperspace.com/legal/privacy-policy
+  - type: Support
+    url: https://www.paperspace.com/contact-sales
+  - type: GitHubOrganization
+    url: https://github.com/Paperspace
+  - url: https://github.com/Paperspace/cli
+    name: Paperspace CLI
+    type: CLI
+  - url: https://github.com/Paperspace/CORE-API-Docs
+    name: Paperspace CORE API Docs (legacy)
+    type: Documentation
+  - url: https://github.com/Paperspace/paperspace-node
+    name: paperspace-node (legacy Node SDK)
+    type: SDK
+  - url: https://github.com/Paperspace/paperspace-go
+    name: paperspace-go (Go SDK)
+    type: SDK
+  - url: https://github.com/Paperspace/paperspace-python
+    name: paperspace-python (legacy Python SDK)
+    type: SDK
+  - url: https://github.com/Paperspace/gradient-cli
+    name: Gradient CLI
+    type: CLI
+  - url: https://github.com/Paperspace/terraform-provider-paperspace
+    name: Terraform Provider
+    type: Tool
+  - url: https://github.com/Paperspace/deploy-action
+    name: Paperspace Deploy GitHub Action
+    type: Tool
+  - url: https://github.com/Paperspace/ml-in-a-box
+    name: ml-in-a-box
+    type: Tool
+  - url: https://github.com/Paperspace/fastai-docker
+    name: fast.ai Docker image
+    type: Tool
+  - url: https://github.com/Paperspace/app-template
+    name: Paperspace app template
+    type: CodeExamples
+  - url: https://github.com/Paperspace/stable-diffusion-app
+    name: Stable Diffusion on Paperspace
+    type: CodeExamples
+  - url: https://github.com/Paperspace/FastAPI-Template-App
+    name: FastAPI template
+    type: CodeExamples
+  - url: https://github.com/Paperspace/FastAPI-Hugging-Face-Template-App
+    name: FastAPI Hugging Face template
+    type: CodeExamples
+  - url: https://github.com/Paperspace/Flask-Template-App
+    name: Flask template
+    type: CodeExamples
+  - url: https://github.com/Paperspace/PyTorch-101-Tutorial-Series
+    name: PyTorch 101 tutorial series
+    type: Courses
+  - url: https://github.com/Paperspace/DataAugmentationForObjectDetection
+    name: Data Augmentation for Object Detection
+    type: CodeExamples
+  - url: https://x.com/HelloPaperspace
+    type: X
+  - url: https://www.linkedin.com/company/paperspace
+    type: LinkedIn
+  - url: plans/paperspace-plans-pricing.yml
+    type: Plans
+  - url: rate-limits/paperspace-rate-limits.yml
+    type: RateLimits
+  - url: finops/paperspace-finops.yml
+    type: FinOps
+  - url: vocabulary/paperspace-vocabulary.yml
+    type: Vocabulary
+  - url: rules/paperspace-rules.yml
+    type: SpectralRules
+  - type: Features
+    data:
+      - GPU and CPU virtual machines (Machines API) — H100, A100-80G, A6000, A5000, A4000, V100, P6000 SKUs
+      - >-
+        Container-as-a-service Deployments with autoscaling, managed endpoint, rolling updates, runs, metrics, logs, and
+        revision history
+      - Gradient ML platform — Notebooks (Jupyter), versioned Datasets, and a model registry
+      - Projects as the organizing container with collaborators, secrets, tags, activity feeds, and model linkage
+      - Private networks (VPCs) and claim/assign/release lifecycle for public IPv4 addresses
+      - Shared drives attached to a private network and per-machine snapshots with point-in-time restore
+      - External storage providers (S3, GCS, Azure Blob) plus a team-level storage utilization breakdown
+      - OS and custom machine templates plus startup scripts with assign/unassign-to-machine semantics
+      - Container registry credentials with a test-connection endpoint, consumed by Deployments
+      - Team-scoped API keys (Bearer auth) and a session lookup endpoint that returns user, team, and preferences
+      - Team-member roster management plus team-scoped secrets shared across projects in a team
+      - Per-second compute billing with up to 70% advertised savings vs. major cloud providers
+      - Terraform provider, GitHub Action for deployments, Paperspace CLI, and a Gradient Python CLI
+      - DigitalOcean acquisition — Paperspace billing is consolidated into the DigitalOcean account billing surface
+    sources:
+      - https://docs.digitalocean.com/products/paperspace/
+      - https://docs.digitalocean.com/reference/paperspace/api-reference/
+      - https://www.paperspace.com/pricing
+      - https://www.paperspace.com/about
+    updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
 position: Consuming
-description: Paperspace is a GPU cloud platform for AI, ML, and 3D rendering workloads, acquired by DigitalOcean in
-  2023. The platform combines on-demand GPU/CPU machines (Core), the Gradient ML workflow stack (Notebooks,
-  Datasets, Models, Workflows), and container-as-a-service Deployments under a single team-scoped REST API at
-  api.paperspace.com/v1. Compute is billed per second across H100, A100, A6000, V100, A5000, A4000, and P6000
-  SKUs, with Bearer-token authentication using team-scoped API keys.
+description: >-
+  Paperspace is a GPU cloud platform for AI, ML, and 3D rendering workloads, acquired by DigitalOcean in 2023. The
+  platform combines on-demand GPU/CPU machines (Core), the Gradient ML workflow stack (Notebooks, Datasets, Models,
+  Workflows), and container-as-a-service Deployments under a single team-scoped REST API at api.paperspace.com/v1.
+  Compute is billed per second across H100, A100, A6000, V100, A5000, A4000, and P6000 SKUs, with Bearer-token
+  authentication using team-scoped API keys.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 specificationVersion: '0.16'
