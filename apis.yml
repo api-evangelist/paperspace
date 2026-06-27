@@ -216,13 +216,13 @@ common:
     name: Paperspace CLI Reference
   - type: Pricing
     url: https://www.paperspace.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://console.paperspace.com/signup
   - type: Console
     url: https://console.paperspace.com
   - type: Blog
     url: https://blog.paperspace.com
-  - type: Forum
+  - type: Forums
     url: https://community.paperspace.com
   - type: StatusPage
     url: https://status.paperspace.com
@@ -242,28 +242,28 @@ common:
     type: Documentation
   - url: https://github.com/Paperspace/paperspace-node
     name: paperspace-node (legacy Node SDK)
-    type: SDK
+    type: SDKs
   - url: https://github.com/Paperspace/paperspace-go
     name: paperspace-go (Go SDK)
-    type: SDK
+    type: SDKs
   - url: https://github.com/Paperspace/paperspace-python
     name: paperspace-python (legacy Python SDK)
-    type: SDK
+    type: SDKs
   - url: https://github.com/Paperspace/gradient-cli
     name: Gradient CLI
     type: CLI
   - url: https://github.com/Paperspace/terraform-provider-paperspace
     name: Terraform Provider
-    type: Tool
+    type: Tools
   - url: https://github.com/Paperspace/deploy-action
     name: Paperspace Deploy GitHub Action
-    type: Tool
+    type: Tools
   - url: https://github.com/Paperspace/ml-in-a-box
     name: ml-in-a-box
-    type: Tool
+    type: Tools
   - url: https://github.com/Paperspace/fastai-docker
     name: fast.ai Docker image
-    type: Tool
+    type: Tools
   - url: https://github.com/Paperspace/app-template
     name: Paperspace app template
     type: CodeExamples
