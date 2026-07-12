@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paperspace-container-registries-api-openapi.yml, openapi/paperspace-datasets-api-openapi.yml,
+  openapi/paperspace-deployments-api-openapi.yml, openapi/paperspace-machines-api-openapi.yml,
+  openapi/paperspace-models-api-openapi.yml, openapi/paperspace-networking-api-openapi.yml,
+  openapi/paperspace-projects-api-openapi.yml, openapi/paperspace-storage-api-openapi.yml, openapi/paperspace-team-auth-api-openapi.yml,
+  openapi/paperspace-templates-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: api-key
+  sources:
+  - openapi/paperspace-container-registries-api-openapi.yml
+  - openapi/paperspace-datasets-api-openapi.yml
+  - openapi/paperspace-deployments-api-openapi.yml
+  - openapi/paperspace-machines-api-openapi.yml
+  - openapi/paperspace-models-api-openapi.yml
+  - openapi/paperspace-networking-api-openapi.yml
+  - openapi/paperspace-projects-api-openapi.yml
+  - openapi/paperspace-storage-api-openapi.yml
+  - openapi/paperspace-team-auth-api-openapi.yml
+  - openapi/paperspace-templates-api-openapi.yml
