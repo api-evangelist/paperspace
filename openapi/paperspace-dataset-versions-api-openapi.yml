@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Dataset Versions API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Dataset Versions
+paths:
+  /datasets/{datasetId}/versions:
+    parameters:
+    - in: path
+      name: datasetId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Dataset Versions
+      operationId: listDatasetVersions
+      summary: List Dataset Versions
+      description: Lists versions of a dataset.
+      responses:
+        '200':
+          description: Dataset version list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatasetVersion'
+    post:
+      tags:
+      - Dataset Versions
+      operationId: createDatasetVersion
+      summary: Create Dataset Version
+      description: Creates a new dataset version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetVersionCreate'
+      responses:
+        '201':
+          description: Version created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+  /datasets/{datasetId}/versions/{version}:
+    parameters:
+    - in: path
+      name: datasetId
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: version
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Dataset Versions
+      operationId: getDatasetVersion
+      summary: Get Dataset Version
+      description: Gets a specific dataset version.
+      responses:
+        '200':
+          description: Dataset version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+    put:
+      tags:
+      - Dataset Versions
+      operationId: updateDatasetVersion
+      summary: Update Dataset Version
+      description: Updates the metadata or message of a dataset version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Updated version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetVersion'
+    delete:
+      tags:
+      - Dataset Versions
+      operationId: deleteDatasetVersion
+      summary: Delete Dataset Version
+      description: Deletes a dataset version.
+      responses:
+        '204':
+          description: Deleted.
+components:
+  schemas:
+    DatasetVersion:
+      type: object
+      properties:
+        datasetId:
+          type: string
+        version:
+          type: string
+        message:
+          type: string
+        size:
+          type: integer
+        dtCreated:
+          type: string
+          format: date-time
+    DatasetVersionCreate:
+      type: object
+      properties:
+        message:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

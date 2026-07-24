@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Paperspace Container Registries Activity Datasets API
+  title: Paperspace Container Registries Activity Shared Drives API
   version: v1
   description: 'Manage container registry credentials used by Paperspace Deployments to
 
@@ -15,47 +15,44 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Datasets
+- name: Shared Drives
 paths:
-  /datasets:
+  /shared-drives:
     get:
       tags:
-      - Datasets
-      operationId: listDatasets
-      summary: List Datasets
-      description: Lists datasets available to the team.
-      parameters:
-      - $ref: '#/components/parameters/After'
-      - $ref: '#/components/parameters/Limit'
+      - Shared Drives
+      operationId: listSharedDrives
+      summary: List Shared Drives
+      description: Fetches a list of shared drives.
       responses:
         '200':
-          description: Dataset list.
+          description: Shared drive list.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Dataset'
+                  $ref: '#/components/schemas/SharedDrive'
     post:
       tags:
-      - Datasets
-      operationId: createDataset
-      summary: Create Dataset
-      description: Creates a new dataset.
+      - Shared Drives
+      operationId: createSharedDrive
+      summary: Create Shared Drive
+      description: Creates a new shared drive for use in a private network.
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DatasetCreate'
+              $ref: '#/components/schemas/SharedDriveCreate'
       responses:
         '201':
-          description: Dataset created.
+          description: Drive created.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
-  /datasets/{id}:
+                $ref: '#/components/schemas/SharedDrive'
+  /shared-drives/{id}:
     parameters:
     - in: path
       name: id
@@ -64,23 +61,23 @@ paths:
         type: string
     get:
       tags:
-      - Datasets
-      operationId: getDataset
-      summary: Get Dataset
-      description: Gets a dataset by ID.
+      - Shared Drives
+      operationId: getSharedDrive
+      summary: Get Shared Drive
+      description: Fetches a single shared drive by ID.
       responses:
         '200':
-          description: Dataset.
+          description: Shared drive.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
+                $ref: '#/components/schemas/SharedDrive'
     put:
       tags:
-      - Datasets
-      operationId: updateDataset
-      summary: Update Dataset
-      description: Updates a dataset's metadata.
+      - Shared Drives
+      operationId: updateSharedDrive
+      summary: Update Shared Drive
+      description: Updates a single shared drive by ID.
       requestBody:
         required: true
         content:
@@ -90,65 +87,58 @@ paths:
               properties:
                 name:
                   type: string
-                description:
-                  type: string
+                size:
+                  type: integer
       responses:
         '200':
-          description: Updated dataset.
+          description: Updated drive.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
+                $ref: '#/components/schemas/SharedDrive'
     delete:
       tags:
-      - Datasets
-      operationId: deleteDataset
-      summary: Delete Dataset
-      description: Deletes a dataset and its versions.
+      - Shared Drives
+      operationId: deleteSharedDrive
+      summary: Delete Shared Drive
+      description: Deletes a single shared drive by ID.
       responses:
         '204':
           description: Deleted.
 components:
   schemas:
-    Dataset:
+    SharedDrive:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
-        description:
+        size:
+          type: integer
+        region:
           type: string
-        teamId:
-          type: string
-        storageProviderId:
+        privateNetworkId:
           type: string
         dtCreated:
           type: string
           format: date-time
-    DatasetCreate:
+    SharedDriveCreate:
       type: object
       required:
       - name
-      - storageProviderId
+      - size
+      - region
+      - privateNetworkId
       properties:
         name:
           type: string
-        description:
+        size:
+          type: integer
+        region:
           type: string
-        storageProviderId:
+        privateNetworkId:
           type: string
-  parameters:
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
   securitySchemes:
     bearerAuth:
       type: http

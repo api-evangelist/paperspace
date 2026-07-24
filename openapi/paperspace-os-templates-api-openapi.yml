@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity OS Templates API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: OS Templates
+paths:
+  /os-templates:
+    get:
+      tags:
+      - OS Templates
+      operationId: listOsTemplates
+      summary: List OS Templates
+      description: Fetches a list of available OS templates with optional filtering and pagination.
+      parameters:
+      - in: query
+        name: after
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 120
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+      - in: query
+        name: order
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - in: query
+        name: name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OS template list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OsTemplate'
+components:
+  schemas:
+    OsTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        os:
+          type: string
+        defaultUser:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

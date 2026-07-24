@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Tags API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Tags
+paths:
+  /projects/{id}/tags:
+    parameters:
+    - $ref: '#/components/parameters/ProjectId'
+    get:
+      tags:
+      - Tags
+      operationId: listProjectTags
+      summary: List Project Tags
+      description: Fetches a list of tags for a project.
+      responses:
+        '200':
+          description: Tag list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    post:
+      tags:
+      - Tags
+      operationId: addProjectTag
+      summary: Add Project Tag
+      description: Adds a tag to a project.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Tag added.
+    delete:
+      tags:
+      - Tags
+      operationId: removeProjectTag
+      summary: Remove Project Tag
+      description: Removes a tag from a project by name.
+      parameters:
+      - in: query
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Removed.
+components:
+  parameters:
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

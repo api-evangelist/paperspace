@@ -1,11 +1,14 @@
 openapi: 3.0.3
 info:
-  title: Paperspace Container Registries API
+  title: Paperspace Activity Container Registries API
   version: v1
-  description: |
-    Manage container registry credentials used by Paperspace Deployments to
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
     pull private images. Authenticate with a team-scoped API key as
+
     `Authorization: Bearer $API_TOKEN`.
+
+    '
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -16,7 +19,8 @@ tags:
 paths:
   /container-registries:
     get:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: listContainerRegistries
       summary: List Container Registries
       description: Lists container registries for the current team.
@@ -30,7 +34,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/ContainerRegistry'
     post:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: createContainerRegistry
       summary: Create Container Registry
       description: Creates a container registry for the current team.
@@ -55,7 +60,8 @@ paths:
       schema:
         type: string
     get:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: getContainerRegistry
       summary: Get Container Registry
       description: Gets a container registry for the current team.
@@ -67,7 +73,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ContainerRegistry'
     put:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: updateContainerRegistry
       summary: Update Container Registry
       description: Updates a container registry for the current team.
@@ -85,7 +92,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ContainerRegistry'
     delete:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: deleteContainerRegistry
       summary: Delete Container Registry
       description: Deletes a container registry for the current team.
@@ -100,7 +108,8 @@ paths:
       schema:
         type: string
     get:
-      tags: [Container Registries]
+      tags:
+      - Container Registries
       operationId: testContainerRegistryConnection
       summary: Test Container Registry Connection
       description: Validates that a container registry can be connected to using the provided credentials.
@@ -117,11 +126,6 @@ paths:
                   message:
                     type: string
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: api-key
   schemas:
     ContainerRegistry:
       type: object
@@ -141,7 +145,11 @@ components:
           format: date-time
     ContainerRegistryCreate:
       type: object
-      required: [name, url, username, password]
+      required:
+      - name
+      - url
+      - username
+      - password
       properties:
         name:
           type: string
@@ -151,3 +159,8 @@ components:
           type: string
         password:
           type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

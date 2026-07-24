@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Public IPs API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Public IPs
+paths:
+  /public-ips:
+    get:
+      tags:
+      - Public IPs
+      operationId: listPublicIps
+      summary: List Public IPs
+      description: Fetches a list of public IPs claimed by the team.
+      responses:
+        '200':
+          description: Public IP list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublicIp'
+    post:
+      tags:
+      - Public IPs
+      operationId: claimPublicIp
+      summary: Claim Public IP
+      description: Claims a new public IP address for the team.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                region:
+                  type: string
+      responses:
+        '201':
+          description: IP claimed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicIp'
+  /public-ips/{ip}:
+    parameters:
+    - in: path
+      name: ip
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Public IPs
+      operationId: assignPublicIp
+      summary: Assign Public IP
+      description: Assigns a public IP to a machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - machineId
+              properties:
+                machineId:
+                  type: string
+      responses:
+        '200':
+          description: IP assigned.
+    delete:
+      tags:
+      - Public IPs
+      operationId: releasePublicIp
+      summary: Release Public IP
+      description: Releases a public IP back to the pool.
+      responses:
+        '204':
+          description: Released.
+components:
+  schemas:
+    PublicIp:
+      type: object
+      properties:
+        ip:
+          type: string
+        region:
+          type: string
+        machineId:
+          type: string
+          nullable: true
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

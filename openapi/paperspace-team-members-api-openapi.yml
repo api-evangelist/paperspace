@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Team Members API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Team Members
+paths:
+  /teams/{teamId}/users:
+    parameters:
+    - in: path
+      name: teamId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Team Members
+      operationId: listTeamMembers
+      summary: List Team Members
+      description: Lists team members.
+      responses:
+        '200':
+          description: Team member list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamMember'
+  /teams/{teamId}/users/{userId}:
+    parameters:
+    - in: path
+      name: teamId
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Team Members
+      operationId: updateTeamMember
+      summary: Update Team Member
+      description: Modifies a member's admin status within a team.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isAdmin:
+                  type: boolean
+      responses:
+        '200':
+          description: Updated team member.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMember'
+    delete:
+      tags:
+      - Team Members
+      operationId: removeTeamMember
+      summary: Remove Team Member
+      description: Eliminates a user from team membership.
+      responses:
+        '204':
+          description: Removed.
+components:
+  schemas:
+    TeamMember:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+        isAdmin:
+          type: boolean
+        teamId:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

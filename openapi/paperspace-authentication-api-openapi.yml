@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Authentication API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Authentication
+paths:
+  /auth/session:
+    get:
+      tags:
+      - Authentication
+      operationId: getSession
+      summary: Get Session
+      description: Gets the current session. Returns null when no user is logged in.
+      responses:
+        '200':
+          description: Current session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+components:
+  schemas:
+    Session:
+      type: object
+      nullable: true
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        team:
+          $ref: '#/components/schemas/Team'
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        defaultProduct:
+          type: string
+        theme:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

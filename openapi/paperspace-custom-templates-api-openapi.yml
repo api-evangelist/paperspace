@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Paperspace Container Registries Activity Datasets API
+  title: Paperspace Container Registries Activity Custom Templates API
   version: v1
   description: 'Manage container registry credentials used by Paperspace Deployments to
 
@@ -15,47 +15,54 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Datasets
+- name: Custom Templates
 paths:
-  /datasets:
+  /custom-templates:
     get:
       tags:
-      - Datasets
-      operationId: listDatasets
-      summary: List Datasets
-      description: Lists datasets available to the team.
-      parameters:
-      - $ref: '#/components/parameters/After'
-      - $ref: '#/components/parameters/Limit'
+      - Custom Templates
+      operationId: listCustomTemplates
+      summary: List Custom Templates
+      description: Fetches a list of custom machine templates.
       responses:
         '200':
-          description: Dataset list.
+          description: Template list.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Dataset'
+                  $ref: '#/components/schemas/CustomTemplate'
     post:
       tags:
-      - Datasets
-      operationId: createDataset
-      summary: Create Dataset
-      description: Creates a new dataset.
+      - Custom Templates
+      operationId: createCustomTemplate
+      summary: Create Custom Template
+      description: Creates a custom template from a machine.
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DatasetCreate'
+              type: object
+              required:
+              - machineId
+              - name
+              properties:
+                machineId:
+                  type: string
+                name:
+                  type: string
+                note:
+                  type: string
       responses:
         '201':
-          description: Dataset created.
+          description: Custom template.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
-  /datasets/{id}:
+                $ref: '#/components/schemas/CustomTemplate'
+  /custom-templates/{id}:
     parameters:
     - in: path
       name: id
@@ -64,23 +71,23 @@ paths:
         type: string
     get:
       tags:
-      - Datasets
-      operationId: getDataset
-      summary: Get Dataset
-      description: Gets a dataset by ID.
+      - Custom Templates
+      operationId: getCustomTemplate
+      summary: Get Custom Template
+      description: Fetches a single template by ID.
       responses:
         '200':
-          description: Dataset.
+          description: Custom template.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
+                $ref: '#/components/schemas/CustomTemplate'
     put:
       tags:
-      - Datasets
-      operationId: updateDataset
-      summary: Update Dataset
-      description: Updates a dataset's metadata.
+      - Custom Templates
+      operationId: updateCustomTemplate
+      summary: Update Custom Template
+      description: Updates a single template by ID.
       requestBody:
         required: true
         content:
@@ -90,65 +97,42 @@ paths:
               properties:
                 name:
                   type: string
-                description:
+                note:
                   type: string
       responses:
         '200':
-          description: Updated dataset.
+          description: Updated template.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dataset'
+                $ref: '#/components/schemas/CustomTemplate'
     delete:
       tags:
-      - Datasets
-      operationId: deleteDataset
-      summary: Delete Dataset
-      description: Deletes a dataset and its versions.
+      - Custom Templates
+      operationId: deleteCustomTemplate
+      summary: Delete Custom Template
+      description: Deletes a custom template.
       responses:
         '204':
           description: Deleted.
 components:
   schemas:
-    Dataset:
+    CustomTemplate:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
-        description:
+        note:
+          type: string
+        machineId:
           type: string
         teamId:
-          type: string
-        storageProviderId:
           type: string
         dtCreated:
           type: string
           format: date-time
-    DatasetCreate:
-      type: object
-      required:
-      - name
-      - storageProviderId
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        storageProviderId:
-          type: string
-  parameters:
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
   securitySchemes:
     bearerAuth:
       type: http

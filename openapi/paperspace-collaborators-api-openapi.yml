@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Collaborators API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Collaborators
+paths:
+  /projects/{id}/collaborators:
+    parameters:
+    - $ref: '#/components/parameters/ProjectId'
+    get:
+      tags:
+      - Collaborators
+      operationId: listProjectCollaborators
+      summary: List Project Collaborators
+      description: Fetches a list of collaborators for a project.
+      responses:
+        '200':
+          description: Collaborator list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collaborator'
+    post:
+      tags:
+      - Collaborators
+      operationId: addProjectCollaborator
+      summary: Add Project Collaborator
+      description: Adds a new collaborator to a project.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userId
+              properties:
+                userId:
+                  type: string
+                role:
+                  type: string
+                  enum:
+                  - admin
+                  - member
+                  - viewer
+      responses:
+        '201':
+          description: Collaborator added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collaborator'
+  /projects/{id}/collaborators/{userId}:
+    parameters:
+    - $ref: '#/components/parameters/ProjectId'
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    delete:
+      tags:
+      - Collaborators
+      operationId: removeProjectCollaborator
+      summary: Remove Project Collaborator
+      description: Removes a collaborator from a project.
+      responses:
+        '204':
+          description: Removed.
+components:
+  schemas:
+    Collaborator:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        projectId:
+          type: string
+  parameters:
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

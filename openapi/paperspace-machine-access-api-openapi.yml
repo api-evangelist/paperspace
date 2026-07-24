@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Machine Access API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Machine Access
+  description: Team-member access grants on individual machines.
+paths:
+  /machines/{id}/accessors:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    get:
+      tags:
+      - Machine Access
+      operationId: listMachineAccessors
+      summary: List Machine Accessors
+      description: Lists team members with explicit access to the machine.
+      responses:
+        '200':
+          description: Accessor list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Accessor'
+    post:
+      tags:
+      - Machine Access
+      operationId: grantMachineAccess
+      summary: Grant Machine Access
+      description: Grants machine access to a team member.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userId
+              properties:
+                userId:
+                  type: string
+      responses:
+        '201':
+          description: Access granted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accessor'
+  /machines/{id}/accessors/{userId}:
+    parameters:
+    - $ref: '#/components/parameters/MachineId'
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Machine Access
+      operationId: getMachineAccessor
+      summary: Get Machine Accessor
+      description: Retrieves accessor information for a specific user.
+      responses:
+        '200':
+          description: Accessor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accessor'
+    delete:
+      tags:
+      - Machine Access
+      operationId: revokeMachineAccess
+      summary: Revoke Machine Access
+      description: Revokes a user's machine access.
+      responses:
+        '204':
+          description: Access revoked.
+components:
+  parameters:
+    MachineId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  schemas:
+    Accessor:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+        machineId:
+          type: string
+        access:
+          type: string
+          enum:
+          - admin
+          - user
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

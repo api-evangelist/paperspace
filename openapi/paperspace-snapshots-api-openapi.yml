@@ -1,0 +1,169 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Snapshots API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Snapshots
+paths:
+  /snapshots:
+    get:
+      tags:
+      - Snapshots
+      operationId: listSnapshots
+      summary: List Snapshots
+      description: Retrieves all snapshots with filtering and pagination options.
+      parameters:
+      - in: query
+        name: machineId
+        schema:
+          type: string
+      - in: query
+        name: after
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Snapshot list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Snapshot'
+    post:
+      tags:
+      - Snapshots
+      operationId: createSnapshot
+      summary: Create Snapshot
+      description: Creates a new snapshot for a specified machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - machineId
+              - name
+              properties:
+                machineId:
+                  type: string
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '201':
+          description: Snapshot created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /snapshots/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Snapshots
+      operationId: getSnapshot
+      summary: Get Snapshot
+      description: Retrieves a single snapshot by its identifier.
+      responses:
+        '200':
+          description: Snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+    put:
+      tags:
+      - Snapshots
+      operationId: updateSnapshot
+      summary: Update Snapshot
+      description: Modifies snapshot details such as the name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '200':
+          description: Updated snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+    delete:
+      tags:
+      - Snapshots
+      operationId: deleteSnapshot
+      summary: Delete Snapshot
+      description: Removes a snapshot from a machine.
+      responses:
+        '204':
+          description: Deleted.
+  /snapshots/{id}/restore:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Snapshots
+      operationId: restoreSnapshot
+      summary: Restore Snapshot
+      description: Restores a machine to a previous snapshot state.
+      responses:
+        '200':
+          description: Restore initiated.
+components:
+  schemas:
+    Snapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        machineId:
+          type: string
+        name:
+          type: string
+        note:
+          type: string
+        storageSize:
+          type: integer
+        dtCreated:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

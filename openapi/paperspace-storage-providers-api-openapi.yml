@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Storage Providers API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Storage Providers
+paths:
+  /storage-providers:
+    get:
+      tags:
+      - Storage Providers
+      operationId: listStorageProviders
+      summary: List Storage Providers
+      description: Lists external storage providers configured for the team.
+      responses:
+        '200':
+          description: Provider list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StorageProvider'
+    post:
+      tags:
+      - Storage Providers
+      operationId: createStorageProvider
+      summary: Create Storage Provider
+      description: Creates a new storage provider configuration.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageProviderCreate'
+      responses:
+        '201':
+          description: Provider created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+  /storage-providers/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Storage Providers
+      operationId: getStorageProvider
+      summary: Get Storage Provider
+      description: Gets a storage provider.
+      responses:
+        '200':
+          description: Storage provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+    put:
+      tags:
+      - Storage Providers
+      operationId: updateStorageProvider
+      summary: Update Storage Provider
+      description: Updates a storage provider.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageProviderCreate'
+      responses:
+        '200':
+          description: Updated provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+    delete:
+      tags:
+      - Storage Providers
+      operationId: deleteStorageProvider
+      summary: Delete Storage Provider
+      description: Deletes a storage provider.
+      responses:
+        '204':
+          description: Deleted.
+  /storage-providers/utilization:
+    get:
+      tags:
+      - Storage Providers
+      operationId: getStorageUtilization
+      summary: Get Storage Utilization
+      description: Retrieves team storage usage breakdown across datasets, models, notebooks, and shared storage.
+      responses:
+        '200':
+          description: Utilization breakdown.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageUtilization'
+components:
+  schemas:
+    StorageUtilization:
+      type: object
+      properties:
+        teamId:
+          type: string
+        datasets:
+          type: integer
+        models:
+          type: integer
+        notebooks:
+          type: integer
+        sharedStorage:
+          type: integer
+    StorageProviderCreate:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - s3
+          - gcs
+          - azure-blob
+        bucket:
+          type: string
+        region:
+          type: string
+        accessKey:
+          type: string
+        secretKey:
+          type: string
+    StorageProvider:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - s3
+          - gcs
+          - azure-blob
+        bucket:
+          type: string
+        region:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

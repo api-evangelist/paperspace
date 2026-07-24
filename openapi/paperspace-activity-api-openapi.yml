@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Activity
+paths:
+  /projects/{id}/activity:
+    parameters:
+    - $ref: '#/components/parameters/ProjectId'
+    get:
+      tags:
+      - Activity
+      operationId: listProjectActivity
+      summary: List Project Activity
+      description: Lists project activity events with filtering and pagination options.
+      parameters:
+      - in: query
+        name: type
+        schema:
+          type: string
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Activity list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ActivityEvent'
+components:
+  schemas:
+    ActivityEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        message:
+          type: string
+        userId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key

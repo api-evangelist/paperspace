@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Container Registries Activity Machine Events API
+  version: v1
+  description: 'Manage container registry credentials used by Paperspace Deployments to
+
+    pull private images. Authenticate with a team-scoped API key as
+
+    `Authorization: Bearer $API_TOKEN`.
+
+    '
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Machine Events
+  description: Machine-event history stream.
+paths:
+  /machine-events:
+    get:
+      tags:
+      - Machine Events
+      operationId: listMachineEvents
+      summary: List Machine Events
+      description: Fetches a page of machine events across the team.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Event list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineEventList'
+  /machine-events/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Machine Events
+      operationId: getMachineEvent
+      summary: Get Machine Event
+      description: Fetches a single machine event by ID.
+      responses:
+        '200':
+          description: Event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineEvent'
+components:
+  schemas:
+    MachineEventList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineEvent'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
+    MachineEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        machineId:
+          type: string
+        type:
+          type: string
+        state:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 120
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+      description: Pagination cursor.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
