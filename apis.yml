@@ -1,190 +1,700 @@
 aid: paperspace
 url: https://raw.githubusercontent.com/api-evangelist/paperspace/refs/heads/main/apis.yml
 apis:
-  - aid: paperspace:paperspace-machines-api
-    name: Paperspace Machines API
-    tags:
-      - Compute
-      - GPU
-      - Machines
-      - Cloud
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
-        type: Documentation
-      - url: openapi/paperspace-machines-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/paperspace-machine-schema.json
-        type: JSONSchema
-      - url: json-structure/paperspace-machine-structure.json
-        type: JSONStructure
-      - url: json-ld/paperspace-context.jsonld
-        type: JSONLD
-    description: >-
-      Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the machine lifecycle
-      (create, start, stop, restart, delete), machine events, team-member access grants per machine, desktop streaming
-      configuration, and a region-keyed machine-availability lookup.
-  - aid: paperspace:paperspace-deployments-api
-    name: Paperspace Deployments API
-    tags:
-      - Containers
-      - Deployments
-      - GPU
-      - Inference
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
-        type: Documentation
-      - url: openapi/paperspace-deployments-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/paperspace-deployment-schema.json
-        type: JSONSchema
-    description: >-
-      Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a managed
-      endpoint, autoscaling, rolling updates, runs, metrics, logs, and revision history. Includes the project-scoped
-      deployment listing.
-  - aid: paperspace:paperspace-projects-api
-    name: Paperspace Projects API
-    tags:
-      - Organization
-      - Projects
-      - Collaboration
-      - Secrets
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
-        type: Documentation
-      - url: openapi/paperspace-projects-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Projects are the top-level organizing container in Paperspace. The Projects API covers project lifecycle, activity
-      feeds, collaborator management, project-scoped secrets, tags, and model linkage.
-  - aid: paperspace:paperspace-datasets-api
-    name: Paperspace Datasets API
-    tags:
-      - Data
-      - Datasets
-      - Versioning
-      - Gradient
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
-        type: Documentation
-      - url: openapi/paperspace-datasets-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The Datasets API
-      exposes the dataset lifecycle plus a versioned data revision sub-resource.
-  - aid: paperspace:paperspace-networking-api
-    name: Paperspace Networking API
-    tags:
-      - Networking
-      - VPC
-      - Private Networks
-      - Public IP
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
-        type: Documentation
-      - url: openapi/paperspace-networking-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Networking primitives for Paperspace — private networks (VPCs) for east-west machine-to-machine traffic and a
-      claim-assign-release lifecycle for public IPv4 addresses.
-  - aid: paperspace:paperspace-storage-api
-    name: Paperspace Storage API
-    tags:
-      - Storage
-      - Shared Drives
-      - Snapshots
-      - Object Storage
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
-        type: Documentation
-      - url: openapi/paperspace-storage-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Storage primitives — shared drives attached to a private network, machine snapshots with point-in-time restore,
-      and external storage provider credentials (S3, GCS, Azure Blob) plus a team utilization breakdown.
-  - aid: paperspace:paperspace-templates-api
-    name: Paperspace Templates and Startup Scripts API
-    tags:
-      - Templates
-      - Startup Scripts
-      - OS Images
-      - Custom Templates
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
-        type: Documentation
-      - url: openapi/paperspace-templates-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      OS templates, custom user-created machine templates, and startup scripts (with assign/unassign to machines) used
-      to configure freshly provisioned Paperspace machines.
-  - aid: paperspace:paperspace-container-registries-api
-    name: Paperspace Container Registries API
-    tags:
-      - Containers
-      - Registry
-      - Credentials
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
-        type: Documentation
-      - url: openapi/paperspace-container-registries-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Manage container registry credentials used by Paperspace Deployments to pull private images, including a
-      test-connection endpoint that verifies the configured credentials.
-  - aid: paperspace:paperspace-models-api
-    name: Paperspace Models API
-    tags:
-      - AI
-      - ML
-      - Model Registry
-      - Gradient
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
-        type: Documentation
-      - url: openapi/paperspace-models-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Register and manage trained ML models in the Paperspace Gradient model registry. Models can be associated with
-      projects and consumed by Deployments.
-  - aid: paperspace:paperspace-team-auth-api
-    name: Paperspace Team and Authentication API
-    tags:
-      - Identity
-      - Teams
-      - Members
-      - Secrets
-      - Session
-    humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
-    properties:
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
-        type: Documentation
-      - url: https://docs.digitalocean.com/reference/paperspace/api-keys/
-        type: Documentation
-      - url: openapi/paperspace-team-auth-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Session lookup (`/auth/session`), team-member roster with admin-status mutation, team-member removal, and the
-      team-scoped secrets surface used to share credentials across projects in a team.
+- aid: paperspace:paperspace-machines-api
+  name: Paperspace Machines API
+  tags:
+  - Compute
+  - GPU
+  - Machines
+  - Cloud
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+    type: Documentation
+  - url: openapi/paperspace-machines-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paperspace-machine-schema.json
+    type: JSONSchema
+  - url: json-structure/paperspace-machine-structure.json
+    type: JSONStructure
+  - url: json-ld/paperspace-context.jsonld
+    type: JSONLD
+  description: >-
+    Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the machine
+    lifecycle (create, start, stop, restart, delete), machine events, team-member access grants per machine,
+    desktop streaming configuration, and a region-keyed machine-availability lookup.
+- aid: paperspace:paperspace-deployments-api
+  name: Paperspace Deployments API
+  tags:
+  - Containers
+  - Deployments
+  - GPU
+  - Inference
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/
+    type: Documentation
+  - url: openapi/paperspace-deployments-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paperspace-deployment-schema.json
+    type: JSONSchema
+  description: >-
+    Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a
+    managed endpoint, autoscaling, rolling updates, runs, metrics, logs, and revision history. Includes
+    the project-scoped deployment listing.
+- aid: paperspace:paperspace-projects-api
+  name: Paperspace Projects API
+  tags:
+  - Organization
+  - Projects
+  - Collaboration
+  - Secrets
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/project/
+    type: Documentation
+  - url: openapi/paperspace-projects-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Projects are the top-level organizing container in Paperspace. The Projects API covers project lifecycle,
+    activity feeds, collaborator management, project-scoped secrets, tags, and model linkage.
+- aid: paperspace:paperspace-datasets-api
+  name: Paperspace Datasets API
+  tags:
+  - Data
+  - Datasets
+  - Versioning
+  - Gradient
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/
+    type: Documentation
+  - url: openapi/paperspace-datasets-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The
+    Datasets API exposes the dataset lifecycle plus a versioned data revision sub-resource.
+- aid: paperspace:paperspace-container-registries-api
+  name: Paperspace Container Registries API
+  tags:
+  - Containers
+  - Registry
+  - Credentials
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/
+    type: Documentation
+  - url: openapi/paperspace-container-registries-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Manage container registry credentials used by Paperspace Deployments to pull private images, including
+    a test-connection endpoint that verifies the configured credentials.
+- aid: paperspace:paperspace-models-api
+  name: Paperspace Models API
+  tags:
+  - AI
+  - ML
+  - Model Registry
+  - Gradient
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
+  properties:
+  - url: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
+    type: Documentation
+  - url: openapi/paperspace-models-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Register and manage trained ML models in the Paperspace Gradient model registry. Models can be associated
+    with projects and consumed by Deployments.
+- aid: paperspace:paperspace-activity-api
+  name: Paperspace Activity API
+  description: The Activity API from Paperspace — 1 operation(s) for activity.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Activity
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-activity-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-authentication-api
+  name: Paperspace Authentication API
+  description: The Authentication API from Paperspace — 1 operation(s) for authentication.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-collaborators-api
+  name: Paperspace Collaborators API
+  description: The Collaborators API from Paperspace — 2 operation(s) for collaborators.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Collaborators
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-collaborators-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-custom-templates-api
+  name: Paperspace Custom Templates API
+  description: The Custom Templates API from Paperspace — 2 operation(s) for custom templates.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Custom Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-custom-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-dataset-versions-api
+  name: Paperspace Dataset Versions API
+  description: The Dataset Versions API from Paperspace — 2 operation(s) for dataset versions.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Dataset Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-dataset-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-machine-access-api
+  name: Paperspace Machine Access API
+  description: Team-member access grants on individual machines.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Machine Access
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-machine-access-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-machine-events-api
+  name: Paperspace Machine Events API
+  description: Machine-event history stream.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Machine Events
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-machine-events-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-machine-types-api
+  name: Paperspace Machine Types API
+  description: Region/availability lookups for machine types.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Machine Types
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-machine-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-os-templates-api
+  name: Paperspace OS Templates API
+  description: The OS Templates API from Paperspace — 1 operation(s) for os templates.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - OS Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-os-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-private-networks-api
+  name: Paperspace Private Networks API
+  description: The Private Networks API from Paperspace — 2 operation(s) for private networks.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Private Networks
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-private-networks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-public-ips-api
+  name: Paperspace Public IPs API
+  description: The Public IPs API from Paperspace — 2 operation(s) for public ips.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Public IPs
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-public-ips-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-secrets-api
+  name: Paperspace Secrets API
+  description: The Secrets API from Paperspace — 2 operation(s) for secrets.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-shared-drives-api
+  name: Paperspace Shared Drives API
+  description: The Shared Drives API from Paperspace — 2 operation(s) for shared drives.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Shared Drives
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-shared-drives-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-snapshots-api
+  name: Paperspace Snapshots API
+  description: The Snapshots API from Paperspace — 3 operation(s) for snapshots.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-startup-scripts-api
+  name: Paperspace Startup Scripts API
+  description: The Startup Scripts API from Paperspace — 4 operation(s) for startup scripts.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Startup Scripts
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-startup-scripts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-storage-providers-api
+  name: Paperspace Storage Providers API
+  description: The Storage Providers API from Paperspace — 3 operation(s) for storage providers.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Storage Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-storage-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-tags-api
+  name: Paperspace Tags API
+  description: The Tags API from Paperspace — 1 operation(s) for tags.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-team-members-api
+  name: Paperspace Team Members API
+  description: The Team Members API from Paperspace — 2 operation(s) for team members.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Team Members
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-team-members-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
+- aid: paperspace:paperspace-team-secrets-api
+  name: Paperspace Team Secrets API
+  description: The Team Secrets API from Paperspace — 2 operation(s) for team secrets.
+  humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/machine/
+  tags:
+  - Team Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/paperspace-team-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/storage/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-reference/teams/
+  - type: Documentation
+    url: https://docs.digitalocean.com/reference/paperspace/api-keys/
 name: Paperspace
 tags:
   - GPU
@@ -198,9 +708,24 @@ tags:
   - Notebooks
   - Gradient
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paperspace.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/paperspace/overview
   - type: AgenticAccess
     url: agentic-access/paperspace-agentic-access.yml
   - type: TrustCenter
