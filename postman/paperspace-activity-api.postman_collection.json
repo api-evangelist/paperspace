@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "a67e5a36-74da-4d3f-a59b-eb59a57a2d72",
+    "name": "Paperspace Container Registries Activity API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:35.000Z",
+    "updatedAt": "2026-07-28T02:31:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a67e5a36-74da-4d3f-a59b-eb59a57a2d72"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "activity",
+              "item": [
+                {
+                  "name": "List Project Activity",
+                  "id": "ad6bc63e-3d6a-4611-8ec4-31272a0d5370",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/activity?type=<string>&after=<string>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "activity"
+                      ],
+                      "query": [
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "after",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7a88bc00-1fe8-4c75-9765-6dc0164d2686",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists project activity events with filtering and pagination options."
+                  },
+                  "response": [
+                    {
+                      "id": "d512cc80-6fe0-43d5-a5ec-4b7fe40faea3",
+                      "name": "Activity list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/activity?type=<string>&after=<string>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "type",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "after",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"message\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"message\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:36.000Z",
+                      "updatedAt": "2026-07-28T02:31:36.000Z",
+                      "uid": "35240-d512cc80-6fe0-43d5-a5ec-4b7fe40faea3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:36.000Z",
+                  "updatedAt": "2026-07-28T02:31:36.000Z",
+                  "uid": "35240-ad6bc63e-3d6a-4611-8ec4-31272a0d5370"
+                }
+              ],
+              "id": "759633ac-f2cb-437c-9ef4-b54465910e49",
+              "createdAt": "2026-07-28T02:31:36.000Z",
+              "updatedAt": "2026-07-28T02:31:36.000Z",
+              "uid": "35240-759633ac-f2cb-437c-9ef4-b54465910e49"
+            }
+          ],
+          "id": "8cde334c-de33-4416-8caf-62d252bcbda0",
+          "createdAt": "2026-07-28T02:31:36.000Z",
+          "updatedAt": "2026-07-28T02:31:36.000Z",
+          "uid": "35240-8cde334c-de33-4416-8caf-62d252bcbda0"
+        }
+      ],
+      "id": "70f5cf4f-a913-4b3e-89a8-0e449d4daf36",
+      "createdAt": "2026-07-28T02:31:36.000Z",
+      "updatedAt": "2026-07-28T02:31:36.000Z",
+      "uid": "35240-70f5cf4f-a913-4b3e-89a8-0e449d4daf36"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

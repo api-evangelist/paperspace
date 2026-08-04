@@ -1,0 +1,384 @@
+{
+  "info": {
+    "_postman_id": "1cffef9a-123e-4328-a367-c3c830cb5b4d",
+    "name": "Paperspace Container Registries Activity Models API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:34.000Z",
+    "updatedAt": "2026-07-28T02:31:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1cffef9a-123e-4328-a367-c3c830cb5b4d"
+  },
+  "item": [
+    {
+      "name": "models",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Model",
+              "id": "1b428a65-2d8e-49c5-b175-665ee36949a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/models/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6ecde7ed-8c67-4d30-8784-b4c95578a91f",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets a model by ID."
+              },
+              "response": [
+                {
+                  "id": "5a4ab2da-ef08-42f5-aa8b-cd38a286b2d7",
+                  "name": "Model.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/models/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "models",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"modelType\": \"Tensorflow\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:35.000Z",
+                  "updatedAt": "2026-07-28T02:31:35.000Z",
+                  "uid": "35240-5a4ab2da-ef08-42f5-aa8b-cd38a286b2d7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:35.000Z",
+              "updatedAt": "2026-07-28T02:31:35.000Z",
+              "uid": "35240-1b428a65-2d8e-49c5-b175-665ee36949a3"
+            },
+            {
+              "name": "Delete Model",
+              "id": "297c2618-6384-48c2-8dfd-46abc19228af",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/models/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3fe67f5b-45b5-431f-940e-07d3355aa329",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a model from the registry."
+              },
+              "response": [
+                {
+                  "id": "5a468988-68da-4d21-98b7-683766e8a026",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/models/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "models",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:35.000Z",
+                  "updatedAt": "2026-07-28T02:31:35.000Z",
+                  "uid": "35240-5a468988-68da-4d21-98b7-683766e8a026"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:35.000Z",
+              "updatedAt": "2026-07-28T02:31:35.000Z",
+              "uid": "35240-297c2618-6384-48c2-8dfd-46abc19228af"
+            }
+          ],
+          "id": "cea65cab-856c-4c6c-9b9e-9f54d1121e48",
+          "createdAt": "2026-07-28T02:31:35.000Z",
+          "updatedAt": "2026-07-28T02:31:35.000Z",
+          "uid": "35240-cea65cab-856c-4c6c-9b9e-9f54d1121e48"
+        },
+        {
+          "name": "List Models",
+          "id": "f221b297-68e5-46c0-a3ac-d2b486aba8eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            },
+            "description": "Lists models accessible to the team."
+          },
+          "response": [
+            {
+              "id": "13c61a5a-482d-45e1-861d-1bb1d928f716",
+              "name": "Model list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/models",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"<string>\",\n    \"projectId\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"<string>\",\n    \"projectId\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:35.000Z",
+              "updatedAt": "2026-07-28T02:31:35.000Z",
+              "uid": "35240-13c61a5a-482d-45e1-861d-1bb1d928f716"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:35.000Z",
+          "updatedAt": "2026-07-28T02:31:35.000Z",
+          "uid": "35240-f221b297-68e5-46c0-a3ac-d2b486aba8eb"
+        },
+        {
+          "name": "Create Model",
+          "id": "118dcbf7-6eef-4847-b9fe-6f9ab8e86318",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            },
+            "description": "Registers a new model with the Gradient model registry."
+          },
+          "response": [
+            {
+              "id": "58aef2ab-37a2-4b61-bd09-14e1d2d60287",
+              "name": "Model created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/models",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"modelType\": \"Tensorflow\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:35.000Z",
+              "updatedAt": "2026-07-28T02:31:35.000Z",
+              "uid": "35240-58aef2ab-37a2-4b61-bd09-14e1d2d60287"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:35.000Z",
+          "updatedAt": "2026-07-28T02:31:35.000Z",
+          "uid": "35240-118dcbf7-6eef-4847-b9fe-6f9ab8e86318"
+        }
+      ],
+      "id": "ed4a10a1-8130-494f-ba22-c81ba75b175e",
+      "createdAt": "2026-07-28T02:31:35.000Z",
+      "updatedAt": "2026-07-28T02:31:35.000Z",
+      "uid": "35240-ed4a10a1-8130-494f-ba22-c81ba75b175e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

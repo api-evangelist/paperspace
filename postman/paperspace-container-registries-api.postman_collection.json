@@ -1,0 +1,599 @@
+{
+  "info": {
+    "_postman_id": "a7d5d08e-ae58-4e06-8d6c-358cee4357d4",
+    "name": "Paperspace Activity Container Registries API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:33.000Z",
+    "updatedAt": "2026-07-28T02:31:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a7d5d08e-ae58-4e06-8d6c-358cee4357d4"
+  },
+  "item": [
+    {
+      "name": "container-registries",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "test-connection",
+              "item": [
+                {
+                  "name": "Test Container Registry Connection",
+                  "id": "1c48b4f8-0829-43c8-a7fb-832c6aec0a88",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/container-registries/:id/test-connection",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "container-registries",
+                        ":id",
+                        "test-connection"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8cb748fb-75d4-4926-8d7f-ec122a81b9c6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Validates that a container registry can be connected to using the provided credentials."
+                  },
+                  "response": [
+                    {
+                      "id": "acb361dc-9cd9-435b-9a59-52f188b09f93",
+                      "name": "Connection result.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/container-registries/:id/test-connection",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "container-registries",
+                            ":id",
+                            "test-connection"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:31:34.000Z",
+                      "updatedAt": "2026-07-28T02:31:34.000Z",
+                      "uid": "35240-acb361dc-9cd9-435b-9a59-52f188b09f93"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:34.000Z",
+                  "updatedAt": "2026-07-28T02:31:34.000Z",
+                  "uid": "35240-1c48b4f8-0829-43c8-a7fb-832c6aec0a88"
+                }
+              ],
+              "id": "ec721046-aa30-41e7-aea2-3fa4f721f128",
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-ec721046-aa30-41e7-aea2-3fa4f721f128"
+            },
+            {
+              "name": "Get Container Registry",
+              "id": "18c7dbc3-2dd1-4bc9-b5aa-1021a0c36af4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/container-registries/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "container-registries",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "99ddf313-baba-4a12-8a40-8225d213ebd6",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets a container registry for the current team."
+              },
+              "response": [
+                {
+                  "id": "d7459188-a6ca-4a3b-a0c3-6d332f9ff1ab",
+                  "name": "Container registry.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/container-registries/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "container-registries",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:34.000Z",
+                  "updatedAt": "2026-07-28T02:31:34.000Z",
+                  "uid": "35240-d7459188-a6ca-4a3b-a0c3-6d332f9ff1ab"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-18c7dbc3-2dd1-4bc9-b5aa-1021a0c36af4"
+            },
+            {
+              "name": "Update Container Registry",
+              "id": "b8af07fe-53c2-4ab4-826f-60f2a1906afb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/container-registries/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "container-registries",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e7466510-56a3-45ae-86aa-74faadec52fa",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Updates a container registry for the current team."
+              },
+              "response": [
+                {
+                  "id": "31615e06-cb89-49c0-8258-11da90febb80",
+                  "name": "Updated registry.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/container-registries/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "container-registries",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:34.000Z",
+                  "updatedAt": "2026-07-28T02:31:34.000Z",
+                  "uid": "35240-31615e06-cb89-49c0-8258-11da90febb80"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-b8af07fe-53c2-4ab4-826f-60f2a1906afb"
+            },
+            {
+              "name": "Delete Container Registry",
+              "id": "f24c3357-e1df-408b-bd92-1f6de0de5264",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/container-registries/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "container-registries",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "13689ba5-4f15-4b02-a263-a9636333ab4e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a container registry for the current team."
+              },
+              "response": [
+                {
+                  "id": "e3684bda-dfb9-4da5-afc4-335654868d3c",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/container-registries/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "container-registries",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:34.000Z",
+                  "updatedAt": "2026-07-28T02:31:34.000Z",
+                  "uid": "35240-e3684bda-dfb9-4da5-afc4-335654868d3c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-f24c3357-e1df-408b-bd92-1f6de0de5264"
+            }
+          ],
+          "id": "49430f37-3d12-487f-b366-d84dd74a0f0d",
+          "createdAt": "2026-07-28T02:31:34.000Z",
+          "updatedAt": "2026-07-28T02:31:34.000Z",
+          "uid": "35240-49430f37-3d12-487f-b366-d84dd74a0f0d"
+        },
+        {
+          "name": "List Container Registries",
+          "id": "52644c84-0f42-4457-ba7f-2348a5ee1dec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/container-registries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "container-registries"
+              ]
+            },
+            "description": "Lists container registries for the current team."
+          },
+          "response": [
+            {
+              "id": "e12b46e2-0e84-4c61-9408-1db06680ac8a",
+              "name": "Registry list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/container-registries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "container-registries"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"username\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"username\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-e12b46e2-0e84-4c61-9408-1db06680ac8a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:34.000Z",
+          "updatedAt": "2026-07-28T02:31:34.000Z",
+          "uid": "35240-52644c84-0f42-4457-ba7f-2348a5ee1dec"
+        },
+        {
+          "name": "Create Container Registry",
+          "id": "e16645b1-0eba-47f9-bb6b-fd48afd2b354",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/container-registries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "container-registries"
+              ]
+            },
+            "description": "Creates a container registry for the current team."
+          },
+          "response": [
+            {
+              "id": "c1d0aa60-8a22-4712-bd8e-768f5b677a86",
+              "name": "Registry created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/container-registries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "container-registries"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:34.000Z",
+              "updatedAt": "2026-07-28T02:31:34.000Z",
+              "uid": "35240-c1d0aa60-8a22-4712-bd8e-768f5b677a86"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:34.000Z",
+          "updatedAt": "2026-07-28T02:31:34.000Z",
+          "uid": "35240-e16645b1-0eba-47f9-bb6b-fd48afd2b354"
+        }
+      ],
+      "id": "efd99510-beaa-46b7-892a-457f84196002",
+      "createdAt": "2026-07-28T02:31:34.000Z",
+      "updatedAt": "2026-07-28T02:31:34.000Z",
+      "uid": "35240-efd99510-beaa-46b7-892a-457f84196002"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

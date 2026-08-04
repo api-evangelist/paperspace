@@ -1,0 +1,230 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Networking API
+  version: v1
+  description: |
+    Paperspace networking primitives — private networks (VPCs) for east-west
+    machine-to-machine traffic and public IPs for north-south internet access.
+    Authenticate with a team-scoped API key as `Authorization: Bearer
+    $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Private Networks
+- name: Public IPs
+paths:
+  /private-networks:
+    get:
+      tags: [Private Networks]
+      operationId: listPrivateNetworks
+      summary: List Private Networks
+      description: Fetches a list of private networks.
+      parameters:
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Private network list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PrivateNetwork'
+    post:
+      tags: [Private Networks]
+      operationId: createPrivateNetwork
+      summary: Create Private Network
+      description: Creates a new private network in a region.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateNetworkCreate'
+      responses:
+        '201':
+          description: Network created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateNetwork'
+  /private-networks/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Private Networks]
+      operationId: getPrivateNetwork
+      summary: Get Private Network
+      description: Fetches a single private network by ID.
+      responses:
+        '200':
+          description: Private network.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateNetwork'
+    put:
+      tags: [Private Networks]
+      operationId: updatePrivateNetwork
+      summary: Update Private Network
+      description: Updates a private network by ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Updated network.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateNetwork'
+    delete:
+      tags: [Private Networks]
+      operationId: deletePrivateNetwork
+      summary: Delete Private Network
+      description: Deletes a private network by ID.
+      responses:
+        '204':
+          description: Deleted.
+  /public-ips:
+    get:
+      tags: [Public IPs]
+      operationId: listPublicIps
+      summary: List Public IPs
+      description: Fetches a list of public IPs claimed by the team.
+      responses:
+        '200':
+          description: Public IP list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublicIp'
+    post:
+      tags: [Public IPs]
+      operationId: claimPublicIp
+      summary: Claim Public IP
+      description: Claims a new public IP address for the team.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                region:
+                  type: string
+      responses:
+        '201':
+          description: IP claimed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicIp'
+  /public-ips/{ip}:
+    parameters:
+    - in: path
+      name: ip
+      required: true
+      schema:
+        type: string
+    put:
+      tags: [Public IPs]
+      operationId: assignPublicIp
+      summary: Assign Public IP
+      description: Assigns a public IP to a machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [machineId]
+              properties:
+                machineId:
+                  type: string
+      responses:
+        '200':
+          description: IP assigned.
+    delete:
+      tags: [Public IPs]
+      operationId: releasePublicIp
+      summary: Release Public IP
+      description: Releases a public IP back to the pool.
+      responses:
+        '204':
+          description: Released.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+  schemas:
+    PrivateNetwork:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        region:
+          type: string
+        cidr:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    PrivateNetworkCreate:
+      type: object
+      required: [name, region]
+      properties:
+        name:
+          type: string
+        region:
+          type: string
+        cidr:
+          type: string
+    PublicIp:
+      type: object
+      properties:
+        ip:
+          type: string
+        region:
+          type: string
+        machineId:
+          type: string
+          nullable: true
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time

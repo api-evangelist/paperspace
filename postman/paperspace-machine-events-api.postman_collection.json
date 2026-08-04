@@ -1,0 +1,231 @@
+{
+  "info": {
+    "_postman_id": "ed7ebffe-67fa-413d-a831-ca8cdd20cf45",
+    "name": "Paperspace Container Registries Activity Machine Events API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:41.000Z",
+    "updatedAt": "2026-07-28T02:31:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed7ebffe-67fa-413d-a831-ca8cdd20cf45"
+  },
+  "item": [
+    {
+      "name": "machine-events",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Machine Event",
+              "id": "9e3a6f6a-79a9-4d86-ad6b-b4069c9798cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/machine-events/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "machine-events",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a5d5db54-b4db-457a-b0f2-3e7186505370",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Fetches a single machine event by ID."
+              },
+              "response": [
+                {
+                  "id": "d0266761-36b8-4fd6-9346-61d5937b6b01",
+                  "name": "Event.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/machine-events/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "machine-events",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"state\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:42.000Z",
+                  "updatedAt": "2026-07-28T02:31:42.000Z",
+                  "uid": "35240-d0266761-36b8-4fd6-9346-61d5937b6b01"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:42.000Z",
+              "updatedAt": "2026-07-28T02:31:42.000Z",
+              "uid": "35240-9e3a6f6a-79a9-4d86-ad6b-b4069c9798cb"
+            }
+          ],
+          "id": "90d79b35-77c0-49fe-b124-96a472f07aa7",
+          "createdAt": "2026-07-28T02:31:42.000Z",
+          "updatedAt": "2026-07-28T02:31:42.000Z",
+          "uid": "35240-90d79b35-77c0-49fe-b124-96a472f07aa7"
+        },
+        {
+          "name": "List Machine Events",
+          "id": "41124878-acc3-498f-afc4-3d11203c7b9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/machine-events?after=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "machine-events"
+              ],
+              "query": [
+                {
+                  "description": "Pagination cursor.",
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Fetches a page of machine events across the team."
+          },
+          "response": [
+            {
+              "id": "3186dad0-fc91-43f3-ba31-c433f3303776",
+              "name": "Event list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/machine-events?after=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "machine-events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination cursor.",
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"machineId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"state\": \"<string>\",\n      \"dtCreated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"machineId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"state\": \"<string>\",\n      \"dtCreated\": \"<dateTime>\"\n    }\n  ],\n  \"hasMore\": \"<boolean>\",\n  \"nextPage\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:31:42.000Z",
+              "updatedAt": "2026-07-28T02:31:42.000Z",
+              "uid": "35240-3186dad0-fc91-43f3-ba31-c433f3303776"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:42.000Z",
+          "updatedAt": "2026-07-28T02:31:42.000Z",
+          "uid": "35240-41124878-acc3-498f-afc4-3d11203c7b9b"
+        }
+      ],
+      "id": "c31b87c0-e492-44d9-b006-1d7d5fb43084",
+      "createdAt": "2026-07-28T02:31:42.000Z",
+      "updatedAt": "2026-07-28T02:31:42.000Z",
+      "uid": "35240-c31b87c0-e492-44d9-b006-1d7d5fb43084"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

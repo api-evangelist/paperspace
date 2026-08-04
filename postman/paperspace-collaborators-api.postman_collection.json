@@ -1,0 +1,361 @@
+{
+  "info": {
+    "_postman_id": "11422e42-2129-4f1f-8dc9-dcb20412166c",
+    "name": "Paperspace Container Registries Activity Collaborators API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:37.000Z",
+    "updatedAt": "2026-07-28T02:31:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-11422e42-2129-4f1f-8dc9-dcb20412166c"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "Remove Project Collaborator",
+                      "id": "d5bf8991-782a-4fd2-bd6e-e7780702aeed",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/collaborators/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "collaborators",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c5b3becc-e2a6-4322-bbb1-bfc32ff12760",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "98644829-f11d-45c4-a35b-2df31821aa43",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Removes a collaborator from a project."
+                      },
+                      "response": [
+                        {
+                          "id": "85273482-d25f-4444-a03a-72dae1385f1f",
+                          "name": "Removed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/collaborators/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "collaborators",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:31:38.000Z",
+                          "updatedAt": "2026-07-28T02:31:38.000Z",
+                          "uid": "35240-85273482-d25f-4444-a03a-72dae1385f1f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:38.000Z",
+                      "updatedAt": "2026-07-28T02:31:38.000Z",
+                      "uid": "35240-d5bf8991-782a-4fd2-bd6e-e7780702aeed"
+                    }
+                  ],
+                  "id": "2578436c-6324-4cbf-bf4f-2354e5690bb8",
+                  "createdAt": "2026-07-28T02:31:38.000Z",
+                  "updatedAt": "2026-07-28T02:31:38.000Z",
+                  "uid": "35240-2578436c-6324-4cbf-bf4f-2354e5690bb8"
+                },
+                {
+                  "name": "List Project Collaborators",
+                  "id": "ed2cc727-df63-4cb8-8eff-822718e61122",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/collaborators",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "collaborators"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a84a6300-8b0a-4113-ae60-5a57ccd799c8",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fetches a list of collaborators for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "aaad9c67-2b03-4053-a2d1-2d336098ce90",
+                      "name": "Collaborator list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"role\": \"<string>\",\n    \"projectId\": \"<string>\"\n  },\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"role\": \"<string>\",\n    \"projectId\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:38.000Z",
+                      "updatedAt": "2026-07-28T02:31:38.000Z",
+                      "uid": "35240-aaad9c67-2b03-4053-a2d1-2d336098ce90"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:38.000Z",
+                  "updatedAt": "2026-07-28T02:31:38.000Z",
+                  "uid": "35240-ed2cc727-df63-4cb8-8eff-822718e61122"
+                },
+                {
+                  "name": "Add Project Collaborator",
+                  "id": "42ace2a3-ab0a-4d4c-93e5-fee9cbad1f3f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"userId\": \"<string>\",\n  \"role\": \"viewer\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/collaborators",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "collaborators"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f44d1344-b53b-4624-933f-aeb45f4ee732",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Adds a new collaborator to a project."
+                  },
+                  "response": [
+                    {
+                      "id": "1cf4b686-da2c-497e-8d53-501560c7e705",
+                      "name": "Collaborator added.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<string>\",\n  \"role\": \"viewer\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:31:38.000Z",
+                      "updatedAt": "2026-07-28T02:31:38.000Z",
+                      "uid": "35240-1cf4b686-da2c-497e-8d53-501560c7e705"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:38.000Z",
+                  "updatedAt": "2026-07-28T02:31:38.000Z",
+                  "uid": "35240-42ace2a3-ab0a-4d4c-93e5-fee9cbad1f3f"
+                }
+              ],
+              "id": "bbba8792-a92e-4488-b6f6-1e69fe2cdc2a",
+              "createdAt": "2026-07-28T02:31:38.000Z",
+              "updatedAt": "2026-07-28T02:31:38.000Z",
+              "uid": "35240-bbba8792-a92e-4488-b6f6-1e69fe2cdc2a"
+            }
+          ],
+          "id": "b3b9ce18-54e6-48c0-8adb-7f02a8d02ff0",
+          "createdAt": "2026-07-28T02:31:38.000Z",
+          "updatedAt": "2026-07-28T02:31:38.000Z",
+          "uid": "35240-b3b9ce18-54e6-48c0-8adb-7f02a8d02ff0"
+        }
+      ],
+      "id": "805b5720-aacc-4ab7-bc22-33792c6adb92",
+      "createdAt": "2026-07-28T02:31:38.000Z",
+      "updatedAt": "2026-07-28T02:31:38.000Z",
+      "uid": "35240-805b5720-aacc-4ab7-bc22-33792c6adb92"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

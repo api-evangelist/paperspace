@@ -1,0 +1,372 @@
+{
+  "info": {
+    "_postman_id": "4f856e40-e603-4385-8686-593d0426b5d3",
+    "name": "Paperspace Container Registries Activity Team Members API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:32:02.000Z",
+    "updatedAt": "2026-07-28T02:32:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4f856e40-e603-4385-8686-593d0426b5d3"
+  },
+  "item": [
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "{teamId}",
+          "item": [
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "Update Team Member",
+                      "id": "3adb3e3c-d5c6-4bd2-b6c8-1c9cfbe7cf1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"isAdmin\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "98fc7049-23d3-4c59-b220-4e02e3e1ca1f",
+                              "key": "teamId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "717af255-4538-4c7d-a6b4-3bb37274066c",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Modifies a member's admin status within a team."
+                      },
+                      "response": [
+                        {
+                          "id": "cbe2cce9-e159-444a-a2f7-eda63b6c8e2c",
+                          "name": "Updated team member.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"isAdmin\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/teams/:teamId/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "teams",
+                                ":teamId",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "teamId"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"isAdmin\": \"<boolean>\",\n  \"teamId\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:32:03.000Z",
+                          "updatedAt": "2026-07-28T02:32:03.000Z",
+                          "uid": "35240-cbe2cce9-e159-444a-a2f7-eda63b6c8e2c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:32:03.000Z",
+                      "updatedAt": "2026-07-28T02:32:03.000Z",
+                      "uid": "35240-3adb3e3c-d5c6-4bd2-b6c8-1c9cfbe7cf1e"
+                    },
+                    {
+                      "name": "Remove Team Member",
+                      "id": "2dd13e2a-d8ad-446a-a697-1578fe716715",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a7a55845-8910-4194-afca-41ef728c9ed0",
+                              "key": "teamId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "568414b6-b5b6-4898-bfbd-6af15aa78e87",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Eliminates a user from team membership."
+                      },
+                      "response": [
+                        {
+                          "id": "e0ae7e59-d4ba-4398-80cf-db414e5b7f15",
+                          "name": "Removed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/teams/:teamId/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "teams",
+                                ":teamId",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "teamId"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:32:03.000Z",
+                          "updatedAt": "2026-07-28T02:32:03.000Z",
+                          "uid": "35240-e0ae7e59-d4ba-4398-80cf-db414e5b7f15"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:32:03.000Z",
+                      "updatedAt": "2026-07-28T02:32:03.000Z",
+                      "uid": "35240-2dd13e2a-d8ad-446a-a697-1578fe716715"
+                    }
+                  ],
+                  "id": "a2aedb78-b104-4cf7-a0f6-75311596ef87",
+                  "createdAt": "2026-07-28T02:32:02.000Z",
+                  "updatedAt": "2026-07-28T02:32:02.000Z",
+                  "uid": "35240-a2aedb78-b104-4cf7-a0f6-75311596ef87"
+                },
+                {
+                  "name": "List Team Members",
+                  "id": "d1b9404a-0463-41ab-9ecc-6c5602e80fcc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId",
+                        "users"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e47c48ca-2787-49ae-af35-e914725e026b",
+                          "key": "teamId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists team members."
+                  },
+                  "response": [
+                    {
+                      "id": "8fa935c7-aac6-4d92-8db4-afc7a072888f",
+                      "name": "Team member list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "users"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"isAdmin\": \"<boolean>\",\n    \"teamId\": \"<string>\"\n  },\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"isAdmin\": \"<boolean>\",\n    \"teamId\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:32:03.000Z",
+                      "updatedAt": "2026-07-28T02:32:03.000Z",
+                      "uid": "35240-8fa935c7-aac6-4d92-8db4-afc7a072888f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:03.000Z",
+                  "updatedAt": "2026-07-28T02:32:03.000Z",
+                  "uid": "35240-d1b9404a-0463-41ab-9ecc-6c5602e80fcc"
+                }
+              ],
+              "id": "5c3670c4-6383-473e-861e-220390005b27",
+              "createdAt": "2026-07-28T02:32:02.000Z",
+              "updatedAt": "2026-07-28T02:32:02.000Z",
+              "uid": "35240-5c3670c4-6383-473e-861e-220390005b27"
+            }
+          ],
+          "id": "01caecf9-d83f-4940-a10d-70cab0f83ebe",
+          "createdAt": "2026-07-28T02:32:02.000Z",
+          "updatedAt": "2026-07-28T02:32:02.000Z",
+          "uid": "35240-01caecf9-d83f-4940-a10d-70cab0f83ebe"
+        }
+      ],
+      "id": "6d003abc-08dd-4f1c-8333-bccbd3b039f9",
+      "createdAt": "2026-07-28T02:32:02.000Z",
+      "updatedAt": "2026-07-28T02:32:02.000Z",
+      "uid": "35240-6d003abc-08dd-4f1c-8333-bccbd3b039f9"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

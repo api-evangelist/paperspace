@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "775bd4c9-fe50-4757-bf79-5298577e3d64",
+    "name": "Paperspace Container Registries Activity Private Networks API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:44.000Z",
+    "updatedAt": "2026-07-28T02:31:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-775bd4c9-fe50-4757-bf79-5298577e3d64"
+  },
+  "item": [
+    {
+      "name": "private-networks",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Private Network",
+              "id": "1d8407b8-46a6-4f97-893f-fa210412e0ff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/private-networks/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "private-networks",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a75886ab-8fea-491f-b54f-a551a9a3f69c",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Fetches a single private network by ID."
+              },
+              "response": [
+                {
+                  "id": "0ce53baa-f07d-4f8d-ae95-190378e5673a",
+                  "name": "Private network.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/private-networks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "private-networks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:45.000Z",
+                  "updatedAt": "2026-07-28T02:31:45.000Z",
+                  "uid": "35240-0ce53baa-f07d-4f8d-ae95-190378e5673a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:45.000Z",
+              "updatedAt": "2026-07-28T02:31:45.000Z",
+              "uid": "35240-1d8407b8-46a6-4f97-893f-fa210412e0ff"
+            },
+            {
+              "name": "Update Private Network",
+              "id": "d245073f-7dad-4777-8c35-d25a2c90b9db",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/private-networks/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "private-networks",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "422497ab-2e62-45b4-ae20-7c791ca0d1db",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Updates a private network by ID."
+              },
+              "response": [
+                {
+                  "id": "3354211a-fdd3-42c6-88b8-a091d8298787",
+                  "name": "Updated network.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/private-networks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "private-networks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:45.000Z",
+                  "updatedAt": "2026-07-28T02:31:45.000Z",
+                  "uid": "35240-3354211a-fdd3-42c6-88b8-a091d8298787"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:45.000Z",
+              "updatedAt": "2026-07-28T02:31:45.000Z",
+              "uid": "35240-d245073f-7dad-4777-8c35-d25a2c90b9db"
+            },
+            {
+              "name": "Delete Private Network",
+              "id": "bede74be-4934-4ab4-ba26-9b8b93ae634e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/private-networks/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "private-networks",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "28b43ec2-ef5d-4422-91c1-12000a298933",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a private network by ID."
+              },
+              "response": [
+                {
+                  "id": "9c246262-a8b3-43eb-93b9-9f33ff3be3df",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/private-networks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "private-networks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:45.000Z",
+                  "updatedAt": "2026-07-28T02:31:45.000Z",
+                  "uid": "35240-9c246262-a8b3-43eb-93b9-9f33ff3be3df"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:45.000Z",
+              "updatedAt": "2026-07-28T02:31:45.000Z",
+              "uid": "35240-bede74be-4934-4ab4-ba26-9b8b93ae634e"
+            }
+          ],
+          "id": "0181867d-0424-4fa3-970e-aa429a6ce836",
+          "createdAt": "2026-07-28T02:31:45.000Z",
+          "updatedAt": "2026-07-28T02:31:45.000Z",
+          "uid": "35240-0181867d-0424-4fa3-970e-aa429a6ce836"
+        },
+        {
+          "name": "List Private Networks",
+          "id": "076b51fd-76bf-410b-9c20-b152255d453c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/private-networks?after=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "private-networks"
+              ],
+              "query": [
+                {
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Fetches a list of private networks."
+          },
+          "response": [
+            {
+              "id": "fb2e21a8-0f99-45c1-a00c-7f6571499edb",
+              "name": "Private network list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/private-networks?after=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "private-networks"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"region\": \"<string>\",\n    \"cidr\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"region\": \"<string>\",\n    \"cidr\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:45.000Z",
+              "updatedAt": "2026-07-28T02:31:45.000Z",
+              "uid": "35240-fb2e21a8-0f99-45c1-a00c-7f6571499edb"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:45.000Z",
+          "updatedAt": "2026-07-28T02:31:45.000Z",
+          "uid": "35240-076b51fd-76bf-410b-9c20-b152255d453c"
+        },
+        {
+          "name": "Create Private Network",
+          "id": "6c2e92ff-fbef-40a1-ae05-c8d7dbc410a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/private-networks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "private-networks"
+              ]
+            },
+            "description": "Creates a new private network in a region."
+          },
+          "response": [
+            {
+              "id": "3b61f9e5-9238-42e3-ba61-0640610e86f2",
+              "name": "Network created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/private-networks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "private-networks"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:45.000Z",
+              "updatedAt": "2026-07-28T02:31:45.000Z",
+              "uid": "35240-3b61f9e5-9238-42e3-ba61-0640610e86f2"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:45.000Z",
+          "updatedAt": "2026-07-28T02:31:45.000Z",
+          "uid": "35240-6c2e92ff-fbef-40a1-ae05-c8d7dbc410a5"
+        }
+      ],
+      "id": "438375da-113e-4ca1-b719-a3b90f3c5963",
+      "createdAt": "2026-07-28T02:31:45.000Z",
+      "updatedAt": "2026-07-28T02:31:45.000Z",
+      "uid": "35240-438375da-113e-4ca1-b719-a3b90f3c5963"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

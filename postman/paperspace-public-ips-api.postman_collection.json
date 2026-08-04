@@ -1,0 +1,399 @@
+{
+  "info": {
+    "_postman_id": "04477644-d64c-4ad5-87c2-28f406ccf65c",
+    "name": "Paperspace Container Registries Activity Public IPs API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:50.000Z",
+    "updatedAt": "2026-07-28T02:31:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-04477644-d64c-4ad5-87c2-28f406ccf65c"
+  },
+  "item": [
+    {
+      "name": "public-ips",
+      "item": [
+        {
+          "name": "{ip}",
+          "item": [
+            {
+              "name": "Assign Public IP",
+              "id": "25c77fe9-7aaa-42c7-bbf8-d14488f45e4e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/public-ips/:ip",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public-ips",
+                    ":ip"
+                  ],
+                  "variable": [
+                    {
+                      "id": "eab0286d-5d07-4d18-834f-a6cbc7e74f44",
+                      "key": "ip",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Assigns a public IP to a machine."
+              },
+              "response": [
+                {
+                  "id": "b9b39299-314a-4310-b2e4-b0189ede466e",
+                  "name": "IP assigned.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/public-ips/:ip",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public-ips",
+                        ":ip"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ip"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:51.000Z",
+                  "updatedAt": "2026-07-28T02:31:51.000Z",
+                  "uid": "35240-b9b39299-314a-4310-b2e4-b0189ede466e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:51.000Z",
+              "updatedAt": "2026-07-28T02:31:51.000Z",
+              "uid": "35240-25c77fe9-7aaa-42c7-bbf8-d14488f45e4e"
+            },
+            {
+              "name": "Release Public IP",
+              "id": "7111d364-99b8-4638-8c8e-acca41e47746",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/public-ips/:ip",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public-ips",
+                    ":ip"
+                  ],
+                  "variable": [
+                    {
+                      "id": "18bbf2a0-d662-47b7-89be-51373ce8ebda",
+                      "key": "ip",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Releases a public IP back to the pool."
+              },
+              "response": [
+                {
+                  "id": "4cbb1cb8-44d0-444b-b5ad-235e97f758cf",
+                  "name": "Released.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public-ips/:ip",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public-ips",
+                        ":ip"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ip"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:51.000Z",
+                  "updatedAt": "2026-07-28T02:31:51.000Z",
+                  "uid": "35240-4cbb1cb8-44d0-444b-b5ad-235e97f758cf"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:51.000Z",
+              "updatedAt": "2026-07-28T02:31:51.000Z",
+              "uid": "35240-7111d364-99b8-4638-8c8e-acca41e47746"
+            }
+          ],
+          "id": "c75f82dd-c640-4329-969f-950a05f055c8",
+          "createdAt": "2026-07-28T02:31:51.000Z",
+          "updatedAt": "2026-07-28T02:31:51.000Z",
+          "uid": "35240-c75f82dd-c640-4329-969f-950a05f055c8"
+        },
+        {
+          "name": "List Public IPs",
+          "id": "6448a9ed-2f9f-4590-860d-74aed23503f1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/public-ips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "public-ips"
+              ]
+            },
+            "description": "Fetches a list of public IPs claimed by the team."
+          },
+          "response": [
+            {
+              "id": "038527b1-afbb-424d-9c7a-13a0a0fadf2b",
+              "name": "Public IP list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/public-ips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public-ips"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"ip\": \"<string>\",\n    \"region\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"ip\": \"<string>\",\n    \"region\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:51.000Z",
+              "updatedAt": "2026-07-28T02:31:51.000Z",
+              "uid": "35240-038527b1-afbb-424d-9c7a-13a0a0fadf2b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:51.000Z",
+          "updatedAt": "2026-07-28T02:31:51.000Z",
+          "uid": "35240-6448a9ed-2f9f-4590-860d-74aed23503f1"
+        },
+        {
+          "name": "Claim Public IP",
+          "id": "fb514908-131d-4ad1-a14e-0538a15b143f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/public-ips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "public-ips"
+              ]
+            },
+            "description": "Claims a new public IP address for the team."
+          },
+          "response": [
+            {
+              "id": "2374dac8-a982-4a5c-b880-cd532420b0c1",
+              "name": "IP claimed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/public-ips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public-ips"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ip\": \"<string>\",\n  \"region\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:51.000Z",
+              "updatedAt": "2026-07-28T02:31:51.000Z",
+              "uid": "35240-2374dac8-a982-4a5c-b880-cd532420b0c1"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:51.000Z",
+          "updatedAt": "2026-07-28T02:31:51.000Z",
+          "uid": "35240-fb514908-131d-4ad1-a14e-0538a15b143f"
+        }
+      ],
+      "id": "1c5bd737-81db-46a6-951b-8dd1bf84820e",
+      "createdAt": "2026-07-28T02:31:51.000Z",
+      "updatedAt": "2026-07-28T02:31:51.000Z",
+      "uid": "35240-1c5bd737-81db-46a6-951b-8dd1bf84820e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,728 @@
+{
+  "info": {
+    "_postman_id": "1d773193-b913-48d3-a891-629599c59f2d",
+    "name": "Paperspace Container Registries Activity Startup Scripts API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:59.000Z",
+    "updatedAt": "2026-07-28T02:31:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1d773193-b913-48d3-a891-629599c59f2d"
+  },
+  "item": [
+    {
+      "name": "startup-scripts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "assign",
+              "item": [
+                {
+                  "name": "Assign Startup Script",
+                  "id": "508fb8a6-f3fb-4d8b-8af3-80ed01f79a61",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/startup-scripts/:id/assign",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "startup-scripts",
+                        ":id",
+                        "assign"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a760e0f2-fc4d-402b-8097-ac733b17d100",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Links a startup script to a machine."
+                  },
+                  "response": [
+                    {
+                      "id": "f46146e5-cadf-4910-b41e-ac71e9f7f307",
+                      "name": "Assigned.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/startup-scripts/:id/assign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "startup-scripts",
+                            ":id",
+                            "assign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:32:00.000Z",
+                      "updatedAt": "2026-07-28T02:32:00.000Z",
+                      "uid": "35240-f46146e5-cadf-4910-b41e-ac71e9f7f307"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:00.000Z",
+                  "updatedAt": "2026-07-28T02:32:00.000Z",
+                  "uid": "35240-508fb8a6-f3fb-4d8b-8af3-80ed01f79a61"
+                }
+              ],
+              "id": "015699ca-9155-41ce-8074-e294b7dc00f2",
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-015699ca-9155-41ce-8074-e294b7dc00f2"
+            },
+            {
+              "name": "unassign",
+              "item": [
+                {
+                  "name": "Unassign Startup Script",
+                  "id": "61a0283a-bd9c-4d2d-b93a-bb27ed19fe6d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/startup-scripts/:id/unassign",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "startup-scripts",
+                        ":id",
+                        "unassign"
+                      ],
+                      "variable": [
+                        {
+                          "id": "74a6964b-34b3-4036-bbc2-092ebbca59ab",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Disconnects a startup script from a machine."
+                  },
+                  "response": [
+                    {
+                      "id": "c9184bf7-f2e9-4978-99cd-4ce12b397879",
+                      "name": "Unassigned.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/startup-scripts/:id/unassign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "startup-scripts",
+                            ":id",
+                            "unassign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:32:00.000Z",
+                      "updatedAt": "2026-07-28T02:32:00.000Z",
+                      "uid": "35240-c9184bf7-f2e9-4978-99cd-4ce12b397879"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:00.000Z",
+                  "updatedAt": "2026-07-28T02:32:00.000Z",
+                  "uid": "35240-61a0283a-bd9c-4d2d-b93a-bb27ed19fe6d"
+                }
+              ],
+              "id": "e6e9f592-8ba9-4200-bce4-fcc855345980",
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-e6e9f592-8ba9-4200-bce4-fcc855345980"
+            },
+            {
+              "name": "Get Startup Script",
+              "id": "daac915e-a82c-4cd3-8116-010f46083700",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/startup-scripts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "startup-scripts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4a10386d-f83a-4ab6-bbaa-28b46e5ed97c",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Fetches a single startup script by ID."
+              },
+              "response": [
+                {
+                  "id": "1fa1e947-eefc-4d77-8c97-6b4906d24e8a",
+                  "name": "Script.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/startup-scripts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "startup-scripts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:32:00.000Z",
+                  "updatedAt": "2026-07-28T02:32:00.000Z",
+                  "uid": "35240-1fa1e947-eefc-4d77-8c97-6b4906d24e8a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-daac915e-a82c-4cd3-8116-010f46083700"
+            },
+            {
+              "name": "Update Startup Script",
+              "id": "5054f681-0878-4813-bbcc-8169dcc1b29b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/startup-scripts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "startup-scripts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7d3350e3-e167-45f7-bc1a-0e377d9933de",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Modifies an existing startup script."
+              },
+              "response": [
+                {
+                  "id": "bb54026a-f18b-43d4-a8e4-fe2daa8bea88",
+                  "name": "Updated script.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/startup-scripts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "startup-scripts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:32:00.000Z",
+                  "updatedAt": "2026-07-28T02:32:00.000Z",
+                  "uid": "35240-bb54026a-f18b-43d4-a8e4-fe2daa8bea88"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-5054f681-0878-4813-bbcc-8169dcc1b29b"
+            },
+            {
+              "name": "Delete Startup Script",
+              "id": "1d9d21b8-1f8f-4c4a-b660-39351d1b5bd9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/startup-scripts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "startup-scripts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "82cffd1d-aa6e-4c9e-8456-c53cb26df5e5",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Removes a startup script."
+              },
+              "response": [
+                {
+                  "id": "91e706ae-4927-4864-ba93-20dc04f215f2",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/startup-scripts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "startup-scripts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:32:00.000Z",
+                  "updatedAt": "2026-07-28T02:32:00.000Z",
+                  "uid": "35240-91e706ae-4927-4864-ba93-20dc04f215f2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-1d9d21b8-1f8f-4c4a-b660-39351d1b5bd9"
+            }
+          ],
+          "id": "67154040-6480-4e15-a718-d12be571620b",
+          "createdAt": "2026-07-28T02:32:00.000Z",
+          "updatedAt": "2026-07-28T02:32:00.000Z",
+          "uid": "35240-67154040-6480-4e15-a718-d12be571620b"
+        },
+        {
+          "name": "List Startup Scripts",
+          "id": "2f8242ef-b778-4756-b0ea-59d06aa30bcb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/startup-scripts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "startup-scripts"
+              ]
+            },
+            "description": "Fetches a list of startup scripts."
+          },
+          "response": [
+            {
+              "id": "c95e9bc6-a01b-437f-a88d-c604e4e1e010",
+              "name": "Script list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/startup-scripts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "startup-scripts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"runOnce\": \"<boolean>\",\n    \"isEnabled\": \"<boolean>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"runOnce\": \"<boolean>\",\n    \"isEnabled\": \"<boolean>\",\n    \"teamId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-c95e9bc6-a01b-437f-a88d-c604e4e1e010"
+            }
+          ],
+          "createdAt": "2026-07-28T02:32:00.000Z",
+          "updatedAt": "2026-07-28T02:32:00.000Z",
+          "uid": "35240-2f8242ef-b778-4756-b0ea-59d06aa30bcb"
+        },
+        {
+          "name": "Create Startup Script",
+          "id": "b4e5467a-16c8-46d1-8666-8e513937d244",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/startup-scripts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "startup-scripts"
+              ]
+            },
+            "description": "Generates a new startup script."
+          },
+          "response": [
+            {
+              "id": "2dabec2f-e2bb-4f53-8d11-2e4aa33032c1",
+              "name": "Created script.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/startup-scripts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "startup-scripts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:32:00.000Z",
+              "updatedAt": "2026-07-28T02:32:00.000Z",
+              "uid": "35240-2dabec2f-e2bb-4f53-8d11-2e4aa33032c1"
+            }
+          ],
+          "createdAt": "2026-07-28T02:32:00.000Z",
+          "updatedAt": "2026-07-28T02:32:00.000Z",
+          "uid": "35240-b4e5467a-16c8-46d1-8666-8e513937d244"
+        }
+      ],
+      "id": "762faea8-7337-4387-9874-a232681fecdf",
+      "createdAt": "2026-07-28T02:32:00.000Z",
+      "updatedAt": "2026-07-28T02:32:00.000Z",
+      "uid": "35240-762faea8-7337-4387-9874-a232681fecdf"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

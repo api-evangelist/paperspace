@@ -1,0 +1,591 @@
+{
+  "info": {
+    "_postman_id": "b001a3ba-ff95-468c-9856-677ada8e8de6",
+    "name": "Paperspace Container Registries Activity Dataset Versions API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:39.000Z",
+    "updatedAt": "2026-07-28T02:31:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b001a3ba-ff95-468c-9856-677ada8e8de6"
+  },
+  "item": [
+    {
+      "name": "datasets",
+      "item": [
+        {
+          "name": "{datasetId}",
+          "item": [
+            {
+              "name": "versions",
+              "item": [
+                {
+                  "name": "{version}",
+                  "item": [
+                    {
+                      "name": "Get Dataset Version",
+                      "id": "6b9938fe-5d82-4323-a6c1-34c17537e537",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "versions",
+                            ":version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "68c58fa7-288d-4c8a-a6ad-1a8c0b187aff",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "5b0e380a-ab0f-49ea-bf26-9eb6a9aba3e2",
+                              "key": "version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Gets a specific dataset version."
+                      },
+                      "response": [
+                        {
+                          "id": "1a26cc81-f27b-41f0-955c-d3c050ebd7c4",
+                          "name": "Dataset version.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "datasets",
+                                ":datasetId",
+                                "versions",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "datasetId"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"datasetId\": \"<string>\",\n  \"version\": \"<string>\",\n  \"message\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:31:40.000Z",
+                          "updatedAt": "2026-07-28T02:31:40.000Z",
+                          "uid": "35240-1a26cc81-f27b-41f0-955c-d3c050ebd7c4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:40.000Z",
+                      "updatedAt": "2026-07-28T02:31:40.000Z",
+                      "uid": "35240-6b9938fe-5d82-4323-a6c1-34c17537e537"
+                    },
+                    {
+                      "name": "Update Dataset Version",
+                      "id": "461cf0b2-8284-4ade-ad87-0b8551bd16f4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "versions",
+                            ":version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "aba4b69a-73bf-4b7f-90ee-f7e3f038a3b2",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "17ff19b0-d731-4021-9057-a9f5cb1f1a7c",
+                              "key": "version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Updates the metadata or message of a dataset version."
+                      },
+                      "response": [
+                        {
+                          "id": "d583fbe1-9ba9-4232-993c-65df41de6130",
+                          "name": "Updated version.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"message\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "datasets",
+                                ":datasetId",
+                                "versions",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "datasetId"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"datasetId\": \"<string>\",\n  \"version\": \"<string>\",\n  \"message\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:31:40.000Z",
+                          "updatedAt": "2026-07-28T02:31:40.000Z",
+                          "uid": "35240-d583fbe1-9ba9-4232-993c-65df41de6130"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:40.000Z",
+                      "updatedAt": "2026-07-28T02:31:40.000Z",
+                      "uid": "35240-461cf0b2-8284-4ade-ad87-0b8551bd16f4"
+                    },
+                    {
+                      "name": "Delete Dataset Version",
+                      "id": "e1212056-259b-43fe-81b1-38778ae895b9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "versions",
+                            ":version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "761c98e5-3993-455d-8541-e6f105b9a217",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "bf0ca236-1bbf-4be3-9b64-0d388fde0b06",
+                              "key": "version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes a dataset version."
+                      },
+                      "response": [
+                        {
+                          "id": "7dc4c9b9-32ae-4dc5-83ad-f8b87a618dbc",
+                          "name": "Deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/datasets/:datasetId/versions/:version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "datasets",
+                                ":datasetId",
+                                "versions",
+                                ":version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "datasetId"
+                                },
+                                {
+                                  "key": "version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:31:40.000Z",
+                          "updatedAt": "2026-07-28T02:31:40.000Z",
+                          "uid": "35240-7dc4c9b9-32ae-4dc5-83ad-f8b87a618dbc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:40.000Z",
+                      "updatedAt": "2026-07-28T02:31:40.000Z",
+                      "uid": "35240-e1212056-259b-43fe-81b1-38778ae895b9"
+                    }
+                  ],
+                  "id": "9f2985b0-9ff1-421d-bd3a-db8ace6154b8",
+                  "createdAt": "2026-07-28T02:31:40.000Z",
+                  "updatedAt": "2026-07-28T02:31:40.000Z",
+                  "uid": "35240-9f2985b0-9ff1-421d-bd3a-db8ace6154b8"
+                },
+                {
+                  "name": "List Dataset Versions",
+                  "id": "740b958b-d671-4387-a92d-636b2b22816a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId/versions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId",
+                        "versions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aaaf97d3-b0e4-4530-8e99-46246d48659a",
+                          "key": "datasetId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists versions of a dataset."
+                  },
+                  "response": [
+                    {
+                      "id": "e822b669-be15-46b0-becd-3302a7ff5b79",
+                      "name": "Dataset version list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "versions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"datasetId\": \"<string>\",\n    \"version\": \"<string>\",\n    \"message\": \"<string>\",\n    \"size\": \"<integer>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"datasetId\": \"<string>\",\n    \"version\": \"<string>\",\n    \"message\": \"<string>\",\n    \"size\": \"<integer>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:40.000Z",
+                      "updatedAt": "2026-07-28T02:31:40.000Z",
+                      "uid": "35240-e822b669-be15-46b0-becd-3302a7ff5b79"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:40.000Z",
+                  "updatedAt": "2026-07-28T02:31:40.000Z",
+                  "uid": "35240-740b958b-d671-4387-a92d-636b2b22816a"
+                },
+                {
+                  "name": "Create Dataset Version",
+                  "id": "5bbd7846-2430-46c5-ac74-0c723f748d0e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"message\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId/versions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId",
+                        "versions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "564ae05a-a5ef-48ea-9bba-3e172a184eb9",
+                          "key": "datasetId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Creates a new dataset version."
+                  },
+                  "response": [
+                    {
+                      "id": "ec87be43-d0b9-417e-acde-f8d7906ea382",
+                      "name": "Version created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "versions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"datasetId\": \"<string>\",\n  \"version\": \"<string>\",\n  \"message\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:31:40.000Z",
+                      "updatedAt": "2026-07-28T02:31:40.000Z",
+                      "uid": "35240-ec87be43-d0b9-417e-acde-f8d7906ea382"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:40.000Z",
+                  "updatedAt": "2026-07-28T02:31:40.000Z",
+                  "uid": "35240-5bbd7846-2430-46c5-ac74-0c723f748d0e"
+                }
+              ],
+              "id": "544fe3df-203c-4a53-b5de-0fba4d617d7b",
+              "createdAt": "2026-07-28T02:31:40.000Z",
+              "updatedAt": "2026-07-28T02:31:40.000Z",
+              "uid": "35240-544fe3df-203c-4a53-b5de-0fba4d617d7b"
+            }
+          ],
+          "id": "04cf0d2e-8749-4f18-b3db-764a29748a4e",
+          "createdAt": "2026-07-28T02:31:40.000Z",
+          "updatedAt": "2026-07-28T02:31:40.000Z",
+          "uid": "35240-04cf0d2e-8749-4f18-b3db-764a29748a4e"
+        }
+      ],
+      "id": "059bf4d0-b9d0-40f7-af79-f8b5a0a4bd39",
+      "createdAt": "2026-07-28T02:31:40.000Z",
+      "updatedAt": "2026-07-28T02:31:40.000Z",
+      "uid": "35240-059bf4d0-b9d0-40f7-af79-f8b5a0a4bd39"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

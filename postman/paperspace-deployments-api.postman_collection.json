@@ -1,0 +1,949 @@
+{
+  "info": {
+    "_postman_id": "4ec278c0-a0b3-4aff-86ee-f133be8d4bd2",
+    "name": "Paperspace Container Registries Activity Deployments API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:30.000Z",
+    "updatedAt": "2026-07-28T02:31:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4ec278c0-a0b3-4aff-86ee-f133be8d4bd2"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "runs",
+              "item": [
+                {
+                  "name": "List Deployment Runs",
+                  "id": "020c325c-662e-40a3-b6f8-dc4d175e95a7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id/runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id",
+                        "runs"
+                      ],
+                      "variable": [
+                        {
+                          "id": "16157bdd-71a4-4a0f-b810-e34404a7389e",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists the active deployment runs for a deployment."
+                  },
+                  "response": [
+                    {
+                      "id": "78c5217d-7142-41ef-903f-f9ec6fc854f8",
+                      "name": "Run list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:id/runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":id",
+                            "runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"deploymentId\": \"<string>\",\n    \"state\": \"<string>\",\n    \"replicas\": \"<integer>\",\n    \"dtStarted\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"deploymentId\": \"<string>\",\n    \"state\": \"<string>\",\n    \"replicas\": \"<integer>\",\n    \"dtStarted\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:31.000Z",
+                      "updatedAt": "2026-07-28T02:31:31.000Z",
+                      "uid": "35240-78c5217d-7142-41ef-903f-f9ec6fc854f8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-020c325c-662e-40a3-b6f8-dc4d175e95a7"
+                }
+              ],
+              "id": "44f6bbf5-65a8-418a-8e6e-1b80c858e7df",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-44f6bbf5-65a8-418a-8e6e-1b80c858e7df"
+            },
+            {
+              "name": "metrics",
+              "item": [
+                {
+                  "name": "Get Deployment Metrics",
+                  "id": "222dbd06-c16b-492b-9535-6122fc65b25b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id/metrics?start=<dateTime>&end=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id",
+                        "metrics"
+                      ],
+                      "query": [
+                        {
+                          "key": "start",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end",
+                          "value": "<dateTime>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ced729f6-2f11-4eb0-a61f-aca2f545664c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves performance data for a given deployment over a time range."
+                  },
+                  "response": [
+                    {
+                      "id": "267f571a-f695-4754-9c0e-82fce4867cf4",
+                      "name": "Metrics response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:id/metrics?start=<dateTime>&end=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":id",
+                            "metrics"
+                          ],
+                          "query": [
+                            {
+                              "key": "start",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"deploymentId\": \"<string>\",\n  \"series\": [\n    {\n      \"metric\": \"<string>\",\n      \"values\": [\n        {\n          \"t\": \"<dateTime>\",\n          \"v\": \"<number>\"\n        },\n        {\n          \"t\": \"<dateTime>\",\n          \"v\": \"<number>\"\n        }\n      ]\n    },\n    {\n      \"metric\": \"<string>\",\n      \"values\": [\n        {\n          \"t\": \"<dateTime>\",\n          \"v\": \"<number>\"\n        },\n        {\n          \"t\": \"<dateTime>\",\n          \"v\": \"<number>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:31:31.000Z",
+                      "updatedAt": "2026-07-28T02:31:31.000Z",
+                      "uid": "35240-267f571a-f695-4754-9c0e-82fce4867cf4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-222dbd06-c16b-492b-9535-6122fc65b25b"
+                }
+              ],
+              "id": "1e74adbf-0d16-4982-85e0-10dd792e7ac3",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-1e74adbf-0d16-4982-85e0-10dd792e7ac3"
+            },
+            {
+              "name": "logs",
+              "item": [
+                {
+                  "name": "Get Deployment Logs",
+                  "id": "6dc50dad-7b8b-4f74-a154-c3a7e4821b12",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id/logs?limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id",
+                        "logs"
+                      ],
+                      "query": [
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bc309771-8754-4092-88f1-d00fce86b72f",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Obtains log entries associated with a deployment."
+                  },
+                  "response": [
+                    {
+                      "id": "182ffc21-0027-49b9-a3ee-5a159217aec9",
+                      "name": "Log stream.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:id/logs?limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":id",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"t\": \"<dateTime>\",\n    \"stream\": \"stdout\",\n    \"message\": \"<string>\"\n  },\n  {\n    \"t\": \"<dateTime>\",\n    \"stream\": \"stdout\",\n    \"message\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:31.000Z",
+                      "updatedAt": "2026-07-28T02:31:31.000Z",
+                      "uid": "35240-182ffc21-0027-49b9-a3ee-5a159217aec9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-6dc50dad-7b8b-4f74-a154-c3a7e4821b12"
+                }
+              ],
+              "id": "09cb15f5-f7e7-469c-8fdb-146cc6c7fed2",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-09cb15f5-f7e7-469c-8fdb-146cc6c7fed2"
+            },
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "Get Deployment History",
+                  "id": "35cb06e6-cb65-4f75-91de-c1b146bd2802",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id/history",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id",
+                        "history"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e92d93c7-5a34-44f3-80a5-b504c5b71bed",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Accesses configuration change records for a deployment."
+                  },
+                  "response": [
+                    {
+                      "id": "75ad421b-a8f8-4c92-aad1-a6316cb6c150",
+                      "name": "History records.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:id/history",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":id",
+                            "history"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"revision\": \"<integer>\",\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"Duis_f\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"requests\"\n      }\n    },\n    \"dtCreated\": \"<dateTime>\",\n    \"userId\": \"<string>\"\n  },\n  {\n    \"revision\": \"<integer>\",\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"deserunt_5\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"cpu\"\n      }\n    },\n    \"dtCreated\": \"<dateTime>\",\n    \"userId\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:31.000Z",
+                      "updatedAt": "2026-07-28T02:31:31.000Z",
+                      "uid": "35240-75ad421b-a8f8-4c92-aad1-a6316cb6c150"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-35cb06e6-cb65-4f75-91de-c1b146bd2802"
+                }
+              ],
+              "id": "2f293de6-85cb-4a30-8b2d-d1de7403bc32",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-2f293de6-85cb-4a30-8b2d-d1de7403bc32"
+            },
+            {
+              "name": "Get Deployment",
+              "id": "035b17a8-9028-4e18-9c84-056754c76afd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deployments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deployments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2139a875-b839-44f4-9dfa-11e1fdda8192",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Fetches a single deployment by deployment ID."
+              },
+              "response": [
+                {
+                  "id": "56ca9b69-6ac0-4271-aba5-0b79b7c13406",
+                  "name": "Deployment.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"clusterId\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"requests\"\n  },\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-56ca9b69-6ac0-4271-aba5-0b79b7c13406"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-035b17a8-9028-4e18-9c84-056754c76afd"
+            },
+            {
+              "name": "Delete Deployment",
+              "id": "5be9e982-cc92-4f80-8bac-84ff82504b5a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/deployments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deployments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4988104e-34f7-426c-91d2-041bb2fdad68",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Removes a deployment using its identifier."
+              },
+              "response": [
+                {
+                  "id": "57b50af9-ff45-4d97-a4ab-b670e1cd9674",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-57b50af9-ff45-4d97-a4ab-b670e1cd9674"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-5be9e982-cc92-4f80-8bac-84ff82504b5a"
+            }
+          ],
+          "id": "57bc13b6-d5ef-440b-ade4-ae48777cd533",
+          "createdAt": "2026-07-28T02:31:31.000Z",
+          "updatedAt": "2026-07-28T02:31:31.000Z",
+          "uid": "35240-57bc13b6-d5ef-440b-ade4-ae48777cd533"
+        },
+        {
+          "name": "List Deployments",
+          "id": "5039017e-818f-4150-8641-8db97ee90a1f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/deployments?after=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deployments"
+              ],
+              "query": [
+                {
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Fetches a list of deployments for the authenticated team."
+          },
+          "response": [
+            {
+              "id": "7823a33d-b9bf-45f0-bdf9-e6ced0655daf",
+              "name": "A page of deployments.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deployments?after=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deployments"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"clusterId\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"state\": \"scaling\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"cpu\"\n      },\n      \"dtCreated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"clusterId\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"requests\"\n      },\n      \"dtCreated\": \"<dateTime>\"\n    }\n  ],\n  \"hasMore\": \"<boolean>\",\n  \"nextPage\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-7823a33d-b9bf-45f0-bdf9-e6ced0655daf"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:31.000Z",
+          "updatedAt": "2026-07-28T02:31:31.000Z",
+          "uid": "35240-5039017e-818f-4150-8641-8db97ee90a1f"
+        },
+        {
+          "name": "Create or Update Deployment",
+          "id": "2494cf18-7657-4e2a-8133-6131c3ac6bbf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"ina\": \"<string>\",\n    \"exercitation_a0_\": \"<string>\",\n    \"ipsum__\": \"<string>\",\n    \"Excepteur2\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"memory\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/deployments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deployments"
+              ]
+            },
+            "description": "Submits a new deployment configuration. If the deployment does not exist one is created; otherwise a new run is started against the existing deployment."
+          },
+          "response": [
+            {
+              "id": "f1ff4aae-7e45-4367-b3c3-1ee2d2184508",
+              "name": "Upserted deployment.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"ina\": \"<string>\",\n    \"exercitation_a0_\": \"<string>\",\n    \"ipsum__\": \"<string>\",\n    \"Excepteur2\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"memory\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/deployments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deployments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"clusterId\": \"<string>\",\n  \"endpoint\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"requests\"\n  },\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-f1ff4aae-7e45-4367-b3c3-1ee2d2184508"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:31.000Z",
+          "updatedAt": "2026-07-28T02:31:31.000Z",
+          "uid": "35240-2494cf18-7657-4e2a-8133-6131c3ac6bbf"
+        }
+      ],
+      "id": "662175fe-568a-4eef-a2b0-e48baefc7465",
+      "createdAt": "2026-07-28T02:31:31.000Z",
+      "updatedAt": "2026-07-28T02:31:31.000Z",
+      "uid": "35240-662175fe-568a-4eef-a2b0-e48baefc7465"
+    },
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "deployments",
+              "item": [
+                {
+                  "name": "List Project Deployments",
+                  "id": "03d40553-084b-47b3-a568-d371361d4153",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/deployments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "deployments"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d489a7b3-5e39-4af7-9c4c-ee8aaf8adcc6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fetches a list of deployments scoped to a specific project."
+                  },
+                  "response": [
+                    {
+                      "id": "dd64897e-c32f-4376-96e3-12f51b5fb5b1",
+                      "name": "Deployment list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/deployments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "deployments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"clusterId\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"state\": \"scaling\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"cpu\"\n      },\n      \"dtCreated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"clusterId\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"requests\"\n      },\n      \"dtCreated\": \"<dateTime>\"\n    }\n  ],\n  \"hasMore\": \"<boolean>\",\n  \"nextPage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:31:31.000Z",
+                      "updatedAt": "2026-07-28T02:31:31.000Z",
+                      "uid": "35240-dd64897e-c32f-4376-96e3-12f51b5fb5b1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:31.000Z",
+                  "updatedAt": "2026-07-28T02:31:31.000Z",
+                  "uid": "35240-03d40553-084b-47b3-a568-d371361d4153"
+                }
+              ],
+              "id": "5ad6cb3c-e8b6-4f46-b501-1f79b59e31cb",
+              "createdAt": "2026-07-28T02:31:31.000Z",
+              "updatedAt": "2026-07-28T02:31:31.000Z",
+              "uid": "35240-5ad6cb3c-e8b6-4f46-b501-1f79b59e31cb"
+            }
+          ],
+          "id": "e06623a5-ae15-4bb5-b6b2-4251acbcddda",
+          "createdAt": "2026-07-28T02:31:31.000Z",
+          "updatedAt": "2026-07-28T02:31:31.000Z",
+          "uid": "35240-e06623a5-ae15-4bb5-b6b2-4251acbcddda"
+        }
+      ],
+      "id": "ce738a59-eaf7-48ec-a6ab-ead454aa2916",
+      "createdAt": "2026-07-28T02:31:31.000Z",
+      "updatedAt": "2026-07-28T02:31:31.000Z",
+      "uid": "35240-ce738a59-eaf7-48ec-a6ab-ead454aa2916"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

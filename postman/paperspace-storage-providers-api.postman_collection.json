@@ -1,0 +1,584 @@
+{
+  "info": {
+    "_postman_id": "cdfe3f49-46cd-4804-ad25-b5c0933535c6",
+    "name": "Paperspace Container Registries Activity Storage Providers API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:32:00.000Z",
+    "updatedAt": "2026-07-28T02:32:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cdfe3f49-46cd-4804-ad25-b5c0933535c6"
+  },
+  "item": [
+    {
+      "name": "storage-providers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Storage Provider",
+              "id": "b4a669e5-dc3b-4cf5-9afe-c894f022d91a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "97f7887a-820b-4a07-8219-7c294dcf7f8a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets a storage provider."
+              },
+              "response": [
+                {
+                  "id": "673d006c-3733-4a34-b906-695b3a1e42ae",
+                  "name": "Storage provider.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage-providers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage-providers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:32:01.000Z",
+                  "updatedAt": "2026-07-28T02:32:01.000Z",
+                  "uid": "35240-673d006c-3733-4a34-b906-695b3a1e42ae"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-b4a669e5-dc3b-4cf5-9afe-c894f022d91a"
+            },
+            {
+              "name": "Update Storage Provider",
+              "id": "ee168834-feb6-4520-926a-f8d57824e13e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f67cc54c-713f-461c-a6da-11b0c7d7938a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Updates a storage provider."
+              },
+              "response": [
+                {
+                  "id": "2460a6d2-0893-45f8-a5e9-a8f78465f6ae",
+                  "name": "Updated provider.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/storage-providers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage-providers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:32:01.000Z",
+                  "updatedAt": "2026-07-28T02:32:01.000Z",
+                  "uid": "35240-2460a6d2-0893-45f8-a5e9-a8f78465f6ae"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-ee168834-feb6-4520-926a-f8d57824e13e"
+            },
+            {
+              "name": "Delete Storage Provider",
+              "id": "f5c75c54-e814-4077-8cd1-27a3b0d1d1d1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "054d6110-be36-4807-be43-48151fc089e5",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a storage provider."
+              },
+              "response": [
+                {
+                  "id": "734058b0-bccb-4947-b915-a19953a81a82",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage-providers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage-providers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:32:01.000Z",
+                  "updatedAt": "2026-07-28T02:32:01.000Z",
+                  "uid": "35240-734058b0-bccb-4947-b915-a19953a81a82"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-f5c75c54-e814-4077-8cd1-27a3b0d1d1d1"
+            }
+          ],
+          "id": "c7a3e656-950a-4579-8e40-081cad63e1f8",
+          "createdAt": "2026-07-28T02:32:01.000Z",
+          "updatedAt": "2026-07-28T02:32:01.000Z",
+          "uid": "35240-c7a3e656-950a-4579-8e40-081cad63e1f8"
+        },
+        {
+          "name": "utilization",
+          "item": [
+            {
+              "name": "Get Storage Utilization",
+              "id": "deb81cc7-2317-4e13-acd2-516d2889b011",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers/utilization",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers",
+                    "utilization"
+                  ]
+                },
+                "description": "Retrieves team storage usage breakdown across datasets, models, notebooks, and shared storage."
+              },
+              "response": [
+                {
+                  "id": "e111ebf0-c4c0-4204-a68e-47eef1873b32",
+                  "name": "Utilization breakdown.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/storage-providers/utilization",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "storage-providers",
+                        "utilization"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"teamId\": \"<string>\",\n  \"datasets\": \"<integer>\",\n  \"models\": \"<integer>\",\n  \"notebooks\": \"<integer>\",\n  \"sharedStorage\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:32:01.000Z",
+                  "updatedAt": "2026-07-28T02:32:01.000Z",
+                  "uid": "35240-e111ebf0-c4c0-4204-a68e-47eef1873b32"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-deb81cc7-2317-4e13-acd2-516d2889b011"
+            }
+          ],
+          "id": "01aa043c-8a8c-4371-b506-ed067f61905b",
+          "createdAt": "2026-07-28T02:32:01.000Z",
+          "updatedAt": "2026-07-28T02:32:01.000Z",
+          "uid": "35240-01aa043c-8a8c-4371-b506-ed067f61905b"
+        },
+        {
+          "name": "List Storage Providers",
+          "id": "8370526c-970e-482b-a5e9-9ff6fb8834c1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storage-providers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage-providers"
+              ]
+            },
+            "description": "Lists external storage providers configured for the team."
+          },
+          "response": [
+            {
+              "id": "85e1aa8d-5c6a-4432-b163-993f628e530e",
+              "name": "Provider list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"azure-blob\",\n    \"bucket\": \"<string>\",\n    \"region\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"s3\",\n    \"bucket\": \"<string>\",\n    \"region\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-85e1aa8d-5c6a-4432-b163-993f628e530e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:32:01.000Z",
+          "updatedAt": "2026-07-28T02:32:01.000Z",
+          "uid": "35240-8370526c-970e-482b-a5e9-9ff6fb8834c1"
+        },
+        {
+          "name": "Create Storage Provider",
+          "id": "499fe184-0c82-43e4-adc5-3115973316d6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/storage-providers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage-providers"
+              ]
+            },
+            "description": "Creates a new storage provider configuration."
+          },
+          "response": [
+            {
+              "id": "2cbb8d79-27e6-4e82-a1a2-300a77d33226",
+              "name": "Provider created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/storage-providers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "storage-providers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"azure-blob\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:32:01.000Z",
+              "updatedAt": "2026-07-28T02:32:01.000Z",
+              "uid": "35240-2cbb8d79-27e6-4e82-a1a2-300a77d33226"
+            }
+          ],
+          "createdAt": "2026-07-28T02:32:01.000Z",
+          "updatedAt": "2026-07-28T02:32:01.000Z",
+          "uid": "35240-499fe184-0c82-43e4-adc5-3115973316d6"
+        }
+      ],
+      "id": "592022ca-4056-43b6-8f05-9234920f1df1",
+      "createdAt": "2026-07-28T02:32:01.000Z",
+      "updatedAt": "2026-07-28T02:32:01.000Z",
+      "uid": "35240-592022ca-4056-43b6-8f05-9234920f1df1"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

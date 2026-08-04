@@ -1,0 +1,613 @@
+{
+  "info": {
+    "_postman_id": "626c62fc-ab41-49d7-a8a9-71213068c09d",
+    "name": "Paperspace Container Registries Activity Snapshots API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:55.000Z",
+    "updatedAt": "2026-07-28T02:31:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-626c62fc-ab41-49d7-a8a9-71213068c09d"
+  },
+  "item": [
+    {
+      "name": "snapshots",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "restore",
+              "item": [
+                {
+                  "name": "Restore Snapshot",
+                  "id": "d83ee8cc-ef23-4530-a05e-ace3c1af4d9f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:id/restore",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":id",
+                        "restore"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe8db4b2-67b6-4c79-98c4-8278157165bb",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Restores a machine to a previous snapshot state."
+                  },
+                  "response": [
+                    {
+                      "id": "2c4a02ed-500e-4caa-b22a-9f9a42872d16",
+                      "name": "Restore initiated.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/snapshots/:id/restore",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "snapshots",
+                            ":id",
+                            "restore"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:31:56.000Z",
+                      "updatedAt": "2026-07-28T02:31:56.000Z",
+                      "uid": "35240-2c4a02ed-500e-4caa-b22a-9f9a42872d16"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:56.000Z",
+                  "updatedAt": "2026-07-28T02:31:56.000Z",
+                  "uid": "35240-d83ee8cc-ef23-4530-a05e-ace3c1af4d9f"
+                }
+              ],
+              "id": "b3b9e944-8cac-4848-86f6-2b81704e2d8e",
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-b3b9e944-8cac-4848-86f6-2b81704e2d8e"
+            },
+            {
+              "name": "Get Snapshot",
+              "id": "7a552ba3-a7b3-40ab-acae-b08b800eddcb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "50ae2747-1573-49a2-9472-16770f0ca0f9",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieves a single snapshot by its identifier."
+              },
+              "response": [
+                {
+                  "id": "2c0062d0-cf68-4166-8aac-5e19b0b647f4",
+                  "name": "Snapshot.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\",\n  \"storageSize\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:56.000Z",
+                  "updatedAt": "2026-07-28T02:31:56.000Z",
+                  "uid": "35240-2c0062d0-cf68-4166-8aac-5e19b0b647f4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-7a552ba3-a7b3-40ab-acae-b08b800eddcb"
+            },
+            {
+              "name": "Update Snapshot",
+              "id": "b5509ee8-9bb7-4ff3-9049-686bbde2cc5a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3813e8f2-68e4-49bd-9fd8-3517b8d2364a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Modifies snapshot details such as the name."
+              },
+              "response": [
+                {
+                  "id": "22b76954-91d7-4b3c-aec1-c2fd8ccb808b",
+                  "name": "Updated snapshot.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\",\n  \"storageSize\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:56.000Z",
+                  "updatedAt": "2026-07-28T02:31:56.000Z",
+                  "uid": "35240-22b76954-91d7-4b3c-aec1-c2fd8ccb808b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-b5509ee8-9bb7-4ff3-9049-686bbde2cc5a"
+            },
+            {
+              "name": "Delete Snapshot",
+              "id": "50750562-4b1e-4374-aaad-c6218381697b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "73f42a77-3637-4206-b4c9-0c98d0fbf252",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Removes a snapshot from a machine."
+              },
+              "response": [
+                {
+                  "id": "f390e568-3575-42fe-a9a1-70d5d4aa2306",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:56.000Z",
+                  "updatedAt": "2026-07-28T02:31:56.000Z",
+                  "uid": "35240-f390e568-3575-42fe-a9a1-70d5d4aa2306"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-50750562-4b1e-4374-aaad-c6218381697b"
+            }
+          ],
+          "id": "8b596977-d165-4cee-a2b4-3b7368ed84d4",
+          "createdAt": "2026-07-28T02:31:56.000Z",
+          "updatedAt": "2026-07-28T02:31:56.000Z",
+          "uid": "35240-8b596977-d165-4cee-a2b4-3b7368ed84d4"
+        },
+        {
+          "name": "List Snapshots",
+          "id": "68dad97b-5862-4714-9325-83b82ba52d4e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/snapshots?machineId=<string>&after=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "snapshots"
+              ],
+              "query": [
+                {
+                  "key": "machineId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves all snapshots with filtering and pagination options."
+          },
+          "response": [
+            {
+              "id": "10f055e0-b6f7-4723-a218-c17b03f8384a",
+              "name": "Snapshot list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots?machineId=<string>&after=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots"
+                  ],
+                  "query": [
+                    {
+                      "key": "machineId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"note\": \"<string>\",\n    \"storageSize\": \"<integer>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"note\": \"<string>\",\n    \"storageSize\": \"<integer>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-10f055e0-b6f7-4723-a218-c17b03f8384a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:56.000Z",
+          "updatedAt": "2026-07-28T02:31:56.000Z",
+          "uid": "35240-68dad97b-5862-4714-9325-83b82ba52d4e"
+        },
+        {
+          "name": "Create Snapshot",
+          "id": "3f22312a-53fd-4e26-bc6f-268e05b30e34",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/snapshots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "snapshots"
+              ]
+            },
+            "description": "Creates a new snapshot for a specified machine."
+          },
+          "response": [
+            {
+              "id": "0c5c6a4c-6bdc-4497-b6c9-5731645d2d12",
+              "name": "Snapshot created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\",\n  \"storageSize\": \"<integer>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:56.000Z",
+              "updatedAt": "2026-07-28T02:31:56.000Z",
+              "uid": "35240-0c5c6a4c-6bdc-4497-b6c9-5731645d2d12"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:56.000Z",
+          "updatedAt": "2026-07-28T02:31:56.000Z",
+          "uid": "35240-3f22312a-53fd-4e26-bc6f-268e05b30e34"
+        }
+      ],
+      "id": "7fd5455a-d24c-4798-85fe-16eee74478ef",
+      "createdAt": "2026-07-28T02:31:56.000Z",
+      "updatedAt": "2026-07-28T02:31:56.000Z",
+      "uid": "35240-7fd5455a-d24c-4798-85fe-16eee74478ef"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

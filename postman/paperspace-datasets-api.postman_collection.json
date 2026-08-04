@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "c23f034b-656f-4e5b-94c4-15d314ff1853",
+    "name": "Paperspace Container Registries Activity Datasets API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:33.000Z",
+    "updatedAt": "2026-07-28T02:31:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c23f034b-656f-4e5b-94c4-15d314ff1853"
+  },
+  "item": [
+    {
+      "name": "datasets",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Dataset",
+              "id": "b829aaf8-ae58-4131-a556-132f4ae553c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "006725bd-ce86-4f06-8ca4-16c3b2b03519",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets a dataset by ID."
+              },
+              "response": [
+                {
+                  "id": "45a8b6d1-1763-4455-a480-80096055b8d4",
+                  "name": "Dataset.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"storageProviderId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:33.000Z",
+                  "updatedAt": "2026-07-28T02:31:33.000Z",
+                  "uid": "35240-45a8b6d1-1763-4455-a480-80096055b8d4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:33.000Z",
+              "updatedAt": "2026-07-28T02:31:33.000Z",
+              "uid": "35240-b829aaf8-ae58-4131-a556-132f4ae553c3"
+            },
+            {
+              "name": "Update Dataset",
+              "id": "3f3c3cb0-5f4f-4e12-bb4a-06276e730625",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3ff418e5-ee57-43d9-8f6d-7435d5672919",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Updates a dataset's metadata."
+              },
+              "response": [
+                {
+                  "id": "52c2606e-b733-455c-bd37-e26312117877",
+                  "name": "Updated dataset.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"storageProviderId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:31:33.000Z",
+                  "updatedAt": "2026-07-28T02:31:33.000Z",
+                  "uid": "35240-52c2606e-b733-455c-bd37-e26312117877"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:33.000Z",
+              "updatedAt": "2026-07-28T02:31:33.000Z",
+              "uid": "35240-3f3c3cb0-5f4f-4e12-bb4a-06276e730625"
+            },
+            {
+              "name": "Delete Dataset",
+              "id": "0857f2be-9d13-4d5e-99c2-e9ebb3101e0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "632d6bc3-5741-46a5-9b0b-67f212e90b71",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a dataset and its versions."
+              },
+              "response": [
+                {
+                  "id": "9802f5cf-cad1-4887-b263-ca989b7682b7",
+                  "name": "Deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:31:33.000Z",
+                  "updatedAt": "2026-07-28T02:31:33.000Z",
+                  "uid": "35240-9802f5cf-cad1-4887-b263-ca989b7682b7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:33.000Z",
+              "updatedAt": "2026-07-28T02:31:33.000Z",
+              "uid": "35240-0857f2be-9d13-4d5e-99c2-e9ebb3101e0c"
+            }
+          ],
+          "id": "76837eb3-37b6-470d-9a26-ae89ebe7647a",
+          "createdAt": "2026-07-28T02:31:33.000Z",
+          "updatedAt": "2026-07-28T02:31:33.000Z",
+          "uid": "35240-76837eb3-37b6-470d-9a26-ae89ebe7647a"
+        },
+        {
+          "name": "List Datasets",
+          "id": "167cd238-12b2-478c-b7f2-8362fe28e6b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/datasets?after=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "datasets"
+              ],
+              "query": [
+                {
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Lists datasets available to the team."
+          },
+          "response": [
+            {
+              "id": "47384186-e71c-4182-b1c9-e47f0bc8b1e1",
+              "name": "Dataset list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets?after=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"storageProviderId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"teamId\": \"<string>\",\n    \"storageProviderId\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:33.000Z",
+              "updatedAt": "2026-07-28T02:31:33.000Z",
+              "uid": "35240-47384186-e71c-4182-b1c9-e47f0bc8b1e1"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:33.000Z",
+          "updatedAt": "2026-07-28T02:31:33.000Z",
+          "uid": "35240-167cd238-12b2-478c-b7f2-8362fe28e6b5"
+        },
+        {
+          "name": "Create Dataset",
+          "id": "dbd072da-9c5c-494a-9f86-0e506d2b6773",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"storageProviderId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/datasets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "datasets"
+              ]
+            },
+            "description": "Creates a new dataset."
+          },
+          "response": [
+            {
+              "id": "9e62b052-52d2-4d01-9a04-172a5496fd1d",
+              "name": "Dataset created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"storageProviderId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/datasets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"storageProviderId\": \"<string>\",\n  \"dtCreated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:31:33.000Z",
+              "updatedAt": "2026-07-28T02:31:33.000Z",
+              "uid": "35240-9e62b052-52d2-4d01-9a04-172a5496fd1d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:33.000Z",
+          "updatedAt": "2026-07-28T02:31:33.000Z",
+          "uid": "35240-dbd072da-9c5c-494a-9f86-0e506d2b6773"
+        }
+      ],
+      "id": "6439682a-dd25-4270-8bb7-82258e7c2a93",
+      "createdAt": "2026-07-28T02:31:33.000Z",
+      "updatedAt": "2026-07-28T02:31:33.000Z",
+      "uid": "35240-6439682a-dd25-4270-8bb7-82258e7c2a93"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

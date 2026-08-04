@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "651ff15b-c704-42dc-a9a5-1cd86cc8d0f8",
+    "name": "Paperspace Container Registries Activity Machine Types API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:42.000Z",
+    "updatedAt": "2026-07-28T02:31:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-651ff15b-c704-42dc-a9a5-1cd86cc8d0f8"
+  },
+  "item": [
+    {
+      "name": "machine-availability",
+      "item": [
+        {
+          "name": "Get Machine Availability",
+          "id": "6f7f2544-0a33-49b6-9d2f-ec79b19643be",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/machine-availability?machineType=<string>&region=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "machine-availability"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "machineType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "region",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Gets the machine availability for a given region and machine type."
+          },
+          "response": [
+            {
+              "id": "05b10340-9ce9-41a7-9018-ebad4d725340",
+              "name": "Availability response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/machine-availability?machineType=<string>&region=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "machine-availability"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "machineType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"available\": \"<boolean>\",\n  \"machineType\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:31:43.000Z",
+              "updatedAt": "2026-07-28T02:31:43.000Z",
+              "uid": "35240-05b10340-9ce9-41a7-9018-ebad4d725340"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:43.000Z",
+          "updatedAt": "2026-07-28T02:31:43.000Z",
+          "uid": "35240-6f7f2544-0a33-49b6-9d2f-ec79b19643be"
+        }
+      ],
+      "id": "9173b431-1d98-48c9-8c57-c7f583002471",
+      "createdAt": "2026-07-28T02:31:43.000Z",
+      "updatedAt": "2026-07-28T02:31:43.000Z",
+      "uid": "35240-9173b431-1d98-48c9-8c57-c7f583002471"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

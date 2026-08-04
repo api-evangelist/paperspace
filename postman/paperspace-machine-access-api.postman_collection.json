@@ -1,0 +1,462 @@
+{
+  "info": {
+    "_postman_id": "d31e4c2a-5f8c-44ee-a440-eeb8942efe4e",
+    "name": "Paperspace Container Registries Activity Machine Access API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:40.000Z",
+    "updatedAt": "2026-07-28T02:31:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d31e4c2a-5f8c-44ee-a440-eeb8942efe4e"
+  },
+  "item": [
+    {
+      "name": "machines",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "accessors",
+              "item": [
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "Get Machine Accessor",
+                      "id": "e694f83e-b6fa-43a2-a062-9d3858ef0047",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/machines/:id/accessors/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "machines",
+                            ":id",
+                            "accessors",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8b54db5d-082c-44b8-9a31-6b43eb380b0e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "8db807f0-ff44-40b2-9cf7-751c1e2c6496",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieves accessor information for a specific user."
+                      },
+                      "response": [
+                        {
+                          "id": "fbdc5705-9fa8-4ce9-b1e5-61f0f101964a",
+                          "name": "Accessor.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/machines/:id/accessors/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "machines",
+                                ":id",
+                                "accessors",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"access\": \"user\"\n}",
+                          "createdAt": "2026-07-28T02:31:41.000Z",
+                          "updatedAt": "2026-07-28T02:31:41.000Z",
+                          "uid": "35240-fbdc5705-9fa8-4ce9-b1e5-61f0f101964a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:41.000Z",
+                      "updatedAt": "2026-07-28T02:31:41.000Z",
+                      "uid": "35240-e694f83e-b6fa-43a2-a062-9d3858ef0047"
+                    },
+                    {
+                      "name": "Revoke Machine Access",
+                      "id": "91eb2e4d-f841-4d4e-9c6a-11b15fe64f19",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/machines/:id/accessors/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "machines",
+                            ":id",
+                            "accessors",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "19d8d923-9436-45b9-877f-81aaf147a52b",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "69067620-99cf-4b48-aa18-47f01721b151",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Revokes a user's machine access."
+                      },
+                      "response": [
+                        {
+                          "id": "2532d020-0074-43d1-842f-1e16f24003fb",
+                          "name": "Access revoked.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/machines/:id/accessors/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "machines",
+                                ":id",
+                                "accessors",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:31:41.000Z",
+                          "updatedAt": "2026-07-28T02:31:41.000Z",
+                          "uid": "35240-2532d020-0074-43d1-842f-1e16f24003fb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:31:41.000Z",
+                      "updatedAt": "2026-07-28T02:31:41.000Z",
+                      "uid": "35240-91eb2e4d-f841-4d4e-9c6a-11b15fe64f19"
+                    }
+                  ],
+                  "id": "5f583c22-7e52-460a-995f-5da5ca475150",
+                  "createdAt": "2026-07-28T02:31:41.000Z",
+                  "updatedAt": "2026-07-28T02:31:41.000Z",
+                  "uid": "35240-5f583c22-7e52-460a-995f-5da5ca475150"
+                },
+                {
+                  "name": "List Machine Accessors",
+                  "id": "c6eafadd-8623-4b7b-a818-d7836f0cfb75",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/machines/:id/accessors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "machines",
+                        ":id",
+                        "accessors"
+                      ],
+                      "variable": [
+                        {
+                          "id": "afa46a38-6872-4d97-9093-f3614d62d388",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists team members with explicit access to the machine."
+                  },
+                  "response": [
+                    {
+                      "id": "77cf0aa9-c35c-415b-b3df-a78d9435a560",
+                      "name": "Accessor list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/machines/:id/accessors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "machines",
+                            ":id",
+                            "accessors"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"access\": \"admin\"\n  },\n  {\n    \"userId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"machineId\": \"<string>\",\n    \"access\": \"user\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:31:41.000Z",
+                      "updatedAt": "2026-07-28T02:31:41.000Z",
+                      "uid": "35240-77cf0aa9-c35c-415b-b3df-a78d9435a560"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:41.000Z",
+                  "updatedAt": "2026-07-28T02:31:41.000Z",
+                  "uid": "35240-c6eafadd-8623-4b7b-a818-d7836f0cfb75"
+                },
+                {
+                  "name": "Grant Machine Access",
+                  "id": "11f28687-e9bc-4855-9233-2e00d65455f3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"userId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/machines/:id/accessors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "machines",
+                        ":id",
+                        "accessors"
+                      ],
+                      "variable": [
+                        {
+                          "id": "24ac8ec7-3f1c-4df0-8a90-d9ce3e68db02",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Grants machine access to a team member."
+                  },
+                  "response": [
+                    {
+                      "id": "53f96bd7-fdcb-4695-b9e3-48f5458acb46",
+                      "name": "Access granted.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/machines/:id/accessors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "machines",
+                            ":id",
+                            "accessors"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"machineId\": \"<string>\",\n  \"access\": \"user\"\n}",
+                      "createdAt": "2026-07-28T02:31:41.000Z",
+                      "updatedAt": "2026-07-28T02:31:41.000Z",
+                      "uid": "35240-53f96bd7-fdcb-4695-b9e3-48f5458acb46"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:31:41.000Z",
+                  "updatedAt": "2026-07-28T02:31:41.000Z",
+                  "uid": "35240-11f28687-e9bc-4855-9233-2e00d65455f3"
+                }
+              ],
+              "id": "36d9412a-25f5-4d1d-8288-0954150c6dea",
+              "createdAt": "2026-07-28T02:31:41.000Z",
+              "updatedAt": "2026-07-28T02:31:41.000Z",
+              "uid": "35240-36d9412a-25f5-4d1d-8288-0954150c6dea"
+            }
+          ],
+          "id": "ceb9e758-14d2-43eb-8ae7-856c5863f317",
+          "createdAt": "2026-07-28T02:31:41.000Z",
+          "updatedAt": "2026-07-28T02:31:41.000Z",
+          "uid": "35240-ceb9e758-14d2-43eb-8ae7-856c5863f317"
+        }
+      ],
+      "id": "bd72688b-fc10-4da0-a910-ba78e9d70889",
+      "createdAt": "2026-07-28T02:31:41.000Z",
+      "updatedAt": "2026-07-28T02:31:41.000Z",
+      "uid": "35240-bd72688b-fc10-4da0-a910-ba78e9d70889"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

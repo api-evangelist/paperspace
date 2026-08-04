@@ -1,0 +1,409 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Storage API
+  version: v1
+  description: |
+    Paperspace storage primitives — shared drives, snapshots, and external
+    storage providers used by datasets, models, and notebooks. Authenticate
+    with a team-scoped API key as `Authorization: Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Shared Drives
+- name: Snapshots
+- name: Storage Providers
+paths:
+  /shared-drives:
+    get:
+      tags: [Shared Drives]
+      operationId: listSharedDrives
+      summary: List Shared Drives
+      description: Fetches a list of shared drives.
+      responses:
+        '200':
+          description: Shared drive list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SharedDrive'
+    post:
+      tags: [Shared Drives]
+      operationId: createSharedDrive
+      summary: Create Shared Drive
+      description: Creates a new shared drive for use in a private network.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharedDriveCreate'
+      responses:
+        '201':
+          description: Drive created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedDrive'
+  /shared-drives/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Shared Drives]
+      operationId: getSharedDrive
+      summary: Get Shared Drive
+      description: Fetches a single shared drive by ID.
+      responses:
+        '200':
+          description: Shared drive.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedDrive'
+    put:
+      tags: [Shared Drives]
+      operationId: updateSharedDrive
+      summary: Update Shared Drive
+      description: Updates a single shared drive by ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                size:
+                  type: integer
+      responses:
+        '200':
+          description: Updated drive.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedDrive'
+    delete:
+      tags: [Shared Drives]
+      operationId: deleteSharedDrive
+      summary: Delete Shared Drive
+      description: Deletes a single shared drive by ID.
+      responses:
+        '204':
+          description: Deleted.
+  /snapshots:
+    get:
+      tags: [Snapshots]
+      operationId: listSnapshots
+      summary: List Snapshots
+      description: Retrieves all snapshots with filtering and pagination options.
+      parameters:
+      - in: query
+        name: machineId
+        schema:
+          type: string
+      - in: query
+        name: after
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Snapshot list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Snapshot'
+    post:
+      tags: [Snapshots]
+      operationId: createSnapshot
+      summary: Create Snapshot
+      description: Creates a new snapshot for a specified machine.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [machineId, name]
+              properties:
+                machineId:
+                  type: string
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '201':
+          description: Snapshot created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /snapshots/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Snapshots]
+      operationId: getSnapshot
+      summary: Get Snapshot
+      description: Retrieves a single snapshot by its identifier.
+      responses:
+        '200':
+          description: Snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+    put:
+      tags: [Snapshots]
+      operationId: updateSnapshot
+      summary: Update Snapshot
+      description: Modifies snapshot details such as the name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '200':
+          description: Updated snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+    delete:
+      tags: [Snapshots]
+      operationId: deleteSnapshot
+      summary: Delete Snapshot
+      description: Removes a snapshot from a machine.
+      responses:
+        '204':
+          description: Deleted.
+  /snapshots/{id}/restore:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    post:
+      tags: [Snapshots]
+      operationId: restoreSnapshot
+      summary: Restore Snapshot
+      description: Restores a machine to a previous snapshot state.
+      responses:
+        '200':
+          description: Restore initiated.
+  /storage-providers:
+    get:
+      tags: [Storage Providers]
+      operationId: listStorageProviders
+      summary: List Storage Providers
+      description: Lists external storage providers configured for the team.
+      responses:
+        '200':
+          description: Provider list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StorageProvider'
+    post:
+      tags: [Storage Providers]
+      operationId: createStorageProvider
+      summary: Create Storage Provider
+      description: Creates a new storage provider configuration.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageProviderCreate'
+      responses:
+        '201':
+          description: Provider created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+  /storage-providers/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Storage Providers]
+      operationId: getStorageProvider
+      summary: Get Storage Provider
+      description: Gets a storage provider.
+      responses:
+        '200':
+          description: Storage provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+    put:
+      tags: [Storage Providers]
+      operationId: updateStorageProvider
+      summary: Update Storage Provider
+      description: Updates a storage provider.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageProviderCreate'
+      responses:
+        '200':
+          description: Updated provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageProvider'
+    delete:
+      tags: [Storage Providers]
+      operationId: deleteStorageProvider
+      summary: Delete Storage Provider
+      description: Deletes a storage provider.
+      responses:
+        '204':
+          description: Deleted.
+  /storage-providers/utilization:
+    get:
+      tags: [Storage Providers]
+      operationId: getStorageUtilization
+      summary: Get Storage Utilization
+      description: Retrieves team storage usage breakdown across datasets, models, notebooks, and shared storage.
+      responses:
+        '200':
+          description: Utilization breakdown.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageUtilization'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  schemas:
+    SharedDrive:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        size:
+          type: integer
+        region:
+          type: string
+        privateNetworkId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    SharedDriveCreate:
+      type: object
+      required: [name, size, region, privateNetworkId]
+      properties:
+        name:
+          type: string
+        size:
+          type: integer
+        region:
+          type: string
+        privateNetworkId:
+          type: string
+    Snapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        machineId:
+          type: string
+        name:
+          type: string
+        note:
+          type: string
+        storageSize:
+          type: integer
+        dtCreated:
+          type: string
+          format: date-time
+    StorageProvider:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum: [s3, gcs, azure-blob]
+        bucket:
+          type: string
+        region:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    StorageProviderCreate:
+      type: object
+      required: [name, type]
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum: [s3, gcs, azure-blob]
+        bucket:
+          type: string
+        region:
+          type: string
+        accessKey:
+          type: string
+        secretKey:
+          type: string
+    StorageUtilization:
+      type: object
+      properties:
+        teamId:
+          type: string
+        datasets:
+          type: integer
+        models:
+          type: integer
+        notebooks:
+          type: integer
+        sharedStorage:
+          type: integer

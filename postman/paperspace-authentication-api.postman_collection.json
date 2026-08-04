@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "bbbbe3a2-026c-495d-8f7d-43c1444bc051",
+    "name": "Paperspace Container Registries Activity Authentication API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:36.000Z",
+    "updatedAt": "2026-07-28T02:31:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bbbbe3a2-026c-495d-8f7d-43c1444bc051"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "session",
+          "item": [
+            {
+              "name": "Get Session",
+              "id": "b2cbb1f6-08a1-4053-8e53-1fd1ec3604e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auth/session",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "session"
+                  ]
+                },
+                "description": "Gets the current session. Returns null when no user is logged in."
+              },
+              "response": [
+                {
+                  "id": "50a4e5d9-d277-459f-9d44-f5fbf0e34242",
+                  "name": "Current session.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"defaultProduct\": \"<string>\",\n    \"theme\": \"<string>\"\n  },\n  \"team\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"namespace\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:31:37.000Z",
+                  "updatedAt": "2026-07-28T02:31:37.000Z",
+                  "uid": "35240-50a4e5d9-d277-459f-9d44-f5fbf0e34242"
+                }
+              ],
+              "createdAt": "2026-07-28T02:31:37.000Z",
+              "updatedAt": "2026-07-28T02:31:37.000Z",
+              "uid": "35240-b2cbb1f6-08a1-4053-8e53-1fd1ec3604e3"
+            }
+          ],
+          "id": "b3a5153c-3730-4d6d-bf06-33f79a13e8db",
+          "createdAt": "2026-07-28T02:31:37.000Z",
+          "updatedAt": "2026-07-28T02:31:37.000Z",
+          "uid": "35240-b3a5153c-3730-4d6d-bf06-33f79a13e8db"
+        }
+      ],
+      "id": "725b1348-0428-4347-a2b5-972fff01b944",
+      "createdAt": "2026-07-28T02:31:37.000Z",
+      "updatedAt": "2026-07-28T02:31:37.000Z",
+      "uid": "35240-725b1348-0428-4347-a2b5-972fff01b944"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

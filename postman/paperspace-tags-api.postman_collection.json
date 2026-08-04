@@ -1,0 +1,342 @@
+{
+  "info": {
+    "_postman_id": "4cbf80ef-1250-4c9c-aa7b-7710a967d8b4",
+    "name": "Paperspace Container Registries Activity Tags API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:32:01.000Z",
+    "updatedAt": "2026-07-28T02:32:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4cbf80ef-1250-4c9c-aa7b-7710a967d8b4"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "tags",
+              "item": [
+                {
+                  "name": "List Project Tags",
+                  "id": "9952a156-244f-4617-b460-ac2588408a17",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "804ccf5a-0af0-4b60-a55d-e6a617d9c270",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fetches a list of tags for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "26f94953-93b6-44ad-98c3-187c85d59d51",
+                      "name": "Tag list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                      "createdAt": "2026-07-28T02:32:02.000Z",
+                      "updatedAt": "2026-07-28T02:32:02.000Z",
+                      "uid": "35240-26f94953-93b6-44ad-98c3-187c85d59d51"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:02.000Z",
+                  "updatedAt": "2026-07-28T02:32:02.000Z",
+                  "uid": "35240-9952a156-244f-4617-b460-ac2588408a17"
+                },
+                {
+                  "name": "Add Project Tag",
+                  "id": "8bb27883-3ec5-4ed1-aac3-0721f940ed6f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c2bc4c46-9087-4342-96e7-1b9337109385",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Adds a tag to a project."
+                  },
+                  "response": [
+                    {
+                      "id": "5d49f276-36b3-4148-99b8-b05744e8a0b6",
+                      "name": "Tag added.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:32:02.000Z",
+                      "updatedAt": "2026-07-28T02:32:02.000Z",
+                      "uid": "35240-5d49f276-36b3-4148-99b8-b05744e8a0b6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:02.000Z",
+                  "updatedAt": "2026-07-28T02:32:02.000Z",
+                  "uid": "35240-8bb27883-3ec5-4ed1-aac3-0721f940ed6f"
+                },
+                {
+                  "name": "Remove Project Tag",
+                  "id": "5e777b7f-dc90-4f98-bea8-f216ff436d88",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/tags?name=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "tags"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "name",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "775d1137-6038-40c1-9883-43be0f8f0f50",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Removes a tag from a project by name."
+                  },
+                  "response": [
+                    {
+                      "id": "fb9fb5b0-012c-48b7-900f-29c00a11e90b",
+                      "name": "Removed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/tags?name=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "tags"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "name",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:32:02.000Z",
+                      "updatedAt": "2026-07-28T02:32:02.000Z",
+                      "uid": "35240-fb9fb5b0-012c-48b7-900f-29c00a11e90b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:02.000Z",
+                  "updatedAt": "2026-07-28T02:32:02.000Z",
+                  "uid": "35240-5e777b7f-dc90-4f98-bea8-f216ff436d88"
+                }
+              ],
+              "id": "2d3bc959-3335-4c0c-9b87-400ffbd45d7f",
+              "createdAt": "2026-07-28T02:32:02.000Z",
+              "updatedAt": "2026-07-28T02:32:02.000Z",
+              "uid": "35240-2d3bc959-3335-4c0c-9b87-400ffbd45d7f"
+            }
+          ],
+          "id": "ba325a7d-fdbb-4b6c-b78e-e36f05bb70ce",
+          "createdAt": "2026-07-28T02:32:02.000Z",
+          "updatedAt": "2026-07-28T02:32:02.000Z",
+          "uid": "35240-ba325a7d-fdbb-4b6c-b78e-e36f05bb70ce"
+        }
+      ],
+      "id": "6638e1bb-1973-458b-9be8-dcbe78fda3b6",
+      "createdAt": "2026-07-28T02:32:02.000Z",
+      "updatedAt": "2026-07-28T02:32:02.000Z",
+      "uid": "35240-6638e1bb-1973-458b-9be8-dcbe78fda3b6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}

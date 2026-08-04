@@ -1,0 +1,252 @@
+openapi: 3.0.3
+info:
+  title: Paperspace Team and Authentication API
+  version: v1
+  description: |
+    Team-scoped membership, secrets, and session/authentication endpoints for
+    Paperspace. Authenticate with a team-scoped API key as `Authorization:
+    Bearer $API_TOKEN`.
+servers:
+- url: https://api.paperspace.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Authentication
+- name: Team Members
+- name: Team Secrets
+paths:
+  /auth/session:
+    get:
+      tags: [Authentication]
+      operationId: getSession
+      summary: Get Session
+      description: Gets the current session. Returns null when no user is logged in.
+      responses:
+        '200':
+          description: Current session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+  /teams/{teamId}/users:
+    parameters:
+    - in: path
+      name: teamId
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Team Members]
+      operationId: listTeamMembers
+      summary: List Team Members
+      description: Lists team members.
+      responses:
+        '200':
+          description: Team member list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamMember'
+  /teams/{teamId}/users/{userId}:
+    parameters:
+    - in: path
+      name: teamId
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    put:
+      tags: [Team Members]
+      operationId: updateTeamMember
+      summary: Update Team Member
+      description: Modifies a member's admin status within a team.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isAdmin:
+                  type: boolean
+      responses:
+        '200':
+          description: Updated team member.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMember'
+    delete:
+      tags: [Team Members]
+      operationId: removeTeamMember
+      summary: Remove Team Member
+      description: Eliminates a user from team membership.
+      responses:
+        '204':
+          description: Removed.
+  /teams/{id}/secrets:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Team Secrets]
+      operationId: listTeamSecrets
+      summary: List Team Secrets
+      description: Retrieves all secrets associated with a team.
+      responses:
+        '200':
+          description: Secret list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Secret'
+    post:
+      tags: [Team Secrets]
+      operationId: createTeamSecret
+      summary: Create Team Secret
+      description: Establishes a new secret for team use.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecretCreate'
+      responses:
+        '201':
+          description: Secret created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+  /teams/{id}/secrets/{name}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: name
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Team Secrets]
+      operationId: getTeamSecret
+      summary: Get Team Secret
+      description: Obtains a specific secret by its identifier.
+      responses:
+        '200':
+          description: Secret.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+    patch:
+      tags: [Team Secrets]
+      operationId: updateTeamSecret
+      summary: Update Team Secret
+      description: Revises an existing secret's value.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [value]
+              properties:
+                value:
+                  type: string
+      responses:
+        '200':
+          description: Updated secret.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+    delete:
+      tags: [Team Secrets]
+      operationId: deleteTeamSecret
+      summary: Delete Team Secret
+      description: Removes a secret from team storage.
+      responses:
+        '204':
+          description: Deleted.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: api-key
+  schemas:
+    Session:
+      type: object
+      nullable: true
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        team:
+          $ref: '#/components/schemas/Team'
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        defaultProduct:
+          type: string
+        theme:
+          type: string
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+    TeamMember:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+        isAdmin:
+          type: boolean
+        teamId:
+          type: string
+    Secret:
+      type: object
+      properties:
+        name:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
+    SecretCreate:
+      type: object
+      required: [name, value]
+      properties:
+        name:
+          type: string
+        value:
+          type: string

@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "800c43f6-2c5c-4d87-a8da-1ee1879c1650",
+    "name": "Paperspace Container Registries Activity OS Templates API",
+    "description": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:31:43.000Z",
+    "updatedAt": "2026-07-28T02:31:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-800c43f6-2c5c-4d87-a8da-1ee1879c1650"
+  },
+  "item": [
+    {
+      "name": "os-templates",
+      "item": [
+        {
+          "name": "List OS Templates",
+          "id": "9af98970-b2b6-4625-b422-b293ac7cd658",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/os-templates?after=<string>&limit=<integer>&orderBy=<string>&order=asc&name=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "os-templates"
+              ],
+              "query": [
+                {
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Fetches a list of available OS templates with optional filtering and pagination."
+          },
+          "response": [
+            {
+              "id": "caba8187-a347-4bbd-b3db-b5a0e2b78559",
+              "name": "OS template list.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/os-templates?after=<string>&limit=<integer>&orderBy=<string>&order=asc&name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "os-templates"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"os\": \"<string>\",\n    \"defaultUser\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"os\": \"<string>\",\n    \"defaultUser\": \"<string>\",\n    \"dtCreated\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:31:44.000Z",
+              "updatedAt": "2026-07-28T02:31:44.000Z",
+              "uid": "35240-caba8187-a347-4bbd-b3db-b5a0e2b78559"
+            }
+          ],
+          "createdAt": "2026-07-28T02:31:44.000Z",
+          "updatedAt": "2026-07-28T02:31:44.000Z",
+          "uid": "35240-9af98970-b2b6-4625-b422-b293ac7cd658"
+        }
+      ],
+      "id": "cf3260af-1107-4092-bf74-82c9b284bb61",
+      "createdAt": "2026-07-28T02:31:44.000Z",
+      "updatedAt": "2026-07-28T02:31:44.000Z",
+      "uid": "35240-cf3260af-1107-4092-bf74-82c9b284bb61"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paperspace.com/v1"
+    }
+  ]
+}
