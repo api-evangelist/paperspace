@@ -1,25 +1,25 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "83f452ed-2313-41a8-8904-7587913e2fd8",
+      "name": "Storage Providers",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "c7b3d9a9-4e41-4bd8-91f5-498bf93a672f",
+          "name": "List Storage Providers",
           "request": {
-            "name": "List Models",
+            "name": "List Storage Providers",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Lists external storage providers configured for the team.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "storage-providers"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,12 +38,12 @@
           },
           "response": [
             {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
+              "id": "b22a6f9c-edc3-46bc-b460-375ec029db38",
+              "name": "Provider list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "storage-providers"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -76,7 +76,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"gcs\",\n    \"bucket\": \"string\",\n    \"region\": \"string\",\n    \"dtCreated\": \"1974-12-26T10:37:55.217Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"gcs\",\n    \"bucket\": \"string\",\n    \"region\": \"string\",\n    \"dtCreated\": \"1973-04-27T06:45:11.476Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -87,17 +87,17 @@
           }
         },
         {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
+          "id": "1befd6c2-e0db-4d01-a431-9a50013ba621",
+          "name": "Create Storage Provider",
           "request": {
-            "name": "Create Model",
+            "name": "Create Storage Provider",
             "description": {
-              "content": "Registers a new model with the Gradient model registry.",
+              "content": "Creates a new storage provider configuration.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "storage-providers"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -119,7 +119,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,12 +129,12 @@
           },
           "response": [
             {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
+              "id": "f1590645-e31d-4c3c-86b9-5990980000fd",
+              "name": "Provider created.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "storage-providers"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -159,7 +159,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -175,7 +175,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"s3\",\n  \"bucket\": \"string\",\n  \"region\": \"string\",\n  \"dtCreated\": \"1984-10-15T05:03:02.817Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -186,17 +186,17 @@
           }
         },
         {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
+          "id": "38988ee5-ebe2-443f-9ccd-5434079f81d8",
+          "name": "Get Storage Provider",
           "request": {
-            "name": "Get Model",
+            "name": "Get Storage Provider",
             "description": {
-              "content": "Gets a model by ID.",
+              "content": "Gets a storage provider.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "storage-providers",
                 ":id"
               ],
               "host": [
@@ -224,12 +224,12 @@
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "2e46a558-d1ea-4a7c-8d1b-067c5e7582e2",
+              "name": "Storage provider.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "storage-providers",
                     ":id"
                   ],
                   "host": [
@@ -271,7 +271,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"s3\",\n  \"bucket\": \"string\",\n  \"region\": \"string\",\n  \"dtCreated\": \"1984-10-15T05:03:02.817Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,17 +282,134 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "23b38062-c680-450d-b178-33733b41a2f0",
+          "name": "Update Storage Provider",
           "request": {
-            "name": "Delete Model",
+            "name": "Update Storage Provider",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Updates a storage provider.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "storage-providers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8e1c208-d580-4a37-8754-cdce3134cb47",
+              "name": "Updated provider.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage-providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"region\": \"<string>\",\n  \"accessKey\": \"<string>\",\n  \"secretKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"s3\",\n  \"bucket\": \"string\",\n  \"region\": \"string\",\n  \"dtCreated\": \"1984-10-15T05:03:02.817Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74587126-6897-4202-8fd6-5a9aa1c3c051",
+          "name": "Delete Storage Provider",
+          "request": {
+            "name": "Delete Storage Provider",
+            "description": {
+              "content": "Deletes a storage provider.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage-providers",
                 ":id"
               ],
               "host": [
@@ -314,12 +431,12 @@
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
+              "id": "0dc8cff6-8770-4cb5-8f85-fd77053f6700",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "storage-providers",
                     ":id"
                   ],
                   "host": [
@@ -366,6 +483,86 @@
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           }
+        },
+        {
+          "id": "ef65933c-3302-4c79-a652-8635ed2883e2",
+          "name": "Get Storage Utilization",
+          "request": {
+            "name": "Get Storage Utilization",
+            "description": {
+              "content": "Retrieves team storage usage breakdown across datasets, models, notebooks, and shared storage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "storage-providers",
+                "utilization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eb6b548-f45b-4a74-bc07-67b4bc3d524d",
+              "name": "Utilization breakdown.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage-providers",
+                    "utilization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"teamId\": \"string\",\n  \"datasets\": 9726,\n  \"models\": 5342,\n  \"notebooks\": 5266,\n  \"sharedStorage\": 4391\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         }
       ],
       "event": []
@@ -389,8 +586,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "b772f0c3-e2c1-4d17-8ccc-d18e5413ee5b",
+    "name": "Paperspace Container Registries Activity Storage Providers API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

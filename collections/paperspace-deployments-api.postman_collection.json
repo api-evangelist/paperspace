@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "accfc7ff-f7d4-4607-81bf-d583058f216d",
+      "id": "7270bf6e-9d33-4d11-a7ac-b0a77c1a41d0",
       "name": "Deployments",
       "description": {
         "content": "Container-based deployment lifecycle.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "4113ee3d-8a52-40de-82c3-596fb72c7e9f",
+          "id": "46b3bcae-0583-4b98-82d2-e68ede27d927",
           "name": "List Deployments",
           "request": {
             "name": "List Deployments",
@@ -49,7 +49,7 @@
           },
           "response": [
             {
-              "id": "f1da2220-2638-4b84-8a9d-9f5e5fc7e8db",
+              "id": "69aa6686-9f52-4989-9e36-b367357e11b4",
               "name": "A page of deployments.",
               "originalRequest": {
                 "url": {
@@ -96,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 4866,\n      \"state\": \"stopped\",\n      \"autoscaling\": {\n        \"min\": 1504,\n        \"max\": 6670,\n        \"target\": 8187,\n        \"metric\": \"requests\"\n      },\n      \"dtCreated\": \"2011-07-29T23:36:53.157Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 7691,\n      \"state\": \"error\",\n      \"autoscaling\": {\n        \"min\": 6619,\n        \"max\": 2533,\n        \"target\": 3069,\n        \"metric\": \"memory\"\n      },\n      \"dtCreated\": \"1976-10-04T05:04:42.876Z\"\n    }\n  ],\n  \"hasMore\": false,\n  \"nextPage\": \"string\"\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 1388,\n      \"state\": \"error\",\n      \"autoscaling\": {\n        \"min\": 1563,\n        \"max\": 9524,\n        \"target\": 5551,\n        \"metric\": \"cpu\"\n      },\n      \"dtCreated\": \"2021-01-24T09:14:44.737Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 2868,\n      \"state\": \"stopped\",\n      \"autoscaling\": {\n        \"min\": 5107,\n        \"max\": 7800,\n        \"target\": 2280,\n        \"metric\": \"requests\"\n      },\n      \"dtCreated\": \"1985-03-19T08:14:10.973Z\"\n    }\n  ],\n  \"hasMore\": true,\n  \"nextPage\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -107,7 +107,7 @@
           }
         },
         {
-          "id": "9d3e8d68-56bd-4045-83f6-f59132967eaa",
+          "id": "f717d5a8-c954-466f-a0cb-562c1b7533d3",
           "name": "Create or Update Deployment",
           "request": {
             "name": "Create or Update Deployment",
@@ -139,7 +139,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"replicas\": \"<integer>\",\n  \"ports\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"env\": {\n    \"key_0\": \"<string>\"\n  },\n  \"command\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -149,7 +149,7 @@
           },
           "response": [
             {
-              "id": "a1ef740b-bc89-4c68-9862-f4ce0b86ebd1",
+              "id": "2da6591c-7e45-4f81-adbb-43bd0e464a30",
               "name": "Upserted deployment.",
               "originalRequest": {
                 "url": {
@@ -195,7 +195,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2484,\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"1992-07-24T12:52:30.485Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2801,\n  \"state\": \"scaling\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"2006-07-03T11:12:40.022Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -206,7 +206,7 @@
           }
         },
         {
-          "id": "984f65bf-d185-42f2-ad09-1682ffdf8218",
+          "id": "7b31cc1b-ed1c-45f4-8503-4c231727b486",
           "name": "Get Deployment",
           "request": {
             "name": "Get Deployment",
@@ -244,7 +244,7 @@
           },
           "response": [
             {
-              "id": "2c4acf75-0544-40b0-a031-393117a6f527",
+              "id": "b93c32e2-f277-4030-a4c1-84c9514dc837",
               "name": "Deployment.",
               "originalRequest": {
                 "url": {
@@ -291,7 +291,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2484,\n  \"state\": \"ready\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"1992-07-24T12:52:30.485Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"projectId\": \"string\",\n  \"machineType\": \"string\",\n  \"clusterId\": \"string\",\n  \"endpoint\": \"string\",\n  \"replicas\": 2801,\n  \"state\": \"scaling\",\n  \"autoscaling\": {\n    \"min\": \"<integer>\",\n    \"max\": \"<integer>\",\n    \"target\": \"<integer>\",\n    \"metric\": \"<string>\"\n  },\n  \"dtCreated\": \"2006-07-03T11:12:40.022Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -302,7 +302,7 @@
           }
         },
         {
-          "id": "fb512745-5ce1-4aef-9e49-7d22d4b541bc",
+          "id": "b66d8e39-9446-4b74-8382-d15bf9fd4d94",
           "name": "Delete Deployment",
           "request": {
             "name": "Delete Deployment",
@@ -334,7 +334,7 @@
           },
           "response": [
             {
-              "id": "bfeeda58-c77d-4c54-b90f-af79ceecc1fb",
+              "id": "45c0776b-0ce7-4337-88d9-4805a6227e34",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
@@ -388,7 +388,7 @@
           }
         },
         {
-          "id": "4f0d1f97-0503-41ce-89a3-72b57d77eefa",
+          "id": "d1c558fc-4601-45a8-bd40-f448f12554a1",
           "name": "List Deployment Runs",
           "request": {
             "name": "List Deployment Runs",
@@ -427,7 +427,7 @@
           },
           "response": [
             {
-              "id": "757e725d-b9b4-4f50-80d0-752b4a5824c8",
+              "id": "1c52bec5-30f8-4f16-9734-1e96f5ed0225",
               "name": "Run list.",
               "originalRequest": {
                 "url": {
@@ -475,7 +475,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 6304,\n    \"dtStarted\": \"2007-03-09T10:51:47.667Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 5781,\n    \"dtStarted\": \"1970-11-12T22:45:35.884Z\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 6800,\n    \"dtStarted\": \"1962-12-18T16:41:13.271Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"deploymentId\": \"string\",\n    \"state\": \"string\",\n    \"replicas\": 1406,\n    \"dtStarted\": \"1999-05-27T01:56:17.102Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -486,7 +486,7 @@
           }
         },
         {
-          "id": "60b77074-d57d-4621-a009-5659d1391aa6",
+          "id": "30baae1f-bb6a-4486-a468-a45a4e1ff90b",
           "name": "Get Deployment Metrics",
           "request": {
             "name": "Get Deployment Metrics",
@@ -536,7 +536,7 @@
           },
           "response": [
             {
-              "id": "d2c4f4a2-5dee-4416-8109-84474adc05d9",
+              "id": "152527b2-f331-4e03-91f5-e1d9a5c66e46",
               "name": "Metrics response.",
               "originalRequest": {
                 "url": {
@@ -593,7 +593,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"deploymentId\": \"string\",\n  \"series\": [\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"1986-01-03T12:47:43.862Z\",\n          \"v\": 8391.467783835798\n        },\n        {\n          \"t\": \"1982-12-08T16:52:29.010Z\",\n          \"v\": 2307.47729474286\n        }\n      ]\n    },\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"2021-01-20T22:35:58.570Z\",\n          \"v\": 3409.794553281209\n        },\n        {\n          \"t\": \"1962-04-04T14:44:46.198Z\",\n          \"v\": 6494.995879827983\n        }\n      ]\n    }\n  ]\n}",
+              "body": "{\n  \"deploymentId\": \"string\",\n  \"series\": [\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"1999-05-01T21:01:22.745Z\",\n          \"v\": 7389.252397835629\n        },\n        {\n          \"t\": \"2010-07-10T08:36:25.214Z\",\n          \"v\": 6679.2026268312775\n        }\n      ]\n    },\n    {\n      \"metric\": \"string\",\n      \"values\": [\n        {\n          \"t\": \"1997-04-10T07:40:53.038Z\",\n          \"v\": 8594.626882920387\n        },\n        {\n          \"t\": \"1962-09-18T19:22:27.187Z\",\n          \"v\": 2407.6438728150597\n        }\n      ]\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -604,7 +604,7 @@
           }
         },
         {
-          "id": "e3b0e6e5-0ac3-4998-9ddb-63d03209a628",
+          "id": "2bb955ac-74ed-4245-9298-3ff6b8e30fc7",
           "name": "Get Deployment Logs",
           "request": {
             "name": "Get Deployment Logs",
@@ -649,7 +649,7 @@
           },
           "response": [
             {
-              "id": "92a4e393-6b35-43e2-9026-68df29907dc5",
+              "id": "70735513-edd4-45c0-b76b-823beaed6b26",
               "name": "Log stream.",
               "originalRequest": {
                 "url": {
@@ -702,7 +702,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"t\": \"2020-08-18T22:45:32.678Z\",\n    \"stream\": \"stderr\",\n    \"message\": \"string\"\n  },\n  {\n    \"t\": \"1978-12-17T19:29:21.968Z\",\n    \"stream\": \"stdout\",\n    \"message\": \"string\"\n  }\n]",
+              "body": "[\n  {\n    \"t\": \"1957-11-07T23:36:11.938Z\",\n    \"stream\": \"stdout\",\n    \"message\": \"string\"\n  },\n  {\n    \"t\": \"1994-02-22T19:36:25.514Z\",\n    \"stream\": \"stderr\",\n    \"message\": \"string\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -713,7 +713,7 @@
           }
         },
         {
-          "id": "f9387306-b45c-4995-bcff-6eb877a27a7e",
+          "id": "c242469a-28dd-4bf9-be65-929e0b24248f",
           "name": "Get Deployment History",
           "request": {
             "name": "Get Deployment History",
@@ -752,7 +752,7 @@
           },
           "response": [
             {
-              "id": "84f94729-4d71-4b96-ba2f-ae03bdd93fcc",
+              "id": "9987dbc0-e9dc-4c4d-9740-c5851ae60103",
               "name": "History records.",
               "originalRequest": {
                 "url": {
@@ -800,7 +800,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"revision\": 9045,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1980-10-31T12:48:37.099Z\",\n    \"userId\": \"string\"\n  },\n  {\n    \"revision\": 8332,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1977-06-19T15:39:53.330Z\",\n    \"userId\": \"string\"\n  }\n]",
+              "body": "[\n  {\n    \"revision\": 5945,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1954-10-12T20:35:25.345Z\",\n    \"userId\": \"string\"\n  },\n  {\n    \"revision\": 8673,\n    \"spec\": {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"machineType\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"replicas\": \"<integer>\",\n      \"ports\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"env\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"command\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      }\n    },\n    \"dtCreated\": \"1999-10-16T02:13:45.104Z\",\n    \"userId\": \"string\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -811,7 +811,7 @@
           }
         },
         {
-          "id": "8f8cfb2b-3315-4a75-a82d-5d09234af25d",
+          "id": "51b00ada-c325-4ffb-8060-cab07001a3d1",
           "name": "List Project Deployments",
           "request": {
             "name": "List Project Deployments",
@@ -850,7 +850,7 @@
           },
           "response": [
             {
-              "id": "d5dab317-3fb7-44cc-8815-1211d2402ad5",
+              "id": "8389b06a-c153-44dd-8f98-16d50a488c93",
               "name": "Deployment list.",
               "originalRequest": {
                 "url": {
@@ -898,7 +898,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 1239,\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"2019-05-28T11:15:42.092Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 769,\n      \"state\": \"deploying\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"1962-10-13T10:35:55.508Z\"\n    }\n  ],\n  \"hasMore\": false,\n  \"nextPage\": \"string\"\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 4235,\n      \"state\": \"stopped\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"2004-08-11T13:03:14.257Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"image\": \"string\",\n      \"projectId\": \"string\",\n      \"machineType\": \"string\",\n      \"clusterId\": \"string\",\n      \"endpoint\": \"string\",\n      \"replicas\": 2678,\n      \"state\": \"error\",\n      \"autoscaling\": {\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\",\n        \"target\": \"<integer>\",\n        \"metric\": \"<string>\"\n      },\n      \"dtCreated\": \"1990-03-24T10:22:05.708Z\"\n    }\n  ],\n  \"hasMore\": true,\n  \"nextPage\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -930,11 +930,11 @@
     ]
   },
   "info": {
-    "_postman_id": "6229e354-def8-4b7e-888b-b4725fa95f25",
-    "name": "Paperspace Deployments API",
+    "_postman_id": "affadbc6-cc29-444f-b885-3bc6b9ea840d",
+    "name": "Paperspace Container Registries Activity Deployments API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Paperspace Deployments — containers-as-a-service that run user-provided\ncontainer images on Paperspace GPU instances and expose them behind a\nmanaged endpoint. Supports auto-scaling, rolling updates, runs, logs,\nmetrics, and configuration history. Authenticate with a team-scoped API\nkey as `Authorization: Bearer $API_TOKEN`.\n\n\nContact Support:\n Name: Paperspace Support",
+      "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",
       "type": "text/plain"
     }
   }

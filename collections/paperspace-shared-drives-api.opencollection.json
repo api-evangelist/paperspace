@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Activity Container Registries API",
+    "name": "Paperspace Container Registries Activity Shared Drives API",
     "version": "v1"
   },
   "request": {
@@ -13,44 +13,44 @@
   "items": [
     {
       "info": {
-        "name": "Container Registries",
+        "name": "Shared Drives",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Container Registries",
+            "name": "List Shared Drives",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries"
+            "url": "https://api.paperspace.com/v1/shared-drives"
           },
-          "docs": "Lists container registries for the current team."
+          "docs": "Fetches a list of shared drives."
         },
         {
           "info": {
-            "name": "Create Container Registry",
+            "name": "Create Shared Drive",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/container-registries",
+            "url": "https://api.paperspace.com/v1/shared-drives",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Creates a container registry for the current team."
+          "docs": "Creates a new shared drive for use in a private network."
         },
         {
           "info": {
-            "name": "Get Container Registry",
+            "name": "Get Shared Drive",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/shared-drives/:id",
             "params": [
               {
                 "name": "id",
@@ -59,16 +59,16 @@
               }
             ]
           },
-          "docs": "Gets a container registry for the current team."
+          "docs": "Fetches a single shared drive by ID."
         },
         {
           "info": {
-            "name": "Update Container Registry",
+            "name": "Update Shared Drive",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/shared-drives/:id",
             "params": [
               {
                 "name": "id",
@@ -81,16 +81,16 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a container registry for the current team."
+          "docs": "Updates a single shared drive by ID."
         },
         {
           "info": {
-            "name": "Delete Container Registry",
+            "name": "Delete Shared Drive",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/shared-drives/:id",
             "params": [
               {
                 "name": "id",
@@ -99,25 +99,7 @@
               }
             ]
           },
-          "docs": "Deletes a container registry for the current team."
-        },
-        {
-          "info": {
-            "name": "Test Container Registry Connection",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
-            "params": [
-              {
-                "name": "id",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Validates that a container registry can be connected to using the provided credentials."
+          "docs": "Deletes a single shared drive by ID."
         }
       ]
     }

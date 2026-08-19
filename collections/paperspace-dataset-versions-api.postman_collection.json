@@ -1,203 +1,27 @@
 {
   "item": [
     {
-      "id": "73a93349-30de-4220-9ec1-6141fa302b60",
-      "name": "Container Registries",
+      "id": "87856dd2-e440-4bcd-8b7e-7ccda44f4e5c",
+      "name": "Dataset Versions",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "0df45e12-7a7c-446f-821d-ed0c29281c5f",
-          "name": "List Container Registries",
+          "id": "04515049-02e1-43a8-b63e-8a36ba9552cf",
+          "name": "List Dataset Versions",
           "request": {
-            "name": "List Container Registries",
+            "name": "List Dataset Versions",
             "description": {
-              "content": "Lists container registries for the current team.",
+              "content": "Lists versions of a dataset.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c40361e5-4d30-4baa-99fa-65ca62ae4902",
-              "name": "Registry list.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "container-registries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"username\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2010-05-06T02:17:25.017Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"username\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2007-07-22T17:38:07.687Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c5c416d7-a368-44df-a28b-b7f7b1bfcf08",
-          "name": "Create Container Registry",
-          "request": {
-            "name": "Create Container Registry",
-            "description": {
-              "content": "Creates a container registry for the current team.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "container-registries"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e61dacff-df4a-4599-9994-effdcecb5e36",
-              "name": "Registry created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "container-registries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "91cdbbae-c1f8-4fda-be36-b9caaef91607",
-          "name": "Get Container Registry",
-          "request": {
-            "name": "Get Container Registry",
-            "description": {
-              "content": "Gets a container registry for the current team.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "container-registries",
-                ":id"
+                "datasets",
+                ":datasetId",
+                "versions"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -208,7 +32,7 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "datasetId",
                   "description": "(Required) "
                 }
               ]
@@ -224,13 +48,14 @@
           },
           "response": [
             {
-              "id": "ba514b8a-994f-4f43-81cc-fa4c8f4dcbb9",
-              "name": "Container registry.",
+              "id": "a4c09202-66ff-4fd2-a091-6c3924d38fdb",
+              "name": "Dataset version list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
-                    ":id"
+                    "datasets",
+                    ":datasetId",
+                    "versions"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -241,7 +66,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "datasetId",
                       "description": "(Required) "
                     }
                   ]
@@ -271,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
+              "body": "[\n  {\n    \"datasetId\": \"string\",\n    \"version\": \"string\",\n    \"message\": \"string\",\n    \"size\": 4643,\n    \"dtCreated\": \"2016-01-29T16:20:42.480Z\"\n  },\n  {\n    \"datasetId\": \"string\",\n    \"version\": \"string\",\n    \"message\": \"string\",\n    \"size\": 7935,\n    \"dtCreated\": \"1957-03-30T01:26:31.693Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,18 +107,19 @@
           }
         },
         {
-          "id": "d31e469d-6d9c-4963-ac23-875315a4190f",
-          "name": "Update Container Registry",
+          "id": "7f8b923f-a500-4fd3-a3e4-17bb94abdce0",
+          "name": "Create Dataset Version",
           "request": {
-            "name": "Update Container Registry",
+            "name": "Create Dataset Version",
             "description": {
-              "content": "Updates a container registry for the current team.",
+              "content": "Creates a new dataset version.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
-                ":id"
+                "datasets",
+                ":datasetId",
+                "versions"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -304,7 +130,248 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07485d9b-0a4a-4297-9a2e-4fd2588a246f",
+              "name": "Version created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"datasetId\": \"string\",\n  \"version\": \"string\",\n  \"message\": \"string\",\n  \"size\": 8210,\n  \"dtCreated\": \"1959-11-02T23:40:40.007Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20845115-1f46-4936-926e-fd33a0968772",
+          "name": "Get Dataset Version",
+          "request": {
+            "name": "Get Dataset Version",
+            "description": {
+              "content": "Gets a specific dataset version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":datasetId",
+                "versions",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ab30ce7-594b-480c-838c-7b6616b0de97",
+              "name": "Dataset version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId",
+                    "versions",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"datasetId\": \"string\",\n  \"version\": \"string\",\n  \"message\": \"string\",\n  \"size\": 8210,\n  \"dtCreated\": \"1959-11-02T23:40:40.007Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "058880d4-6903-4ef7-b1c8-b0280087d43f",
+          "name": "Update Dataset Version",
+          "request": {
+            "name": "Update Dataset Version",
+            "description": {
+              "content": "Updates the metadata or message of a dataset version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":datasetId",
+                "versions",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
                   "description": "(Required) "
                 }
               ]
@@ -323,7 +390,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "raw": "{\n  \"message\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -333,13 +400,15 @@
           },
           "response": [
             {
-              "id": "cca295f9-a6b1-4fb3-88f1-97d4477a2871",
-              "name": "Updated registry.",
+              "id": "b759acdb-2b5b-4278-b10f-0f03f5e48519",
+              "name": "Updated version.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
-                    ":id"
+                    "datasets",
+                    ":datasetId",
+                    "versions",
+                    ":version"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -350,7 +419,14 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
                       "description": "(Required) "
                     }
                   ]
@@ -372,7 +448,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "raw": "{\n  \"message\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -388,7 +464,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
+              "body": "{\n  \"datasetId\": \"string\",\n  \"version\": \"string\",\n  \"message\": \"string\",\n  \"size\": 8210,\n  \"dtCreated\": \"1959-11-02T23:40:40.007Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -399,18 +475,20 @@
           }
         },
         {
-          "id": "a2f52be8-fed8-4858-b33c-acdc74307ac9",
-          "name": "Delete Container Registry",
+          "id": "8f88fa88-0b3d-48e3-aaad-61696bb0a3d1",
+          "name": "Delete Dataset Version",
           "request": {
-            "name": "Delete Container Registry",
+            "name": "Delete Dataset Version",
             "description": {
-              "content": "Deletes a container registry for the current team.",
+              "content": "Deletes a dataset version.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
-                ":id"
+                "datasets",
+                ":datasetId",
+                "versions",
+                ":version"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -421,7 +499,14 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
                   "description": "(Required) "
                 }
               ]
@@ -431,13 +516,15 @@
           },
           "response": [
             {
-              "id": "262427ef-90df-4bf1-9742-0dd6fe3a5d97",
+              "id": "306e1fc1-9f72-488f-bd47-e9e069b3e5dc",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
-                    ":id"
+                    "datasets",
+                    ":datasetId",
+                    "versions",
+                    ":version"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -448,7 +535,14 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
                       "description": "(Required) "
                     }
                   ]
@@ -483,104 +577,6 @@
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           }
-        },
-        {
-          "id": "7f11b403-7c86-4baa-b402-5be2152e9854",
-          "name": "Test Container Registry Connection",
-          "request": {
-            "name": "Test Container Registry Connection",
-            "description": {
-              "content": "Validates that a container registry can be connected to using the provided credentials.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "container-registries",
-                ":id",
-                "test-connection"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "da0ad94d-bba7-4815-80cc-c82dea5f6e5e",
-              "name": "Connection result.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "container-registries",
-                    ":id",
-                    "test-connection"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
         }
       ],
       "event": []
@@ -604,8 +600,8 @@
     ]
   },
   "info": {
-    "_postman_id": "abd2c03a-f99d-4f03-a562-af1dc6766943",
-    "name": "Paperspace Activity Container Registries API",
+    "_postman_id": "4ccdcd72-f6d0-46d7-a1d9-2df2425c65e5",
+    "name": "Paperspace Container Registries Activity Dataset Versions API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

@@ -1,30 +1,41 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "0f741c1e-1e73-4266-96cd-c60dd4e5e3bc",
+      "name": "Private Networks",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "8ddab487-fd5b-42cd-a09c-c5f3f7db94b9",
+          "name": "List Private Networks",
           "request": {
-            "name": "List Models",
+            "name": "List Private Networks",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Fetches a list of private networks.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "private-networks"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
               "variable": []
             },
             "header": [
@@ -38,17 +49,26 @@
           },
           "response": [
             {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
+              "id": "d7442268-6db1-42af-b272-ac1f55ce7600",
+              "name": "Private network list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "private-networks"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
                   "variable": []
                 },
                 "header": [
@@ -76,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"region\": \"string\",\n    \"cidr\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1968-01-08T02:41:40.643Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"region\": \"string\",\n    \"cidr\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2024-04-27T10:00:48.666Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -87,17 +107,17 @@
           }
         },
         {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
+          "id": "b795a7f4-d3e8-4484-9237-842b288a16ba",
+          "name": "Create Private Network",
           "request": {
-            "name": "Create Model",
+            "name": "Create Private Network",
             "description": {
-              "content": "Registers a new model with the Gradient model registry.",
+              "content": "Creates a new private network in a region.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "private-networks"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -119,7 +139,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,12 +149,12 @@
           },
           "response": [
             {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
+              "id": "bd926296-8c47-4f62-b4b1-cafd93d03f86",
+              "name": "Network created.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "private-networks"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -159,7 +179,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"cidr\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -175,7 +195,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"region\": \"string\",\n  \"cidr\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2018-09-12T22:25:44.722Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -186,17 +206,17 @@
           }
         },
         {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
+          "id": "27b90f9e-edc8-44c6-86cf-05ebce61e67a",
+          "name": "Get Private Network",
           "request": {
-            "name": "Get Model",
+            "name": "Get Private Network",
             "description": {
-              "content": "Gets a model by ID.",
+              "content": "Fetches a single private network by ID.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "private-networks",
                 ":id"
               ],
               "host": [
@@ -224,12 +244,12 @@
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "d84761c0-993f-4ee4-a321-03988c246f0a",
+              "name": "Private network.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "private-networks",
                     ":id"
                   ],
                   "host": [
@@ -271,7 +291,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"region\": \"string\",\n  \"cidr\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2018-09-12T22:25:44.722Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,17 +302,134 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "52376eb8-ff1a-4914-a7ca-d7320474e315",
+          "name": "Update Private Network",
           "request": {
-            "name": "Delete Model",
+            "name": "Update Private Network",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Updates a private network by ID.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "private-networks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eabedb24-a185-452f-8b38-6384c800ed0e",
+              "name": "Updated network.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "private-networks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"region\": \"string\",\n  \"cidr\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2018-09-12T22:25:44.722Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7e62d34-cd4f-43b2-a0c9-7aab9ee916cf",
+          "name": "Delete Private Network",
+          "request": {
+            "name": "Delete Private Network",
+            "description": {
+              "content": "Deletes a private network by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "private-networks",
                 ":id"
               ],
               "host": [
@@ -314,12 +451,12 @@
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
+              "id": "d65fbe2f-9858-42dd-ac18-9dd8d15da31e",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "private-networks",
                     ":id"
                   ],
                   "host": [
@@ -389,8 +526,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "09e9ef46-9151-4db3-88a2-f1f005a271ac",
+    "name": "Paperspace Container Registries Activity Private Networks API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

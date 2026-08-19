@@ -1,25 +1,25 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "949cd579-b8c1-4288-90c4-d2706b812e30",
+      "name": "Custom Templates",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "8ac02961-08cf-43d1-aba1-1b4c23995e35",
+          "name": "List Custom Templates",
           "request": {
-            "name": "List Models",
+            "name": "List Custom Templates",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Fetches a list of custom machine templates.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "custom-templates"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,12 +38,12 @@
           },
           "response": [
             {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
+              "id": "127d38d6-dd51-4a00-b850-2f3e7d511147",
+              "name": "Template list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "custom-templates"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -76,7 +76,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"machineId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1954-08-04T19:19:05.786Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"machineId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1964-02-12T06:57:33.505Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -87,17 +87,17 @@
           }
         },
         {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
+          "id": "89ae4a53-b7d0-47cb-b713-e0e9b77548d1",
+          "name": "Create Custom Template",
           "request": {
-            "name": "Create Model",
+            "name": "Create Custom Template",
             "description": {
-              "content": "Registers a new model with the Gradient model registry.",
+              "content": "Creates a custom template from a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "custom-templates"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -119,7 +119,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+              "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,12 +129,12 @@
           },
           "response": [
             {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
+              "id": "2454c712-a654-4510-88d6-febdd105c68c",
+              "name": "Custom template.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "custom-templates"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -159,7 +159,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -175,7 +175,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"machineId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1962-08-03T21:04:37.122Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -186,17 +186,17 @@
           }
         },
         {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
+          "id": "4ab5453f-1089-419f-8f16-ab02195fd711",
+          "name": "Get Custom Template",
           "request": {
-            "name": "Get Model",
+            "name": "Get Custom Template",
             "description": {
-              "content": "Gets a model by ID.",
+              "content": "Fetches a single template by ID.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "custom-templates",
                 ":id"
               ],
               "host": [
@@ -224,12 +224,12 @@
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "df2e4156-07cf-4cc6-bf3d-1d5e146d0419",
+              "name": "Custom template.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "custom-templates",
                     ":id"
                   ],
                   "host": [
@@ -271,7 +271,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"machineId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1962-08-03T21:04:37.122Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,17 +282,134 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "ef083fb4-af19-4248-a7fb-d5d83923291c",
+          "name": "Update Custom Template",
           "request": {
-            "name": "Delete Model",
+            "name": "Update Custom Template",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Updates a single template by ID.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
+                "custom-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4afd68e5-cbe3-424d-ad07-20e6c02f3f9a",
+              "name": "Updated template.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"machineId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1962-08-03T21:04:37.122Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dc383e1-2e67-40a1-bc6f-2a1188a27621",
+          "name": "Delete Custom Template",
+          "request": {
+            "name": "Delete Custom Template",
+            "description": {
+              "content": "Deletes a custom template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom-templates",
                 ":id"
               ],
               "host": [
@@ -314,12 +431,12 @@
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
+              "id": "35519671-8c41-4110-890b-80573abed944",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
+                    "custom-templates",
                     ":id"
                   ],
                   "host": [
@@ -389,8 +506,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "41be1d62-2f21-4059-857e-42047f5122c5",
+    "name": "Paperspace Container Registries Activity Custom Templates API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

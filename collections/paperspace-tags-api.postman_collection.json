@@ -1,203 +1,27 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "bd1873a1-8cfe-49af-8ab5-e73fdaa20e07",
+      "name": "Tags",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "17d387b8-5c7c-4d38-8831-a14cf443a05f",
+          "name": "List Project Tags",
           "request": {
-            "name": "List Models",
+            "name": "List Project Tags",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Fetches a list of tags for a project.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "models"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
-          "request": {
-            "name": "Create Model",
-            "description": {
-              "content": "Registers a new model with the Gradient model registry.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "models"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "models"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
-          "request": {
-            "name": "Get Model",
-            "description": {
-              "content": "Gets a model by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "models",
-                ":id"
+                "projects",
+                ":id",
+                "tags"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,13 +48,14 @@
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "e293682b-89ef-4f7f-ae8e-5d3ac0cd29ec",
+              "name": "Tag list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "projects",
+                    ":id",
+                    "tags"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -271,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "[\n  \"string\",\n  \"string\"\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,18 +107,19 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "c73d4535-5867-438e-9815-0b18f9727431",
+          "name": "Add Project Tag",
           "request": {
-            "name": "Delete Model",
+            "name": "Add Project Tag",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Adds a tag to a project.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
-                ":id"
+                "projects",
+                ":id",
+                "tags"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -309,23 +135,147 @@
                 }
               ]
             },
-            "method": "DELETE",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
-              "name": "Deleted.",
+              "id": "d036427b-9221-4865-a1d9-1dca11147d3f",
+              "name": "Tag added.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "projects",
+                    ":id",
+                    "tags"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fce71ff-fd45-45ce-a2c3-33f17d49d6bd",
+          "name": "Remove Project Tag",
+          "request": {
+            "name": "Remove Project Tag",
+            "description": {
+              "content": "Removes a tag from a project by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c910828f-54f2-4772-bd40-f526bb64eb7c",
+              "name": "Removed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
                   "variable": [
                     {
                       "disabled": false,
@@ -389,8 +339,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "cc945466-819a-4c70-9129-b88ec0e106b6",
+    "name": "Paperspace Container Registries Activity Tags API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

@@ -1,52 +1,30 @@
 {
   "item": [
     {
-      "id": "9d843535-7463-452b-97ca-f5415a3b3f64",
-      "name": "Machines",
+      "id": "b4e8294c-5630-41e8-afe6-60d5be57cb8c",
+      "name": "Startup Scripts",
       "description": {
-        "content": "Virtual machine lifecycle and metadata.",
+        "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "f7405236-1bc5-4a04-a333-e17a04cf39ba",
-          "name": "List Machines",
+          "id": "cbacf014-6a60-48d5-9acf-667e66df40fd",
+          "name": "List Startup Scripts",
           "request": {
-            "name": "List Machines",
+            "name": "List Startup Scripts",
             "description": {
-              "content": "Fetches a list of machines visible to the caller's team.",
+              "content": "Fetches a list of startup scripts.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines"
+                "startup-scripts"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "after",
-                  "value": "<string>",
-                  "description": "Pagination cursor."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "orderBy",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "order",
-                  "value": "<string>"
-                }
-              ],
+              "query": [],
               "variable": []
             },
             "header": [
@@ -60,34 +38,17 @@
           },
           "response": [
             {
-              "id": "ca210736-f19f-421b-984e-5391d8c8b114",
-              "name": "A page of machines.",
+              "id": "d9a389a6-310a-4376-9fb3-2e699c48a2d8",
+              "name": "Script list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines"
+                    "startup-scripts"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "after",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "orderBy",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "order",
-                      "value": "<string>"
-                    }
-                  ],
+                  "query": [],
                   "variable": []
                 },
                 "header": [
@@ -115,7 +76,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"upgrading\",\n      \"machineType\": \"string\",\n      \"region\": \"string\",\n      \"os\": \"string\",\n      \"cpus\": 9537,\n      \"ram\": 4691,\n      \"gpu\": \"string\",\n      \"storageTotal\": 3564,\n      \"publicIp\": \"string\",\n      \"privateIp\": \"string\",\n      \"autoShutdownEnabled\": false,\n      \"autoSnapshotEnabled\": true,\n      \"teamId\": \"string\",\n      \"userId\": \"string\",\n      \"dtCreated\": \"1983-11-13T19:40:31.595Z\",\n      \"dtLastRun\": \"1995-09-16T15:29:50.264Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"stopping\",\n      \"machineType\": \"string\",\n      \"region\": \"string\",\n      \"os\": \"string\",\n      \"cpus\": 3006,\n      \"ram\": 4943,\n      \"gpu\": \"string\",\n      \"storageTotal\": 7663,\n      \"publicIp\": \"string\",\n      \"privateIp\": \"string\",\n      \"autoShutdownEnabled\": true,\n      \"autoSnapshotEnabled\": true,\n      \"teamId\": \"string\",\n      \"userId\": \"string\",\n      \"dtCreated\": \"1989-04-27T23:54:12.416Z\",\n      \"dtLastRun\": \"1968-08-09T05:36:00.978Z\"\n    }\n  ],\n  \"hasMore\": true,\n  \"nextPage\": \"string\"\n}",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"runOnce\": false,\n    \"isEnabled\": false,\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2007-10-08T17:05:28.852Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"runOnce\": true,\n    \"isEnabled\": true,\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1953-11-14T04:38:05.310Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -126,17 +87,17 @@
           }
         },
         {
-          "id": "fa4e7c89-c90e-419e-8c94-6b3ba8ac49ca",
-          "name": "Create Machine",
+          "id": "760a5c75-2ba2-40ca-96da-749d2c7fe53f",
+          "name": "Create Startup Script",
           "request": {
-            "name": "Create Machine",
+            "name": "Create Startup Script",
             "description": {
-              "content": "Provisions a new Paperspace machine in the specified region with the chosen machine type and template.",
+              "content": "Generates a new startup script.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines"
+                "startup-scripts"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -158,7 +119,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"region\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"diskSize\": \"<integer>\",\n  \"startOnCreate\": \"<boolean>\",\n  \"publicIp\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -168,12 +129,12 @@
           },
           "response": [
             {
-              "id": "0c95d9ef-dd47-4130-bbd0-d0443881f55f",
-              "name": "Machine created.",
+              "id": "2fba24a5-e7df-499b-ad60-81d8bba0dcb3",
+              "name": "Created script.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines"
+                    "startup-scripts"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -198,7 +159,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"region\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"diskSize\": \"<integer>\",\n  \"startOnCreate\": \"<boolean>\",\n  \"publicIp\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -214,7 +175,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"runOnce\": false,\n  \"isEnabled\": false,\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1978-02-05T23:26:52.622Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -225,17 +186,17 @@
           }
         },
         {
-          "id": "5268daed-a9eb-4156-9d9b-12d2420d6759",
-          "name": "Get Machine",
+          "id": "850601ca-d9b5-4f57-b30e-3d59358b89cf",
+          "name": "Get Startup Script",
           "request": {
-            "name": "Get Machine",
+            "name": "Get Startup Script",
             "description": {
-              "content": "Fetches a single machine by ID.",
+              "content": "Fetches a single startup script by ID.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines",
+                "startup-scripts",
                 ":id"
               ],
               "host": [
@@ -263,12 +224,12 @@
           },
           "response": [
             {
-              "id": "98bae12e-71d8-473d-8f24-2ee6c4a9614f",
-              "name": "Machine.",
+              "id": "5d97f81e-4b17-47f5-a2da-7ba88b25578b",
+              "name": "Script.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines",
+                    "startup-scripts",
                     ":id"
                   ],
                   "host": [
@@ -310,7 +271,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"runOnce\": false,\n  \"isEnabled\": false,\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1978-02-05T23:26:52.622Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -321,17 +282,17 @@
           }
         },
         {
-          "id": "eea3220e-f5bd-4449-a316-111e66294d18",
-          "name": "Update Machine",
+          "id": "9bd6ff65-df43-439b-8c0b-a04843586c1c",
+          "name": "Update Startup Script",
           "request": {
-            "name": "Update Machine",
+            "name": "Update Startup Script",
             "description": {
-              "content": "Updates a machine — name, auto-shutdown, public IP, machine type, and other mutable fields.",
+              "content": "Modifies an existing startup script.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines",
+                "startup-scripts",
                 ":id"
               ],
               "host": [
@@ -362,7 +323,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\",\n  \"autoSnapshotFrequency\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -372,12 +333,12 @@
           },
           "response": [
             {
-              "id": "d1fd9bc2-b8e8-4e42-8572-d5e0b58e753f",
-              "name": "Updated machine.",
+              "id": "fe97b682-9d95-4ea3-8de1-a17ab2f23726",
+              "name": "Updated script.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines",
+                    "startup-scripts",
                     ":id"
                   ],
                   "host": [
@@ -411,7 +372,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"machineType\": \"<string>\",\n  \"autoShutdownTimeoutHours\": \"<integer>\",\n  \"autoSnapshotFrequency\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"runOnce\": \"<boolean>\",\n  \"isEnabled\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -427,7 +388,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"runOnce\": false,\n  \"isEnabled\": false,\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1978-02-05T23:26:52.622Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -438,17 +399,17 @@
           }
         },
         {
-          "id": "3c893db6-da37-42fc-b70b-6405c354aee1",
-          "name": "Delete Machine",
+          "id": "3e244e54-a812-49ee-9a4a-7d865957fc34",
+          "name": "Delete Startup Script",
           "request": {
-            "name": "Delete Machine",
+            "name": "Delete Startup Script",
             "description": {
-              "content": "Deletes a single machine by ID and releases the associated resources.",
+              "content": "Removes a startup script.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines",
+                "startup-scripts",
                 ":id"
               ],
               "host": [
@@ -470,12 +431,12 @@
           },
           "response": [
             {
-              "id": "0e198465-0a97-40f4-9e0b-540c68981066",
+              "id": "29005b42-387f-461d-9793-0a46b3456d08",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines",
+                    "startup-scripts",
                     ":id"
                   ],
                   "host": [
@@ -524,19 +485,19 @@
           }
         },
         {
-          "id": "52bf1165-c346-4140-86be-b352c7506b3c",
-          "name": "Start Machine",
+          "id": "6abf5c35-86a0-4ec6-924a-8366d1295ae7",
+          "name": "Assign Startup Script",
           "request": {
-            "name": "Start Machine",
+            "name": "Assign Startup Script",
             "description": {
-              "content": "Starts a stopped machine.",
+              "content": "Links a startup script to a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines",
+                "startup-scripts",
                 ":id",
-                "start"
+                "assign"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -554,23 +515,32 @@
             },
             "header": [
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "PATCH",
-            "auth": null
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machineId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "c5c29932-0498-45b8-917f-acbbd26d6f9f",
-              "name": "Machine state transition acknowledged.",
+              "id": "4ebb4279-9f9c-4c59-8fff-adc744324df0",
+              "name": "Assigned.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines",
+                    "startup-scripts",
                     ":id",
-                    "start"
+                    "assign"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -594,26 +564,30 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
-                "method": "PATCH",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -622,19 +596,19 @@
           }
         },
         {
-          "id": "dd90583a-1fe3-4f97-bc32-3c5108e28650",
-          "name": "Stop Machine",
+          "id": "ce16b914-ee2f-4e4f-a853-42cbadb285fd",
+          "name": "Unassign Startup Script",
           "request": {
-            "name": "Stop Machine",
+            "name": "Unassign Startup Script",
             "description": {
-              "content": "Stops a running machine — compute billing pauses; storage continues to bill.",
+              "content": "Disconnects a startup script from a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "machines",
+                "startup-scripts",
                 ":id",
-                "stop"
+                "unassign"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -652,121 +626,32 @@
             },
             "header": [
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "191b0495-84e1-4e86-a6b3-fc54b3ac543b",
-              "name": "Machine state transition acknowledged.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "machines",
-                    ":id",
-                    "stop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machineId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
                 }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              }
             }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "50ab76df-989a-43dd-8588-8b6a5ec81ded",
-          "name": "Restart Machine",
-          "request": {
-            "name": "Restart Machine",
-            "description": {
-              "content": "Restarts a machine.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "machines",
-                ":id",
-                "restart"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null
           },
           "response": [
             {
-              "id": "362b9879-989c-4764-9fef-81596f55fcaf",
-              "name": "Machine state transition acknowledged.",
+              "id": "8323e369-d313-4671-b7be-5f0a596a0698",
+              "name": "Unassigned.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "machines",
+                    "startup-scripts",
                     ":id",
-                    "restart"
+                    "unassign"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -790,124 +675,30 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"starting\",\n  \"machineType\": \"string\",\n  \"region\": \"string\",\n  \"os\": \"string\",\n  \"cpus\": 5972,\n  \"ram\": 6884,\n  \"gpu\": \"string\",\n  \"storageTotal\": 4038,\n  \"publicIp\": \"string\",\n  \"privateIp\": \"string\",\n  \"autoShutdownEnabled\": false,\n  \"autoSnapshotEnabled\": false,\n  \"teamId\": \"string\",\n  \"userId\": \"string\",\n  \"dtCreated\": \"1997-12-07T00:08:02.792Z\",\n  \"dtLastRun\": \"2026-05-29T12:57:25.343Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "39b8d0fc-a90e-4360-ae85-3052032a7edc",
-          "name": "Get Desktop Streaming Configuration",
-          "request": {
-            "name": "Get Desktop Streaming Configuration",
-            "description": {
-              "content": "Retrieves desktop streaming configuration settings used by the Paperspace client.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "machines",
-                ":id",
-                "desktop"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a309e82f-e30b-4f23-9d7b-e634f6195e50",
-              "name": "Desktop configuration.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "machines",
-                    ":id",
-                    "desktop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"host\": \"string\",\n  \"token\": \"string\",\n  \"port\": 9697,\n  \"protocol\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -937,8 +728,8 @@
     ]
   },
   "info": {
-    "_postman_id": "8f3fecbc-130a-4aa5-9882-27cecc3eeef0",
-    "name": "Paperspace Container Registries Activity Machines API",
+    "_postman_id": "04f82b1a-26b0-42ba-a8c7-e69f430896c1",
+    "name": "Paperspace Container Registries Activity Startup Scripts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

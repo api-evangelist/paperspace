@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Activity Container Registries API",
+    "name": "Paperspace Container Registries Activity Storage Providers API",
     "version": "v1"
   },
   "request": {
@@ -13,44 +13,44 @@
   "items": [
     {
       "info": {
-        "name": "Container Registries",
+        "name": "Storage Providers",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Container Registries",
+            "name": "List Storage Providers",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries"
+            "url": "https://api.paperspace.com/v1/storage-providers"
           },
-          "docs": "Lists container registries for the current team."
+          "docs": "Lists external storage providers configured for the team."
         },
         {
           "info": {
-            "name": "Create Container Registry",
+            "name": "Create Storage Provider",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/container-registries",
+            "url": "https://api.paperspace.com/v1/storage-providers",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Creates a container registry for the current team."
+          "docs": "Creates a new storage provider configuration."
         },
         {
           "info": {
-            "name": "Get Container Registry",
+            "name": "Get Storage Provider",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/storage-providers/:id",
             "params": [
               {
                 "name": "id",
@@ -59,16 +59,16 @@
               }
             ]
           },
-          "docs": "Gets a container registry for the current team."
+          "docs": "Gets a storage provider."
         },
         {
           "info": {
-            "name": "Update Container Registry",
+            "name": "Update Storage Provider",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/storage-providers/:id",
             "params": [
               {
                 "name": "id",
@@ -81,16 +81,16 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a container registry for the current team."
+          "docs": "Updates a storage provider."
         },
         {
           "info": {
-            "name": "Delete Container Registry",
+            "name": "Delete Storage Provider",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/storage-providers/:id",
             "params": [
               {
                 "name": "id",
@@ -99,25 +99,18 @@
               }
             ]
           },
-          "docs": "Deletes a container registry for the current team."
+          "docs": "Deletes a storage provider."
         },
         {
           "info": {
-            "name": "Test Container Registry Connection",
+            "name": "Get Storage Utilization",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
-            "params": [
-              {
-                "name": "id",
-                "value": "",
-                "type": "path"
-              }
-            ]
+            "url": "https://api.paperspace.com/v1/storage-providers/utilization"
           },
-          "docs": "Validates that a container registry can be connected to using the provided credentials."
+          "docs": "Retrieves team storage usage breakdown across datasets, models, notebooks, and shared storage."
         }
       ]
     }

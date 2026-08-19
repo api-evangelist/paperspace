@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Activity Container Registries API",
+    "name": "Paperspace Container Registries Activity Startup Scripts API",
     "version": "v1"
   },
   "request": {
@@ -13,44 +13,44 @@
   "items": [
     {
       "info": {
-        "name": "Container Registries",
+        "name": "Startup Scripts",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Container Registries",
+            "name": "List Startup Scripts",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries"
+            "url": "https://api.paperspace.com/v1/startup-scripts"
           },
-          "docs": "Lists container registries for the current team."
+          "docs": "Fetches a list of startup scripts."
         },
         {
           "info": {
-            "name": "Create Container Registry",
+            "name": "Create Startup Script",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/container-registries",
+            "url": "https://api.paperspace.com/v1/startup-scripts",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Creates a container registry for the current team."
+          "docs": "Generates a new startup script."
         },
         {
           "info": {
-            "name": "Get Container Registry",
+            "name": "Get Startup Script",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
             "params": [
               {
                 "name": "id",
@@ -59,16 +59,16 @@
               }
             ]
           },
-          "docs": "Gets a container registry for the current team."
+          "docs": "Fetches a single startup script by ID."
         },
         {
           "info": {
-            "name": "Update Container Registry",
+            "name": "Update Startup Script",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
             "params": [
               {
                 "name": "id",
@@ -81,16 +81,16 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a container registry for the current team."
+          "docs": "Modifies an existing startup script."
         },
         {
           "info": {
-            "name": "Delete Container Registry",
+            "name": "Delete Startup Script",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id",
             "params": [
               {
                 "name": "id",
@@ -99,25 +99,51 @@
               }
             ]
           },
-          "docs": "Deletes a container registry for the current team."
+          "docs": "Removes a startup script."
         },
         {
           "info": {
-            "name": "Test Container Registry Connection",
+            "name": "Assign Startup Script",
             "type": "http"
           },
           "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id/assign",
             "params": [
               {
                 "name": "id",
                 "value": "",
                 "type": "path"
               }
-            ]
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
           },
-          "docs": "Validates that a container registry can be connected to using the provided credentials."
+          "docs": "Links a startup script to a machine."
+        },
+        {
+          "info": {
+            "name": "Unassign Startup Script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/startup-scripts/:id/unassign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disconnects a startup script from a machine."
         }
       ]
     }

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Activity Container Registries API",
+    "name": "Paperspace Container Registries Activity Private Networks API",
     "version": "v1"
   },
   "request": {
@@ -13,44 +13,56 @@
   "items": [
     {
       "info": {
-        "name": "Container Registries",
+        "name": "Private Networks",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Container Registries",
+            "name": "List Private Networks",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries"
+            "url": "https://api.paperspace.com/v1/private-networks",
+            "params": [
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
           },
-          "docs": "Lists container registries for the current team."
+          "docs": "Fetches a list of private networks."
         },
         {
           "info": {
-            "name": "Create Container Registry",
+            "name": "Create Private Network",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/container-registries",
+            "url": "https://api.paperspace.com/v1/private-networks",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Creates a container registry for the current team."
+          "docs": "Creates a new private network in a region."
         },
         {
           "info": {
-            "name": "Get Container Registry",
+            "name": "Get Private Network",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
             "params": [
               {
                 "name": "id",
@@ -59,16 +71,16 @@
               }
             ]
           },
-          "docs": "Gets a container registry for the current team."
+          "docs": "Fetches a single private network by ID."
         },
         {
           "info": {
-            "name": "Update Container Registry",
+            "name": "Update Private Network",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
             "params": [
               {
                 "name": "id",
@@ -81,16 +93,16 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a container registry for the current team."
+          "docs": "Updates a private network by ID."
         },
         {
           "info": {
-            "name": "Delete Container Registry",
+            "name": "Delete Private Network",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/private-networks/:id",
             "params": [
               {
                 "name": "id",
@@ -99,25 +111,7 @@
               }
             ]
           },
-          "docs": "Deletes a container registry for the current team."
-        },
-        {
-          "info": {
-            "name": "Test Container Registry Connection",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
-            "params": [
-              {
-                "name": "id",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Validates that a container registry can be connected to using the provided credentials."
+          "docs": "Deletes a private network by ID."
         }
       ]
     }

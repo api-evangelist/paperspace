@@ -1,203 +1,27 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "15901b6b-5172-44bb-8cd3-68587494cf34",
+      "name": "Team Members",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "51b42d26-f69b-4933-a540-31c9481ddaaa",
+          "name": "List Team Members",
           "request": {
-            "name": "List Models",
+            "name": "List Team Members",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Lists team members.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "models"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
-          "request": {
-            "name": "Create Model",
-            "description": {
-              "content": "Registers a new model with the Gradient model registry.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "models"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "models"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
-          "request": {
-            "name": "Get Model",
-            "description": {
-              "content": "Gets a model by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "models",
-                ":id"
+                "teams",
+                ":teamId",
+                "users"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -208,7 +32,7 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "teamId",
                   "description": "(Required) "
                 }
               ]
@@ -224,13 +48,14 @@
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "306fa0ec-922e-41a5-a6a3-b71ed77d847d",
+              "name": "Team member list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "teams",
+                    ":teamId",
+                    "users"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -241,7 +66,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "teamId",
                       "description": "(Required) "
                     }
                   ]
@@ -271,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "[\n  {\n    \"userId\": \"string\",\n    \"email\": \"string\",\n    \"isAdmin\": false,\n    \"teamId\": \"string\"\n  },\n  {\n    \"userId\": \"string\",\n    \"email\": \"string\",\n    \"isAdmin\": false,\n    \"teamId\": \"string\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,18 +107,20 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "f834a69f-8a3c-45bc-8b04-27c5b0f619ef",
+          "name": "Update Team Member",
           "request": {
-            "name": "Delete Model",
+            "name": "Update Team Member",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Modifies a member's admin status within a team.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
-                ":id"
+                "teams",
+                ":teamId",
+                "users",
+                ":userId"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -304,23 +131,51 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "teamId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
                   "description": "(Required) "
                 }
               ]
             },
-            "method": "DELETE",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
-              "name": "Deleted.",
+              "id": "e8876d96-24db-4d5f-92f7-56772d10e793",
+              "name": "Updated team member.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "teams",
+                    ":teamId",
+                    "users",
+                    ":userId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -331,7 +186,130 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "teamId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isAdmin\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"email\": \"string\",\n  \"isAdmin\": false,\n  \"teamId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13eb7bce-b375-48ab-bc76-78cd661a2dbc",
+          "name": "Remove Team Member",
+          "request": {
+            "name": "Remove Team Member",
+            "description": {
+              "content": "Eliminates a user from team membership.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams",
+                ":teamId",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "teamId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "741d7bca-ad77-4f11-b61d-150fe54aef44",
+              "name": "Removed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":teamId",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "teamId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
                       "description": "(Required) "
                     }
                   ]
@@ -389,8 +367,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "20bf419b-6dba-4d23-930d-306af001b93a",
+    "name": "Paperspace Container Registries Activity Team Members API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

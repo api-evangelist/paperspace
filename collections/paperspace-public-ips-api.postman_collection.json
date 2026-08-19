@@ -1,25 +1,25 @@
 {
   "item": [
     {
-      "id": "d12e26c6-e40b-4d71-abbf-ad07c0a12765",
-      "name": "Models",
+      "id": "af1fbe4d-3574-4e31-91df-e053a733ae2c",
+      "name": "Public IPs",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6d99c108-7613-4181-9f0d-0a4dd1fa5245",
-          "name": "List Models",
+          "id": "9a0c39b1-4692-4286-bdc0-25253853517c",
+          "name": "List Public IPs",
           "request": {
-            "name": "List Models",
+            "name": "List Public IPs",
             "description": {
-              "content": "Lists models accessible to the team.",
+              "content": "Fetches a list of public IPs claimed by the team.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "public-ips"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,12 +38,12 @@
           },
           "response": [
             {
-              "id": "51b0c87a-ef41-4363-b678-4b14910d72ef",
-              "name": "Model list.",
+              "id": "892fa0b5-2ae1-497c-b34b-aaf20c7d21c7",
+              "name": "Public IP list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "public-ips"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -76,7 +76,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"ONNX\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2025-12-13T16:32:07.949Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"modelType\": \"Tensorflow\",\n    \"url\": \"string\",\n    \"projectId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2000-05-25T02:34:03.887Z\"\n  }\n]",
+              "body": "[\n  {\n    \"ip\": \"string\",\n    \"region\": \"string\",\n    \"machineId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1978-09-22T06:10:26.134Z\"\n  },\n  {\n    \"ip\": \"string\",\n    \"region\": \"string\",\n    \"machineId\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"1999-02-19T05:48:20.459Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -87,17 +87,17 @@
           }
         },
         {
-          "id": "cb6875ab-74d9-4d5b-b6c1-b6714f19f465",
-          "name": "Create Model",
+          "id": "4e69d4a8-883e-4f57-afb1-2dbc836b09ba",
+          "name": "Claim Public IP",
           "request": {
-            "name": "Create Model",
+            "name": "Claim Public IP",
             "description": {
-              "content": "Registers a new model with the Gradient model registry.",
+              "content": "Claims a new public IP address for the team.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models"
+                "public-ips"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -119,7 +119,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+              "raw": "{\n  \"region\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,12 +129,12 @@
           },
           "response": [
             {
-              "id": "de369297-1ff5-451a-8836-22c788b9ba1f",
-              "name": "Model created.",
+              "id": "0c2268a2-575e-4f19-b748-8396ad59bd1e",
+              "name": "IP claimed.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models"
+                    "public-ips"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -159,7 +159,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"modelType\": \"<string>\",\n  \"url\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "raw": "{\n  \"region\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -175,7 +175,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "{\n  \"ip\": \"string\",\n  \"region\": \"string\",\n  \"machineId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1974-05-30T00:59:27.637Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -186,18 +186,18 @@
           }
         },
         {
-          "id": "ddf86cb2-cffb-4f9f-8ce3-0c5b1a5d8b2c",
-          "name": "Get Model",
+          "id": "893d60a6-9291-4df4-af28-b98b626237b0",
+          "name": "Assign Public IP",
           "request": {
-            "name": "Get Model",
+            "name": "Assign Public IP",
             "description": {
-              "content": "Gets a model by ID.",
+              "content": "Assigns a public IP to a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
-                ":id"
+                "public-ips",
+                ":ip"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -208,29 +208,38 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "ip",
                   "description": "(Required) "
                 }
               ]
             },
             "header": [
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machineId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "b03edcbe-a5c7-495f-ad46-b7197a13b3d7",
-              "name": "Model.",
+              "id": "5eb28ef1-7a06-4fef-974d-1506b88c422f",
+              "name": "IP assigned.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "public-ips",
+                    ":ip"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -241,7 +250,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "ip",
                       "description": "(Required) "
                     }
                   ]
@@ -254,26 +263,30 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"machineId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"modelType\": \"Custom\",\n  \"url\": \"string\",\n  \"projectId\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"1958-02-20T11:41:46.164Z\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -282,18 +295,18 @@
           }
         },
         {
-          "id": "49cc49d4-e184-413d-af4c-2838fa6995ff",
-          "name": "Delete Model",
+          "id": "7b303562-a694-452d-bad7-ea98f97eaf3a",
+          "name": "Release Public IP",
           "request": {
-            "name": "Delete Model",
+            "name": "Release Public IP",
             "description": {
-              "content": "Deletes a model from the registry.",
+              "content": "Releases a public IP back to the pool.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "models",
-                ":id"
+                "public-ips",
+                ":ip"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -304,7 +317,7 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "id",
+                  "key": "ip",
                   "description": "(Required) "
                 }
               ]
@@ -314,13 +327,13 @@
           },
           "response": [
             {
-              "id": "d0bbe1c8-7c33-4405-9602-e899731e6fcc",
-              "name": "Deleted.",
+              "id": "3b467063-c0ea-477b-8021-5d459a2033a3",
+              "name": "Released.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "models",
-                    ":id"
+                    "public-ips",
+                    ":ip"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -331,7 +344,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "id",
+                      "key": "ip",
                       "description": "(Required) "
                     }
                   ]
@@ -389,8 +402,8 @@
     ]
   },
   "info": {
-    "_postman_id": "309eef01-37b4-487c-aa69-b6d0f970590d",
-    "name": "Paperspace Container Registries Activity Models API",
+    "_postman_id": "8d76cb86-db26-4bde-86e4-9589ddce20d7",
+    "name": "Paperspace Container Registries Activity Public IPs API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

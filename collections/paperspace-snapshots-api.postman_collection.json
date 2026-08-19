@@ -1,30 +1,46 @@
 {
   "item": [
     {
-      "id": "73a93349-30de-4220-9ec1-6141fa302b60",
-      "name": "Container Registries",
+      "id": "ba68563d-f6e2-4365-9f6a-6b66d676dac9",
+      "name": "Snapshots",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "0df45e12-7a7c-446f-821d-ed0c29281c5f",
-          "name": "List Container Registries",
+          "id": "c86cdc41-6bf1-4439-97c4-16d47bead2e5",
+          "name": "List Snapshots",
           "request": {
-            "name": "List Container Registries",
+            "name": "List Snapshots",
             "description": {
-              "content": "Lists container registries for the current team.",
+              "content": "Retrieves all snapshots with filtering and pagination options.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries"
+                "snapshots"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "machineId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
               "variable": []
             },
             "header": [
@@ -38,17 +54,30 @@
           },
           "response": [
             {
-              "id": "c40361e5-4d30-4baa-99fa-65ca62ae4902",
-              "name": "Registry list.",
+              "id": "e11f2abf-8bcf-4b89-9489-7b35d1761806",
+              "name": "Snapshot list.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries"
+                    "snapshots"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
+                  "query": [
+                    {
+                      "key": "machineId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
                   "variable": []
                 },
                 "header": [
@@ -76,7 +105,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"username\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2010-05-06T02:17:25.017Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"username\": \"string\",\n    \"teamId\": \"string\",\n    \"dtCreated\": \"2007-07-22T17:38:07.687Z\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"machineId\": \"string\",\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"storageSize\": 7810,\n    \"dtCreated\": \"1977-07-13T19:13:56.964Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"machineId\": \"string\",\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"storageSize\": 5184,\n    \"dtCreated\": \"2023-06-01T03:14:26.136Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -87,17 +116,17 @@
           }
         },
         {
-          "id": "c5c416d7-a368-44df-a28b-b7f7b1bfcf08",
-          "name": "Create Container Registry",
+          "id": "5bc8e1de-5f25-4411-88b5-a7489fa176e8",
+          "name": "Create Snapshot",
           "request": {
-            "name": "Create Container Registry",
+            "name": "Create Snapshot",
             "description": {
-              "content": "Creates a container registry for the current team.",
+              "content": "Creates a new snapshot for a specified machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries"
+                "snapshots"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -119,7 +148,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,12 +158,12 @@
           },
           "response": [
             {
-              "id": "e61dacff-df4a-4599-9994-effdcecb5e36",
-              "name": "Registry created.",
+              "id": "9a35fedc-3fad-4012-84d7-dc5a24126693",
+              "name": "Snapshot created.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries"
+                    "snapshots"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -159,7 +188,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "raw": "{\n  \"machineId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -175,7 +204,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"machineId\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"storageSize\": 6650,\n  \"dtCreated\": \"2013-09-27T13:24:05.173Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -186,17 +215,17 @@
           }
         },
         {
-          "id": "91cdbbae-c1f8-4fda-be36-b9caaef91607",
-          "name": "Get Container Registry",
+          "id": "291176ac-2a8c-4591-9ddc-e09e11d4a451",
+          "name": "Get Snapshot",
           "request": {
-            "name": "Get Container Registry",
+            "name": "Get Snapshot",
             "description": {
-              "content": "Gets a container registry for the current team.",
+              "content": "Retrieves a single snapshot by its identifier.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
+                "snapshots",
                 ":id"
               ],
               "host": [
@@ -224,12 +253,12 @@
           },
           "response": [
             {
-              "id": "ba514b8a-994f-4f43-81cc-fa4c8f4dcbb9",
-              "name": "Container registry.",
+              "id": "0d94b081-2ccf-4f08-9db1-564259de4b31",
+              "name": "Snapshot.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
+                    "snapshots",
                     ":id"
                   ],
                   "host": [
@@ -271,7 +300,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"machineId\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"storageSize\": 6650,\n  \"dtCreated\": \"2013-09-27T13:24:05.173Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -282,17 +311,17 @@
           }
         },
         {
-          "id": "d31e469d-6d9c-4963-ac23-875315a4190f",
-          "name": "Update Container Registry",
+          "id": "a1e2e73a-8759-47e7-8df3-1ffa39b28695",
+          "name": "Update Snapshot",
           "request": {
-            "name": "Update Container Registry",
+            "name": "Update Snapshot",
             "description": {
-              "content": "Updates a container registry for the current team.",
+              "content": "Modifies snapshot details such as the name.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
+                "snapshots",
                 ":id"
               ],
               "host": [
@@ -323,7 +352,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -333,12 +362,12 @@
           },
           "response": [
             {
-              "id": "cca295f9-a6b1-4fb3-88f1-97d4477a2871",
-              "name": "Updated registry.",
+              "id": "b21b0fc7-1edf-4dd7-aeaa-7abd82ba14a2",
+              "name": "Updated snapshot.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
+                    "snapshots",
                     ":id"
                   ],
                   "host": [
@@ -372,7 +401,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"note\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -388,7 +417,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"username\": \"string\",\n  \"teamId\": \"string\",\n  \"dtCreated\": \"2022-07-20T07:22:07.170Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"machineId\": \"string\",\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"storageSize\": 6650,\n  \"dtCreated\": \"2013-09-27T13:24:05.173Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -399,17 +428,17 @@
           }
         },
         {
-          "id": "a2f52be8-fed8-4858-b33c-acdc74307ac9",
-          "name": "Delete Container Registry",
+          "id": "6218ce0e-dd4e-4f00-ac39-c153f25bda2f",
+          "name": "Delete Snapshot",
           "request": {
-            "name": "Delete Container Registry",
+            "name": "Delete Snapshot",
             "description": {
-              "content": "Deletes a container registry for the current team.",
+              "content": "Removes a snapshot from a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
+                "snapshots",
                 ":id"
               ],
               "host": [
@@ -431,12 +460,12 @@
           },
           "response": [
             {
-              "id": "262427ef-90df-4bf1-9742-0dd6fe3a5d97",
+              "id": "9a27015b-93c7-4255-a00c-5a2342d9dcbb",
               "name": "Deleted.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
+                    "snapshots",
                     ":id"
                   ],
                   "host": [
@@ -485,19 +514,19 @@
           }
         },
         {
-          "id": "7f11b403-7c86-4baa-b402-5be2152e9854",
-          "name": "Test Container Registry Connection",
+          "id": "a442a7d1-4e34-4ded-9342-1c4796fd071f",
+          "name": "Restore Snapshot",
           "request": {
-            "name": "Test Container Registry Connection",
+            "name": "Restore Snapshot",
             "description": {
-              "content": "Validates that a container registry can be connected to using the provided credentials.",
+              "content": "Restores a machine to a previous snapshot state.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "container-registries",
+                "snapshots",
                 ":id",
-                "test-connection"
+                "restore"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -513,25 +542,19 @@
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
+            "method": "POST",
             "auth": null
           },
           "response": [
             {
-              "id": "da0ad94d-bba7-4815-80cc-c82dea5f6e5e",
-              "name": "Connection result.",
+              "id": "4b894b2d-1b84-4bcd-8d75-5a4ca1b975e9",
+              "name": "Restore initiated.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "container-registries",
+                    "snapshots",
                     ":id",
-                    "test-connection"
+                    "restore"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -555,13 +578,9 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
-                "method": "GET",
+                "method": "POST",
                 "body": {}
               },
               "status": "OK",
@@ -569,12 +588,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -604,8 +623,8 @@
     ]
   },
   "info": {
-    "_postman_id": "abd2c03a-f99d-4f03-a562-af1dc6766943",
-    "name": "Paperspace Activity Container Registries API",
+    "_postman_id": "5e35762b-0524-47db-acb1-edabc230618c",
+    "name": "Paperspace Container Registries Activity Snapshots API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Manage container registry credentials used by Paperspace Deployments to\npull private images. Authenticate with a team-scoped API key as\n`Authorization: Bearer $API_TOKEN`.\n",

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Activity Container Registries API",
+    "name": "Paperspace Container Registries Activity Snapshots API",
     "version": "v1"
   },
   "request": {
@@ -13,44 +13,61 @@
   "items": [
     {
       "info": {
-        "name": "Container Registries",
+        "name": "Snapshots",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Container Registries",
+            "name": "List Snapshots",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries"
+            "url": "https://api.paperspace.com/v1/snapshots",
+            "params": [
+              {
+                "name": "machineId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
           },
-          "docs": "Lists container registries for the current team."
+          "docs": "Retrieves all snapshots with filtering and pagination options."
         },
         {
           "info": {
-            "name": "Create Container Registry",
+            "name": "Create Snapshot",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/container-registries",
+            "url": "https://api.paperspace.com/v1/snapshots",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Creates a container registry for the current team."
+          "docs": "Creates a new snapshot for a specified machine."
         },
         {
           "info": {
-            "name": "Get Container Registry",
+            "name": "Get Snapshot",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/snapshots/:id",
             "params": [
               {
                 "name": "id",
@@ -59,16 +76,16 @@
               }
             ]
           },
-          "docs": "Gets a container registry for the current team."
+          "docs": "Retrieves a single snapshot by its identifier."
         },
         {
           "info": {
-            "name": "Update Container Registry",
+            "name": "Update Snapshot",
             "type": "http"
           },
           "http": {
             "method": "PUT",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/snapshots/:id",
             "params": [
               {
                 "name": "id",
@@ -81,16 +98,16 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a container registry for the current team."
+          "docs": "Modifies snapshot details such as the name."
         },
         {
           "info": {
-            "name": "Delete Container Registry",
+            "name": "Delete Snapshot",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/container-registries/:id",
+            "url": "https://api.paperspace.com/v1/snapshots/:id",
             "params": [
               {
                 "name": "id",
@@ -99,16 +116,16 @@
               }
             ]
           },
-          "docs": "Deletes a container registry for the current team."
+          "docs": "Removes a snapshot from a machine."
         },
         {
           "info": {
-            "name": "Test Container Registry Connection",
+            "name": "Restore Snapshot",
             "type": "http"
           },
           "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/container-registries/:id/test-connection",
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/snapshots/:id/restore",
             "params": [
               {
                 "name": "id",
@@ -117,7 +134,7 @@
               }
             ]
           },
-          "docs": "Validates that a container registry can be connected to using the provided credentials."
+          "docs": "Restores a machine to a previous snapshot state."
         }
       ]
     }

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Container Registries Activity Models API",
+    "name": "Paperspace Container Registries Activity Tags API",
     "version": "v1"
   },
   "request": {
@@ -13,71 +13,72 @@
   "items": [
     {
       "info": {
-        "name": "Models",
+        "name": "Tags",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Models",
+            "name": "List Project Tags",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/models"
+            "url": "https://api.paperspace.com/v1/projects/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
           },
-          "docs": "Lists models accessible to the team."
+          "docs": "Fetches a list of tags for a project."
         },
         {
           "info": {
-            "name": "Create Model",
+            "name": "Add Project Tag",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/models",
+            "url": "https://api.paperspace.com/v1/projects/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Registers a new model with the Gradient model registry."
+          "docs": "Adds a tag to a project."
         },
         {
           "info": {
-            "name": "Get Model",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/models/:id",
-            "params": [
-              {
-                "name": "id",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Gets a model by ID."
-        },
-        {
-          "info": {
-            "name": "Delete Model",
+            "name": "Remove Project Tag",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/models/:id",
+            "url": "https://api.paperspace.com/v1/projects/:id/tags",
             "params": [
               {
                 "name": "id",
                 "value": "",
                 "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
               }
             ]
           },
-          "docs": "Deletes a model from the registry."
+          "docs": "Removes a tag from a project by name."
         }
       ]
     }

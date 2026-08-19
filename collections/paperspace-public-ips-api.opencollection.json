@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Container Registries Activity Models API",
+    "name": "Paperspace Container Registries Activity Public IPs API",
     "version": "v1"
   },
   "request": {
@@ -13,71 +13,75 @@
   "items": [
     {
       "info": {
-        "name": "Models",
+        "name": "Public IPs",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Models",
+            "name": "List Public IPs",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/models"
+            "url": "https://api.paperspace.com/v1/public-ips"
           },
-          "docs": "Lists models accessible to the team."
+          "docs": "Fetches a list of public IPs claimed by the team."
         },
         {
           "info": {
-            "name": "Create Model",
+            "name": "Claim Public IP",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://api.paperspace.com/v1/models",
+            "url": "https://api.paperspace.com/v1/public-ips",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Registers a new model with the Gradient model registry."
+          "docs": "Claims a new public IP address for the team."
         },
         {
           "info": {
-            "name": "Get Model",
+            "name": "Assign Public IP",
             "type": "http"
           },
           "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/models/:id",
+            "method": "PUT",
+            "url": "https://api.paperspace.com/v1/public-ips/:ip",
             "params": [
               {
-                "name": "id",
+                "name": "ip",
                 "value": "",
                 "type": "path"
               }
-            ]
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
           },
-          "docs": "Gets a model by ID."
+          "docs": "Assigns a public IP to a machine."
         },
         {
           "info": {
-            "name": "Delete Model",
+            "name": "Release Public IP",
             "type": "http"
           },
           "http": {
             "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/models/:id",
+            "url": "https://api.paperspace.com/v1/public-ips/:ip",
             "params": [
               {
-                "name": "id",
+                "name": "ip",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Deletes a model from the registry."
+          "docs": "Releases a public IP back to the pool."
         }
       ]
     }

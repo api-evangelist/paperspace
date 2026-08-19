@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paperspace Container Registries Activity Datasets API",
+    "name": "Paperspace Container Registries Activity Machine Access API",
     "version": "v1"
   },
   "request": {
@@ -13,56 +13,18 @@
   "items": [
     {
       "info": {
-        "name": "Datasets",
+        "name": "Machine Access",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Datasets",
+            "name": "List Machine Accessors",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.paperspace.com/v1/datasets",
-            "params": [
-              {
-                "name": "after",
-                "value": "",
-                "type": "query"
-              },
-              {
-                "name": "limit",
-                "value": "",
-                "type": "query"
-              }
-            ]
-          },
-          "docs": "Lists datasets available to the team."
-        },
-        {
-          "info": {
-            "name": "Create Dataset",
-            "type": "http"
-          },
-          "http": {
-            "method": "POST",
-            "url": "https://api.paperspace.com/v1/datasets",
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
-          },
-          "docs": "Creates a new dataset."
-        },
-        {
-          "info": {
-            "name": "Get Dataset",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.paperspace.com/v1/datasets/:id",
+            "url": "https://api.paperspace.com/v1/machines/:id/accessors",
             "params": [
               {
                 "name": "id",
@@ -71,16 +33,16 @@
               }
             ]
           },
-          "docs": "Gets a dataset by ID."
+          "docs": "Lists team members with explicit access to the machine."
         },
         {
           "info": {
-            "name": "Update Dataset",
+            "name": "Grant Machine Access",
             "type": "http"
           },
           "http": {
-            "method": "PUT",
-            "url": "https://api.paperspace.com/v1/datasets/:id",
+            "method": "POST",
+            "url": "https://api.paperspace.com/v1/machines/:id/accessors",
             "params": [
               {
                 "name": "id",
@@ -93,25 +55,53 @@
               "data": "{}"
             }
           },
-          "docs": "Updates a dataset's metadata."
+          "docs": "Grants machine access to a team member."
         },
         {
           "info": {
-            "name": "Delete Dataset",
+            "name": "Get Machine Accessor",
             "type": "http"
           },
           "http": {
-            "method": "DELETE",
-            "url": "https://api.paperspace.com/v1/datasets/:id",
+            "method": "GET",
+            "url": "https://api.paperspace.com/v1/machines/:id/accessors/:userId",
             "params": [
               {
                 "name": "id",
                 "value": "",
                 "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
               }
             ]
           },
-          "docs": "Deletes a dataset and its versions."
+          "docs": "Retrieves accessor information for a specific user."
+        },
+        {
+          "info": {
+            "name": "Revoke Machine Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paperspace.com/v1/machines/:id/accessors/:userId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revokes a user's machine access."
         }
       ]
     }
