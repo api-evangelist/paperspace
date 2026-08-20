@@ -28,6 +28,11 @@ apis:
   name: Paperspace Deployments API
   tags:
   - Containers
+  - Deployment
+  - GPU
+  - Inference
+  tags_raw:
+  - Containers
   - Deployments
   - GPU
   - Inference
@@ -46,6 +51,11 @@ apis:
 - aid: paperspace:paperspace-projects-api
   name: Paperspace Projects API
   tags:
+  - Organization
+  - Project
+  - Collaboration
+  - Secrets
+  tags_raw:
   - Organization
   - Projects
   - Collaboration
@@ -93,6 +103,11 @@ apis:
 - aid: paperspace:paperspace-models-api
   name: Paperspace Models API
   tags:
+  - Artificial Intelligence
+  - ML
+  - Model Registry
+  - Gradient
+  tags_raw:
   - AI
   - ML
   - Model Registry
@@ -697,6 +712,17 @@ apis:
     url: https://docs.digitalocean.com/reference/paperspace/api-keys/
 name: Paperspace
 tags:
+  - GPU
+  - Cloud
+  - Artificial Intelligence
+  - Machine-Learning
+  - Deep Learning
+  - Compute
+  - DigitalOcean
+  - Containers
+  - Notebooks
+  - Gradient
+tags_raw:
   - GPU
   - Cloud
   - AI
