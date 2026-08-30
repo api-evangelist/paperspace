@@ -1,0 +1,100 @@
+slug: paperspace
+provider: Paperspace
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Electrical Components & Equipment
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: Machines
+  spec_file: paperspace-machines-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: POST /machines createMachine Create Machine; PATCH /machines/{id}/start startMachine; PATCH
+    /machines/{id}/stop stopMachine; schemas MachineCreate, MachineList
+  reason: Lifecycle control of on-demand GPU/CPU virtual machines — compute infrastructure provisioning
+    and operation, squarely IT Infrastructure Management.
+- tag: Machine Access
+  spec_file: paperspace-machine-access-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /machines/{id}/accessors grantMachineAccess Grant Machine Access; DELETE ... revokeMachineAccess
+    Revoke Machine Access; schema Accessor
+  reason: Granting and revoking named users' access to compute machines is access management over IT resources
+    — Identity & Access Management.
+- tag: Private Networks
+  spec_file: paperspace-private-networks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: POST /private-networks createPrivateNetwork Create Private Network; schemas PrivateNetworkCreate,
+    PrivateNetwork
+  reason: Creation and management of private networks for cloud compute — network infrastructure management.
+- tag: Public IPs
+  spec_file: paperspace-public-ips-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: POST /public-ips claimPublicIp Claim Public IP; PUT /public-ips/{ip} assignPublicIp Assign
+    Public IP; DELETE releasePublicIp
+  reason: Claiming, assigning and releasing public IP addresses for cloud machines is network address
+    management — IT infrastructure.
+- tag: Models
+  spec_file: paperspace-models-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: GET /models listModels; POST /models createModel Create Model; schemas Model, ModelCreate
+    — part of the "Gradient ML workflow stack (Notebooks, Datasets, Models, Workflows)"
+  reason: Registry of trained ML models on an ML platform — model lifecycle/MLOps artefact management,
+    matching Artificial Intelligence Management.
+- tag: Shared Drives
+  spec_file: paperspace-shared-drives-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: 'GET /shared-drives  listSharedDrives  List Shared Drives; schemas: SharedDriveCreate, SharedDrive'
+  reason: Provisioning and managing shared network storage drives on a GPU cloud platform is IT infrastructure
+    (storage) management, not a business capability of the frame's industry.
+- tag: Container Registries
+  spec_file: paperspace-container-registries-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: Manage container registry credentials used by Paperspace Deployments to pull private images
+  reason: Container registry connection/credential configuration for GPU cloud deployments is IT infrastructure/platform
+    configuration.
+- tag: Storage Providers
+  spec_file: paperspace-storage-providers-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /storage-providers/utilization  getStorageUtilization  Get Storage Utilization
+  reason: Configuration of storage providers and utilisation reporting is cloud storage infrastructure
+    management.
+- tag: Team Members
+  spec_file: paperspace-team-members-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: PUT /teams/{teamId}/users/{userId}  updateTeamMember; DELETE .../users/{userId}  removeTeamMember
+  reason: Managing platform team user membership and removal is tenant/platform access administration
+    (IAM), not HR employee records.

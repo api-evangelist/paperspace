@@ -762,6 +762,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paperspace.png
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/paperspace-capability-edges.yml
+    name: Paperspace Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/paperspace/overview
   - type: AgenticAccess
