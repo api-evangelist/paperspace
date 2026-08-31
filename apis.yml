@@ -762,6 +762,11 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paperspace.png
 access: 3rd-Party
 common:
+  - type: ParentCompany
+    url: https://apis.io/providers/digital-ocean/
+    name: DigitalOcean
+    x-relationship: acquired
+    x-evidence: "Paperspace is a GPU cloud platform for AI, ML, and 3D rendering workloads, acquired by DigitalOcean in 2023."
   - type: CapabilityMap
     url: capabilities/paperspace-capability-edges.yml
     name: Paperspace Business Capability Map
