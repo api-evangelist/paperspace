@@ -1,50 +1,47 @@
-specification: API Commons Rate Limits
-version: '0.1'
-provider: paperspace
-url: https://docs.digitalocean.com/reference/paperspace/api-reference/
-description: |
-  Paperspace does not publish numeric per-key rate limits in the public API
-  reference; the documented limits are operational (concurrency and quota
-  rather than request-per-second). This file captures the observable
-  enforcement surfaces so downstream tooling can model them.
-policies:
-- id: default-api
-  name: Default REST API request rate
-  scope: per-api-key
-  description: |
-    api.paperspace.com/v1 enforces unspecified per-key request limits.
-    Excessive request rates are throttled with HTTP 429 responses. Treat as a
-    soft-limit; back off using `Retry-After` if present.
-  units: requests
-  window: minute
-  limit: null
-  burst: null
-  enforcement: HTTP 429
-- id: machine-concurrency
-  name: Concurrent machine count per team
-  scope: per-team
-  description: |
-    Maximum simultaneous active machines is enforced per team and SKU. Per-SKU
-    quotas can be raised by contacting support.
-  units: machines
-  enforcement: HTTP 4xx with `quota_exceeded`
-- id: public-ip-quota
-  name: Public IPs per team
-  scope: per-team
-  description: |
-    Claimed public IPs are limited per team. Excess claim attempts return a
-    quota error.
-  units: ip
-  enforcement: HTTP 4xx with `quota_exceeded`
-- id: storage-quota
-  name: Storage quota per plan
-  scope: per-plan
-  description: |
-    Persistent storage is capped by Gradient plan (Free 5 GB, Pro 15 GB,
-    Growth 50 GB). Additional storage incurs metered billing.
-  units: bytes
-  enforcement: HTTP 4xx with `quota_exceeded`
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://docs.digitalocean.com/products/inference/details/limits/
 sources:
-- https://docs.digitalocean.com/reference/paperspace/api-reference/
-- https://docs.digitalocean.com/products/paperspace/
-updated: '2026-05-25'
+- https://docs.digitalocean.com/products/inference/details/limits/
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: true
+note: Page lists tiered quotas (Tier 1-5) for agents, knowledge bases, RPM (120-4,500) and TPM in a table
+  that cannot be quoted verbatim as a single string; also batch limits (50,000 requests per file, 200
+  MB file size, 24 hour completion window). No rate-limit headers or status codes documented.
+limit_count: 6
+limits:
+- name: Inference Router requests per minute
+  limit_text: Routers support 1,000 requests per minute.
+  limit: 1000
+  window: minute
+  scope: endpoint
+  endpoint: Inference Router
+- name: Batch enqueue token limit
+  limit_text: 10 billion tokens per model per account
+  limit: 10000000000
+  scope: account
+  endpoint: Batch Inference
+- name: Knowledge bases per team
+  limit_text: Each team can create up to 120 knowledge bases.
+  limit: 120
+  scope: account
+  endpoint: Knowledge Bases
+- name: Presets per team
+  limit_text: Each team can create up to 100 presets.
+  limit: 100
+  scope: account
+  endpoint: Presets
+- name: Custom metrics per team
+  limit_text: Each team can create up to 100 custom metrics.
+  limit: 100
+  scope: account
+  endpoint: Custom Metrics
+- name: Web crawler pages
+  limit_text: the crawler indexes up to 5,500 pages
+  limit: 5500
+  scope: endpoint
+  endpoint: Web crawling data sources
