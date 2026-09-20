@@ -10,6 +10,12 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: Enterprise? Host Gradient on your own infrastructure and run without limits.
+  managed_tier: Pro
 published: true
 note: Page combines Gradient subscription tiers (with per-seat T1) and hourly/monthly GPU & CPU instance
   pricing; dominant basis is compute usage. Storage overage $0.29/GB.
