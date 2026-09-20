@@ -1,119 +1,194 @@
-specification: API Commons Plans
-version: '0.1'
-provider: paperspace
-url: https://www.paperspace.com/pricing
-plans:
-- id: free
-  name: Free
-  description: |
-    Free Gradient tier — public projects, basic free-GPU instances, 12-hour
-    auto-shutdown, 5 GB persistent storage. Per-second on-demand compute is
-    billed separately.
-  entries:
-  - geo: US
-    unit: 1
-    label: User
-    limit: 1
-    price: 0
-    metric: user
-    timeFrame: month
-- id: pro
-  name: Pro
-  description: |
-    Pro Gradient tier — private projects, mid-range instances, faster free
-    GPUs, 15 GB persistent storage, configurable auto-shutdown.
-  entries:
-  - geo: US
-    unit: 1
-    label: User
-    limit: 1
-    price: 8
-    metric: user
-    timeFrame: month
-- id: growth
-  name: Growth
-  description: |
-    Growth Gradient tier — private projects, 50 GB persistent storage,
-    high-end instances, expert support.
-  entries:
-  - geo: US
-    unit: 1
-    label: User
-    limit: 1
-    price: 39
-    metric: user
-    timeFrame: month
-- id: team-t1
-  name: Team T1
-  description: Mid-size team Gradient plan.
-  entries:
-  - geo: US
-    unit: 1
-    label: User
-    limit: 1
-    price: 12
-    metric: user
-    timeFrame: month
-- id: team-t2
-  name: Team T2
-  description: Custom-priced plan for large teams; contact sales.
-  entries:
-  - geo: US
-    unit: 1
-    label: Custom
-    price: Call
-    metric: user
-    timeFrame: month
-- id: gpu-on-demand
-  name: GPU On-Demand
-  type: Compute
-  description: |
-    Per-second on-demand GPU pricing. Listed hourly rates are reference points
-    from the public pricing page; some rates reflect multi-year commitment.
-  entries:
-  - geo: US
-    unit: 1
-    label: H100 (per hour)
-    price: 2.24
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: A100-80G (per hour)
-    price: 1.15
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: A6000 (per hour)
-    price: 1.89
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: V100 (per hour)
-    price: 2.30
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: P6000 (per hour)
-    price: 1.10
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: A5000 (per hour)
-    price: 1.38
-    metric: hour
-    timeFrame: usage
-  - geo: US
-    unit: 1
-    label: A4000 (per hour)
-    price: 0.76
-    metric: hour
-    timeFrame: usage
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.paperspace.com/pricing
 sources:
 - https://www.paperspace.com/pricing
-- https://docs.digitalocean.com/products/paperspace/
-updated: '2026-05-25'
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120317
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+published: true
+note: Page combines Gradient subscription tiers (with per-seat T1) and hourly/monthly GPU & CPU instance
+  pricing; dominant basis is compute usage. Storage overage $0.29/GB.
+plan_count: 29
+currency: USD
+plans:
+- name: Gradient Free
+  price_text: $ 0
+  price: 0
+  currency: USD
+  period: month
+  included_quota: Public projects, Auto-shutdown (12 hour limit), 5GB storage, Basic instances
+  overage: Plus utilization costs on paid instances
+- name: Gradient Pro
+  price_text: $ 8 per month
+  price: 8
+  currency: USD
+  period: month
+  included_quota: Private projects, 15GB storage, Mid-range instances
+  overage: Plus utilization costs on paid instances
+- name: Gradient Growth
+  price_text: $ 39 per month
+  price: 39
+  currency: USD
+  period: month
+  included_quota: Private projects, 50GB storage, High-end instances, Expert Support
+  overage: Plus utilization costs on paid instances
+- name: T0 Small Teams
+  price_text: $ 0 + utilization costs on paid instance types
+  price: 0
+  currency: USD
+  period: month
+  included_quota: '10GB Persistent Storage included, Total Notebooks: 10'
+  overage: $0.29/GB overage
+- name: T1 Mid-Size Teams
+  price_text: $ 12 user/month
+  price: 12
+  currency: USD
+  period: month
+  unit: user
+  included_quota: '500GB Persistent Storage included, Total Notebooks: 100'
+  overage: $0.29/GB overage
+- name: T2 Large Teams
+  price_text: Contact Sales
+  period: none
+  included_quota: Unlimited Notebooks
+- name: Pro (individual)
+  price_text: $ 12 per month
+  price: 12
+  currency: USD
+  period: month
+  included_quota: 15GB storage, Mid-range instances (billed per hour)
+- name: H100
+  price_text: $ 3.09 / hour
+  price: 3.09
+  currency: USD
+  period: per-use
+  unit: hour
+- name: HGX H100 (3-year commitment)
+  price_text: $ 2.24* / hour
+  price: 2.24
+  currency: USD
+  period: per-use
+  unit: hour
+- name: A100-80G
+  price_text: $ 1.15** / hour
+  price: 1.15
+  currency: USD
+  period: per-use
+  unit: hour
+- name: A4000
+  price_text: $ 0.76 / hour
+  price: 0.76
+  currency: USD
+  period: per-use
+  unit: hour
+- name: A6000
+  price_text: $ 1.89 / hour
+  price: 1.89
+  currency: USD
+  period: per-use
+  unit: hour
+- name: V100
+  price_text: $ 2.30 / hour
+  price: 2.3
+  currency: USD
+  period: per-use
+  unit: hour
+- name: A5000
+  price_text: $ 1.38 / hour
+  price: 1.38
+  currency: USD
+  period: per-use
+  unit: hour
+- name: P6000
+  price_text: $ 1.10 / hour
+  price: 1.1
+  currency: USD
+  period: per-use
+  unit: hour
+- name: RTX5000
+  price_text: $ 0.82 / hour
+  price: 0.82
+  currency: USD
+  period: per-use
+  unit: hour
+- name: P5000
+  price_text: $ 0.78 / hour
+  price: 0.78
+  currency: USD
+  period: per-use
+  unit: hour
+- name: RTX4000
+  price_text: $ 0.56 / hour
+  price: 0.56
+  currency: USD
+  period: per-use
+  unit: hour
+- name: P4000
+  price_text: $ 0.51 / hour
+  price: 0.51
+  currency: USD
+  period: per-use
+  unit: hour
+- name: M4000
+  price_text: $ 0.45 / hour
+  price: 0.45
+  currency: USD
+  period: per-use
+  unit: hour
+- name: C1 CPU hourly
+  price_text: $ 0.0045 / hour
+  price: 0.0045
+  currency: USD
+  period: per-use
+  unit: hour
+- name: C10 CPU hourly
+  price_text: $ 1.60 / hour
+  price: 1.6
+  currency: USD
+  period: per-use
+  unit: hour
+- name: M4000 monthly
+  price_text: $ 268 / month
+  price: 268
+  currency: USD
+  period: month
+- name: A100 monthly
+  price_text: $ 1994 / month
+  price: 1994
+  currency: USD
+  period: month
+- name: Air desktop
+  price_text: $ 22 / month
+  price: 22
+  currency: USD
+  period: month
+  included_quota: 2 vCPU, 4 GB RAM, 512 MB GPU
+- name: Standard desktop
+  price_text: $ 35 / month
+  price: 35
+  currency: USD
+  period: month
+- name: Advanced desktop
+  price_text: $ 65 / month
+  price: 65
+  currency: USD
+  period: month
+- name: Pro desktop
+  price_text: $ 120 / month
+  price: 120
+  currency: USD
+  period: month
+- name: Enterprise
+  price_text: Contact Sales
+  period: none
+rate_limit_statements:
+- Auto-shutdown (12 hour limit)
+- 'Total Notebooks: 10'
+- 'Running Notebook limit: 1'
+- 'Total Notebooks: 100'
+- 'Running Notebook limit: 10'
