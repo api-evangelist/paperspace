@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Paperspace Container Registries Activity Machines API
   version: v1
@@ -6,9 +6,7 @@ info:
 
     pull private images. Authenticate with a team-scoped API key as
 
-    `Authorization: Bearer $API_TOKEN`.
-
-    '
+    `Authorization: Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -177,30 +175,6 @@ components:
           type: integer
         protocol:
           type: string
-    MachineCreate:
-      type: object
-      required:
-      - name
-      - machineType
-      - region
-      - templateId
-      properties:
-        name:
-          type: string
-        machineType:
-          type: string
-        region:
-          type: string
-        templateId:
-          type: string
-        diskSize:
-          type: integer
-        startOnCreate:
-          type: boolean
-        publicIp:
-          type: string
-        autoShutdownTimeoutHours:
-          type: integer
     MachineList:
       type: object
       properties:
@@ -258,11 +232,13 @@ components:
         storageTotal:
           type: integer
         publicIp:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         privateIp:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         autoShutdownEnabled:
           type: boolean
         autoSnapshotEnabled:
@@ -277,25 +253,31 @@ components:
         dtLastRun:
           type: string
           format: date-time
+    MachineCreate:
+      type: object
+      required:
+      - name
+      - machineType
+      - region
+      - templateId
+      properties:
+        name:
+          type: string
+        machineType:
+          type: string
+        region:
+          type: string
+        templateId:
+          type: string
+        diskSize:
+          type: integer
+        startOnCreate:
+          type: boolean
+        publicIp:
+          type: string
+        autoShutdownTimeoutHours:
+          type: integer
   parameters:
-    MachineId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    OrderBy:
-      in: query
-      name: orderBy
-      schema:
-        type: string
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 120
     Order:
       in: query
       name: order
@@ -310,6 +292,24 @@ components:
       schema:
         type: string
       description: Pagination cursor.
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 120
+    MachineId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

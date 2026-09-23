@@ -1,14 +1,12 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Paperspace Container Registries Activity Storage Providers API
+  title: Paperspace Storage Storage Providers API
   version: v1
-  description: 'Manage container registry credentials used by Paperspace Deployments to
+  description: 'Paperspace storage primitives — shared drives, snapshots, and external
 
-    pull private images. Authenticate with a team-scoped API key as
+    storage providers used by datasets, models, and notebooks. Authenticate
 
-    `Authorization: Bearer $API_TOKEN`.
-
-    '
+    with a team-scoped API key as `Authorization: Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -116,19 +114,6 @@ paths:
                 $ref: '#/components/schemas/StorageUtilization'
 components:
   schemas:
-    StorageUtilization:
-      type: object
-      properties:
-        teamId:
-          type: string
-        datasets:
-          type: integer
-        models:
-          type: integer
-        notebooks:
-          type: integer
-        sharedStorage:
-          type: integer
     StorageProviderCreate:
       type: object
       required:
@@ -151,6 +136,19 @@ components:
           type: string
         secretKey:
           type: string
+    StorageUtilization:
+      type: object
+      properties:
+        teamId:
+          type: string
+        datasets:
+          type: integer
+        models:
+          type: integer
+        notebooks:
+          type: integer
+        sharedStorage:
+          type: integer
     StorageProvider:
       type: object
       properties:

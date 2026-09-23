@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Paperspace Activity Container Registries API
   version: v1
@@ -6,9 +6,7 @@ info:
 
     pull private images. Authenticate with a team-scoped API key as
 
-    `Authorization: Bearer $API_TOKEN`.
-
-    '
+    `Authorization: Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -127,22 +125,6 @@ paths:
                     type: string
 components:
   schemas:
-    ContainerRegistry:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-        username:
-          type: string
-        teamId:
-          type: string
-        dtCreated:
-          type: string
-          format: date-time
     ContainerRegistryCreate:
       type: object
       required:
@@ -159,6 +141,22 @@ components:
           type: string
         password:
           type: string
+    ContainerRegistry:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        username:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http

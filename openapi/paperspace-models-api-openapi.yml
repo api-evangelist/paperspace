@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Paperspace Container Registries Activity Models API
   version: v1
@@ -6,9 +6,7 @@ info:
 
     pull private images. Authenticate with a team-scoped API key as
 
-    `Authorization: Bearer $API_TOKEN`.
-
-    '
+    `Authorization: Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -83,20 +81,6 @@ paths:
           description: Deleted.
 components:
   schemas:
-    ModelCreate:
-      type: object
-      required:
-      - name
-      - modelType
-      properties:
-        name:
-          type: string
-        modelType:
-          type: string
-        url:
-          type: string
-        projectId:
-          type: string
     Model:
       type: object
       properties:
@@ -119,6 +103,20 @@ components:
         dtCreated:
           type: string
           format: date-time
+    ModelCreate:
+      type: object
+      required:
+      - name
+      - modelType
+      properties:
+        name:
+          type: string
+        modelType:
+          type: string
+        url:
+          type: string
+        projectId:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,14 +1,14 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Paperspace Container Registries Activity Private Networks API
+  title: Paperspace Networking Private Networks API
   version: v1
-  description: 'Manage container registry credentials used by Paperspace Deployments to
+  description: 'Paperspace networking primitives — private networks (VPCs) for east-west
 
-    pull private images. Authenticate with a team-scoped API key as
+    machine-to-machine traffic and public IPs for north-south internet access.
 
-    `Authorization: Bearer $API_TOKEN`.
+    Authenticate with a team-scoped API key as `Authorization: Bearer
 
-    '
+    $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production

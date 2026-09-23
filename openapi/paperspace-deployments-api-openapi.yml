@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Paperspace Container Registries Activity Deployments API
   version: v1
@@ -6,9 +6,7 @@ info:
 
     pull private images. Authenticate with a team-scoped API key as
 
-    `Authorization: Bearer $API_TOKEN`.
-
-    '
+    `Authorization: Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
@@ -198,48 +196,6 @@ components:
           type: boolean
         nextPage:
           type: string
-    LogLine:
-      type: object
-      properties:
-        t:
-          type: string
-          format: date-time
-        stream:
-          type: string
-          enum:
-          - stdout
-          - stderr
-        message:
-          type: string
-    DeploymentRun:
-      type: object
-      properties:
-        id:
-          type: string
-        deploymentId:
-          type: string
-        state:
-          type: string
-        replicas:
-          type: integer
-        dtStarted:
-          type: string
-          format: date-time
-    AutoscalingPolicy:
-      type: object
-      properties:
-        min:
-          type: integer
-        max:
-          type: integer
-        target:
-          type: integer
-        metric:
-          type: string
-          enum:
-          - cpu
-          - memory
-          - requests
     DeploymentRevision:
       type: object
       properties:
@@ -274,6 +230,51 @@ components:
                       format: date-time
                     v:
                       type: number
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+        projectId:
+          type: string
+        machineType:
+          type: string
+        clusterId:
+          type: string
+        endpoint:
+          type: string
+        replicas:
+          type: integer
+        state:
+          type: string
+          enum:
+          - ready
+          - scaling
+          - deploying
+          - error
+          - stopped
+        autoscaling:
+          $ref: '#/components/schemas/AutoscalingPolicy'
+        dtCreated:
+          type: string
+          format: date-time
+    LogLine:
+      type: object
+      properties:
+        t:
+          type: string
+          format: date-time
+        stream:
+          type: string
+          enum:
+          - stdout
+          - stderr
+        message:
+          type: string
     DeploymentSpec:
       type: object
       required:
@@ -305,36 +306,33 @@ components:
             type: string
         autoscaling:
           $ref: '#/components/schemas/AutoscalingPolicy'
-    Deployment:
+    AutoscalingPolicy:
+      type: object
+      properties:
+        min:
+          type: integer
+        max:
+          type: integer
+        target:
+          type: integer
+        metric:
+          type: string
+          enum:
+          - cpu
+          - memory
+          - requests
+    DeploymentRun:
       type: object
       properties:
         id:
           type: string
-        name:
+        deploymentId:
           type: string
-        image:
-          type: string
-        projectId:
-          type: string
-        machineType:
-          type: string
-        clusterId:
-          type: string
-        endpoint:
+        state:
           type: string
         replicas:
           type: integer
-        state:
-          type: string
-          enum:
-          - ready
-          - scaling
-          - deploying
-          - error
-          - stopped
-        autoscaling:
-          $ref: '#/components/schemas/AutoscalingPolicy'
-        dtCreated:
+        dtStarted:
           type: string
           format: date-time
   parameters:

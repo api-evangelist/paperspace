@@ -1,14 +1,16 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Paperspace Container Registries Activity Startup Scripts API
+  title: Paperspace Templates Startup Scripts API
   version: v1
-  description: 'Manage container registry credentials used by Paperspace Deployments to
+  description: 'Templates (OS and custom) and startup scripts that configure newly
 
-    pull private images. Authenticate with a team-scoped API key as
+    provisioned Paperspace machines. Templates describe the base OS image and
 
-    `Authorization: Bearer $API_TOKEN`.
+    custom user-created images; startup scripts are bash payloads executed at
 
-    '
+    first boot. Authenticate with a team-scoped API key as `Authorization:
+
+    Bearer $API_TOKEN`.'
 servers:
 - url: https://api.paperspace.com/v1
   description: Production
