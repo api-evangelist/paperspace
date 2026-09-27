@@ -31,6 +31,21 @@ paths:
                 $ref: '#/components/schemas/Session'
 components:
   schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        defaultProduct:
+          type: string
+        theme:
+          type: string
     Session:
       type:
       - object
@@ -48,21 +63,6 @@ components:
         name:
           type: string
         namespace:
-          type: string
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        defaultProduct:
-          type: string
-        theme:
           type: string
   securitySchemes:
     bearerAuth:

@@ -114,6 +114,26 @@ paths:
                 $ref: '#/components/schemas/StorageUtilization'
 components:
   schemas:
+    StorageProvider:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - s3
+          - gcs
+          - azure-blob
+        bucket:
+          type: string
+        region:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
     StorageProviderCreate:
       type: object
       required:
@@ -149,26 +169,6 @@ components:
           type: integer
         sharedStorage:
           type: integer
-    StorageProvider:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - s3
-          - gcs
-          - azure-blob
-        bucket:
-          type: string
-        region:
-          type: string
-        dtCreated:
-          type: string
-          format: date-time
   securitySchemes:
     bearerAuth:
       type: http

@@ -107,6 +107,17 @@ paths:
         '204':
           description: Deleted.
 components:
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
   schemas:
     PrivateNetwork:
       type: object
@@ -136,17 +147,6 @@ components:
           type: string
         cidr:
           type: string
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

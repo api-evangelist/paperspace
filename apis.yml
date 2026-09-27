@@ -104,7 +104,7 @@ apis:
   name: Paperspace Models API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Model Registry
   - Gradient
   tags_raw:
@@ -112,6 +112,7 @@ apis:
   - ML
   - Model Registry
   - Gradient
+  - Machine-Learning
   humanURL: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
   properties:
   - url: https://docs.digitalocean.com/reference/paperspace/api-reference/model/
@@ -715,7 +716,7 @@ tags:
   - GPU
   - Cloud
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Deep Learning
   - Compute
   - DigitalOcean
@@ -733,6 +734,7 @@ tags_raw:
   - Containers
   - Notebooks
   - Gradient
+  - Machine-Learning
 kind: contract
 deliveryModel:
   model: saas
