@@ -114,6 +114,19 @@ paths:
                 $ref: '#/components/schemas/StorageUtilization'
 components:
   schemas:
+    StorageUtilization:
+      type: object
+      properties:
+        teamId:
+          type: string
+        datasets:
+          type: integer
+        models:
+          type: integer
+        notebooks:
+          type: integer
+        sharedStorage:
+          type: integer
     StorageProvider:
       type: object
       properties:
@@ -156,19 +169,6 @@ components:
           type: string
         secretKey:
           type: string
-    StorageUtilization:
-      type: object
-      properties:
-        teamId:
-          type: string
-        datasets:
-          type: integer
-        models:
-          type: integer
-        notebooks:
-          type: integer
-        sharedStorage:
-          type: integer
   securitySchemes:
     bearerAuth:
       type: http

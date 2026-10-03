@@ -160,6 +160,19 @@ paths:
           description: Removed.
 components:
   parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
     Limit:
       in: query
       name: limit
@@ -176,20 +189,18 @@ components:
       required: true
       schema:
         type: string
-    Order:
-      in: query
-      name: order
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
   schemas:
+    ProjectList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
     Project:
       type: object
       properties:
@@ -204,17 +215,6 @@ components:
         dtCreated:
           type: string
           format: date-time
-    ProjectList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

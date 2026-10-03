@@ -107,18 +107,19 @@ paths:
         '204':
           description: Deleted.
 components:
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
   schemas:
+    PrivateNetworkCreate:
+      type: object
+      required:
+      - name
+      - region
+      properties:
+        name:
+          type: string
+        region:
+          type: string
+        cidr:
+          type: string
     PrivateNetwork:
       type: object
       properties:
@@ -135,18 +136,17 @@ components:
         dtCreated:
           type: string
           format: date-time
-    PrivateNetworkCreate:
-      type: object
-      required:
-      - name
-      - region
-      properties:
-        name:
-          type: string
-        region:
-          type: string
-        cidr:
-          type: string
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

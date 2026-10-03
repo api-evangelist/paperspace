@@ -184,55 +184,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeploymentList'
 components:
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-    DeploymentId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
   schemas:
-    DeploymentSpec:
+    DeploymentMetrics:
       type: object
-      required:
-      - name
-      - image
-      - machineType
       properties:
-        name:
+        deploymentId:
           type: string
-        projectId:
-          type: string
-        image:
-          type: string
-        machineType:
-          type: string
-        replicas:
-          type: integer
-        ports:
+        series:
           type: array
           items:
-            type: integer
-        env:
-          type: object
-          additionalProperties:
-            type: string
-        command:
-          type: array
-          items:
-            type: string
-        autoscaling:
-          $ref: '#/components/schemas/AutoscalingPolicy'
+            type: object
+            properties:
+              metric:
+                type: string
+              values:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    t:
+                      type: string
+                      format: date-time
+                    v:
+                      type: number
     Deployment:
       type: object
       properties:
@@ -265,43 +239,20 @@ components:
         dtCreated:
           type: string
           format: date-time
-    DeploymentMetrics:
+    DeploymentRun:
       type: object
       properties:
+        id:
+          type: string
         deploymentId:
           type: string
-        series:
-          type: array
-          items:
-            type: object
-            properties:
-              metric:
-                type: string
-              values:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    t:
-                      type: string
-                      format: date-time
-                    v:
-                      type: number
-    AutoscalingPolicy:
-      type: object
-      properties:
-        min:
-          type: integer
-        max:
-          type: integer
-        target:
-          type: integer
-        metric:
+        state:
           type: string
-          enum:
-          - cpu
-          - memory
-          - requests
+        replicas:
+          type: integer
+        dtStarted:
+          type: string
+          format: date-time
     DeploymentList:
       type: object
       properties:
@@ -326,20 +277,21 @@ components:
           - stderr
         message:
           type: string
-    DeploymentRun:
+    AutoscalingPolicy:
       type: object
       properties:
-        id:
-          type: string
-        deploymentId:
-          type: string
-        state:
-          type: string
-        replicas:
+        min:
           type: integer
-        dtStarted:
+        max:
+          type: integer
+        target:
+          type: integer
+        metric:
           type: string
-          format: date-time
+          enum:
+          - cpu
+          - memory
+          - requests
     DeploymentRevision:
       type: object
       properties:
@@ -352,6 +304,54 @@ components:
           format: date-time
         userId:
           type: string
+    DeploymentSpec:
+      type: object
+      required:
+      - name
+      - image
+      - machineType
+      properties:
+        name:
+          type: string
+        projectId:
+          type: string
+        image:
+          type: string
+        machineType:
+          type: string
+        replicas:
+          type: integer
+        ports:
+          type: array
+          items:
+            type: integer
+        env:
+          type: object
+          additionalProperties:
+            type: string
+        command:
+          type: array
+          items:
+            type: string
+        autoscaling:
+          $ref: '#/components/schemas/AutoscalingPolicy'
+  parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+    DeploymentId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

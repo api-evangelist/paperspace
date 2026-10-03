@@ -163,40 +163,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/DesktopConfig'
 components:
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 120
-    OrderBy:
-      in: query
-      name: orderBy
-      schema:
-        type: string
-    Order:
-      in: query
-      name: order
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-    MachineId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-      description: Pagination cursor.
   schemas:
+    MachineUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        machineType:
+          type: string
+        autoShutdownTimeoutHours:
+          type: integer
+        autoSnapshotFrequency:
+          type: string
+    DesktopConfig:
+      type: object
+      properties:
+        host:
+          type: string
+        token:
+          type: string
+        port:
+          type: integer
+        protocol:
+          type: string
+    MachineList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Machine'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
     Machine:
       type: object
       properties:
@@ -253,39 +253,6 @@ components:
         dtLastRun:
           type: string
           format: date-time
-    MachineUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        machineType:
-          type: string
-        autoShutdownTimeoutHours:
-          type: integer
-        autoSnapshotFrequency:
-          type: string
-    MachineList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Machine'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
-    DesktopConfig:
-      type: object
-      properties:
-        host:
-          type: string
-        token:
-          type: string
-        port:
-          type: integer
-        protocol:
-          type: string
     MachineCreate:
       type: object
       required:
@@ -310,6 +277,39 @@ components:
           type: string
         autoShutdownTimeoutHours:
           type: integer
+  parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+      description: Pagination cursor.
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 120
+    MachineId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

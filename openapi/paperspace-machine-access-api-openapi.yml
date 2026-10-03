@@ -89,13 +89,6 @@ paths:
         '204':
           description: Access revoked.
 components:
-  parameters:
-    MachineId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   schemas:
     Accessor:
       type: object
@@ -111,6 +104,13 @@ components:
           enum:
           - admin
           - user
+  parameters:
+    MachineId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

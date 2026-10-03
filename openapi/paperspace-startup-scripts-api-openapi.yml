@@ -158,6 +158,20 @@ paths:
           description: Unassigned.
 components:
   schemas:
+    StartupScriptCreate:
+      type: object
+      required:
+      - name
+      - script
+      properties:
+        name:
+          type: string
+        script:
+          type: string
+        runOnce:
+          type: boolean
+        isEnabled:
+          type: boolean
     StartupScript:
       type: object
       properties:
@@ -174,20 +188,6 @@ components:
         dtCreated:
           type: string
           format: date-time
-    StartupScriptCreate:
-      type: object
-      required:
-      - name
-      - script
-      properties:
-        name:
-          type: string
-        script:
-          type: string
-        runOnce:
-          type: boolean
-        isEnabled:
-          type: boolean
   securitySchemes:
     bearerAuth:
       type: http

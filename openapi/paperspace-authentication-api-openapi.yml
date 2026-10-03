@@ -46,15 +46,6 @@ components:
           type: string
         theme:
           type: string
-    Session:
-      type:
-      - object
-      - 'null'
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
-        team:
-          $ref: '#/components/schemas/Team'
     Team:
       type: object
       properties:
@@ -64,6 +55,15 @@ components:
           type: string
         namespace:
           type: string
+    Session:
+      type:
+      - object
+      - 'null'
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        team:
+          $ref: '#/components/schemas/Team'
   securitySchemes:
     bearerAuth:
       type: http
