@@ -81,20 +81,6 @@ paths:
           description: Deleted.
 components:
   schemas:
-    ModelCreate:
-      type: object
-      required:
-      - name
-      - modelType
-      properties:
-        name:
-          type: string
-        modelType:
-          type: string
-        url:
-          type: string
-        projectId:
-          type: string
     Model:
       type: object
       properties:
@@ -117,6 +103,20 @@ components:
         dtCreated:
           type: string
           format: date-time
+    ModelCreate:
+      type: object
+      required:
+      - name
+      - modelType
+      properties:
+        name:
+          type: string
+        modelType:
+          type: string
+        url:
+          type: string
+        projectId:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

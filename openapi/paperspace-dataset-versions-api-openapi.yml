@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Paperspace Container Registries Activity … … Dataset……
+  title: Paperspace Container Registries Activity … … Dataset………
   version: v1
   description: 'Manage container registry credentials used by Paperspace Deployments to
 
@@ -114,6 +114,11 @@ paths:
           description: Deleted.
 components:
   schemas:
+    DatasetVersionCreate:
+      type: object
+      properties:
+        message:
+          type: string
     DatasetVersion:
       type: object
       properties:
@@ -128,11 +133,6 @@ components:
         dtCreated:
           type: string
           format: date-time
-    DatasetVersionCreate:
-      type: object
-      properties:
-        message:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

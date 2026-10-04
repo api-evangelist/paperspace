@@ -125,22 +125,6 @@ paths:
                     type: string
 components:
   schemas:
-    ContainerRegistry:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-        username:
-          type: string
-        teamId:
-          type: string
-        dtCreated:
-          type: string
-          format: date-time
     ContainerRegistryCreate:
       type: object
       required:
@@ -157,6 +141,22 @@ components:
           type: string
         password:
           type: string
+    ContainerRegistry:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        username:
+          type: string
+        teamId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http

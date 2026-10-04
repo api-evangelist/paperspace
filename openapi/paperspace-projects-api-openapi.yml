@@ -159,48 +159,7 @@ paths:
         '204':
           description: Removed.
 components:
-  parameters:
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-    Order:
-      in: query
-      name: order
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-    OrderBy:
-      in: query
-      name: orderBy
-      schema:
-        type: string
-    ProjectId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   schemas:
-    ProjectList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
     Project:
       type: object
       properties:
@@ -215,6 +174,47 @@ components:
         dtCreated:
           type: string
           format: date-time
+    ProjectList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
+  parameters:
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

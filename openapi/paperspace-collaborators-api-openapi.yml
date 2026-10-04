@@ -81,13 +81,6 @@ paths:
         '204':
           description: Removed.
 components:
-  parameters:
-    ProjectId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   schemas:
     Collaborator:
       type: object
@@ -100,6 +93,13 @@ components:
           type: string
         projectId:
           type: string
+  parameters:
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

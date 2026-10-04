@@ -108,17 +108,29 @@ paths:
           description: Deleted.
 components:
   parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
     After:
       in: query
       name: after
       schema:
         type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
   schemas:
+    DatasetCreate:
+      type: object
+      required:
+      - name
+      - storageProviderId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        storageProviderId:
+          type: string
     Dataset:
       type: object
       properties:
@@ -135,18 +147,6 @@ components:
         dtCreated:
           type: string
           format: date-time
-    DatasetCreate:
-      type: object
-      required:
-      - name
-      - storageProviderId
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        storageProviderId:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -55,6 +55,17 @@ paths:
                 $ref: '#/components/schemas/MachineEvent'
 components:
   schemas:
+    MachineEventList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineEvent'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
     MachineEvent:
       type: object
       properties:
@@ -69,18 +80,13 @@ components:
         dtCreated:
           type: string
           format: date-time
-    MachineEventList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/MachineEvent'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
   parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+      description: Pagination cursor.
     Limit:
       in: query
       name: limit
@@ -88,12 +94,6 @@ components:
         type: integer
         minimum: 1
         maximum: 120
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-      description: Pagination cursor.
   securitySchemes:
     bearerAuth:
       type: http

@@ -42,6 +42,11 @@ paths:
                   $ref: '#/components/schemas/ActivityEvent'
 components:
   parameters:
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
     ProjectId:
       in: path
       name: id
@@ -53,11 +58,6 @@ components:
       name: limit
       schema:
         type: integer
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
   schemas:
     ActivityEvent:
       type: object

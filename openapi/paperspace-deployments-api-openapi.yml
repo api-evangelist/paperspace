@@ -185,6 +185,44 @@ paths:
                 $ref: '#/components/schemas/DeploymentList'
 components:
   schemas:
+    DeploymentRun:
+      type: object
+      properties:
+        id:
+          type: string
+        deploymentId:
+          type: string
+        state:
+          type: string
+        replicas:
+          type: integer
+        dtStarted:
+          type: string
+          format: date-time
+    LogLine:
+      type: object
+      properties:
+        t:
+          type: string
+          format: date-time
+        stream:
+          type: string
+          enum:
+          - stdout
+          - stderr
+        message:
+          type: string
+    DeploymentList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deployment'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
     DeploymentMetrics:
       type: object
       properties:
@@ -207,91 +245,6 @@ components:
                       format: date-time
                     v:
                       type: number
-    Deployment:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        image:
-          type: string
-        projectId:
-          type: string
-        machineType:
-          type: string
-        clusterId:
-          type: string
-        endpoint:
-          type: string
-        replicas:
-          type: integer
-        state:
-          type: string
-          enum:
-          - ready
-          - scaling
-          - deploying
-          - error
-          - stopped
-        autoscaling:
-          $ref: '#/components/schemas/AutoscalingPolicy'
-        dtCreated:
-          type: string
-          format: date-time
-    DeploymentRun:
-      type: object
-      properties:
-        id:
-          type: string
-        deploymentId:
-          type: string
-        state:
-          type: string
-        replicas:
-          type: integer
-        dtStarted:
-          type: string
-          format: date-time
-    DeploymentList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Deployment'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
-    LogLine:
-      type: object
-      properties:
-        t:
-          type: string
-          format: date-time
-        stream:
-          type: string
-          enum:
-          - stdout
-          - stderr
-        message:
-          type: string
-    AutoscalingPolicy:
-      type: object
-      properties:
-        min:
-          type: integer
-        max:
-          type: integer
-        target:
-          type: integer
-        metric:
-          type: string
-          enum:
-          - cpu
-          - memory
-          - requests
     DeploymentRevision:
       type: object
       properties:
@@ -335,10 +288,63 @@ components:
             type: string
         autoscaling:
           $ref: '#/components/schemas/AutoscalingPolicy'
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+        projectId:
+          type: string
+        machineType:
+          type: string
+        clusterId:
+          type: string
+        endpoint:
+          type: string
+        replicas:
+          type: integer
+        state:
+          type: string
+          enum:
+          - ready
+          - scaling
+          - deploying
+          - error
+          - stopped
+        autoscaling:
+          $ref: '#/components/schemas/AutoscalingPolicy'
+        dtCreated:
+          type: string
+          format: date-time
+    AutoscalingPolicy:
+      type: object
+      properties:
+        min:
+          type: integer
+        max:
+          type: integer
+        target:
+          type: integer
+        metric:
+          type: string
+          enum:
+          - cpu
+          - memory
+          - requests
   parameters:
     After:
       in: query
       name: after
+      schema:
+        type: string
+    DeploymentId:
+      in: path
+      name: id
+      required: true
       schema:
         type: string
     Limit:
@@ -346,12 +352,6 @@ components:
       name: limit
       schema:
         type: integer
-    DeploymentId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

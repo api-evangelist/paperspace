@@ -31,21 +31,6 @@ paths:
                 $ref: '#/components/schemas/Session'
 components:
   schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        defaultProduct:
-          type: string
-        theme:
-          type: string
     Team:
       type: object
       properties:
@@ -64,6 +49,21 @@ components:
           $ref: '#/components/schemas/User'
         team:
           $ref: '#/components/schemas/Team'
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        defaultProduct:
+          type: string
+        theme:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
