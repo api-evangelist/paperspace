@@ -105,22 +105,6 @@ paths:
           description: Deleted.
 components:
   schemas:
-    SharedDrive:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        size:
-          type: integer
-        region:
-          type: string
-        privateNetworkId:
-          type: string
-        dtCreated:
-          type: string
-          format: date-time
     SharedDriveCreate:
       type: object
       required:
@@ -137,6 +121,22 @@ components:
           type: string
         privateNetworkId:
           type: string
+    SharedDrive:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        size:
+          type: integer
+        region:
+          type: string
+        privateNetworkId:
+          type: string
+        dtCreated:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http

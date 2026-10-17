@@ -41,23 +41,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/ActivityEvent'
 components:
-  parameters:
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-    ProjectId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
   schemas:
     ActivityEvent:
       type: object
@@ -73,6 +56,23 @@ components:
         dtCreated:
           type: string
           format: date-time
+  parameters:
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http

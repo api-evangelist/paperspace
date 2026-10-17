@@ -114,19 +114,6 @@ paths:
                 $ref: '#/components/schemas/StorageUtilization'
 components:
   schemas:
-    StorageUtilization:
-      type: object
-      properties:
-        teamId:
-          type: string
-        datasets:
-          type: integer
-        models:
-          type: integer
-        notebooks:
-          type: integer
-        sharedStorage:
-          type: integer
     StorageProvider:
       type: object
       properties:
@@ -147,6 +134,19 @@ components:
         dtCreated:
           type: string
           format: date-time
+    StorageUtilization:
+      type: object
+      properties:
+        teamId:
+          type: string
+        datasets:
+          type: integer
+        models:
+          type: integer
+        notebooks:
+          type: integer
+        sharedStorage:
+          type: integer
     StorageProviderCreate:
       type: object
       required:

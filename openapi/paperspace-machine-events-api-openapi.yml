@@ -55,17 +55,6 @@ paths:
                 $ref: '#/components/schemas/MachineEvent'
 components:
   schemas:
-    MachineEventList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/MachineEvent'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
     MachineEvent:
       type: object
       properties:
@@ -80,6 +69,17 @@ components:
         dtCreated:
           type: string
           format: date-time
+    MachineEventList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineEvent'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
   parameters:
     After:
       in: query

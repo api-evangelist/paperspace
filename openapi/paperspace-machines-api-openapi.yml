@@ -199,17 +199,6 @@ components:
           type: integer
         autoSnapshotFrequency:
           type: string
-    MachineList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Machine'
-        hasMore:
-          type: boolean
-        nextPage:
-          type: string
     Machine:
       type: object
       properties:
@@ -266,6 +255,17 @@ components:
         dtLastRun:
           type: string
           format: date-time
+    MachineList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Machine'
+        hasMore:
+          type: boolean
+        nextPage:
+          type: string
     DesktopConfig:
       type: object
       properties:
@@ -278,6 +278,17 @@ components:
         protocol:
           type: string
   parameters:
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+      description: Pagination cursor.
     Order:
       in: query
       name: order
@@ -292,12 +303,6 @@ components:
       required: true
       schema:
         type: string
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-      description: Pagination cursor.
     Limit:
       in: query
       name: limit
@@ -305,11 +310,6 @@ components:
         type: integer
         minimum: 1
         maximum: 120
-    OrderBy:
-      in: query
-      name: orderBy
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -159,6 +159,36 @@ paths:
         '204':
           description: Removed.
 components:
+  parameters:
+    ProjectId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    OrderBy:
+      in: query
+      name: orderBy
+      schema:
+        type: string
+    After:
+      in: query
+      name: after
+      schema:
+        type: string
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
   schemas:
     Project:
       type: object
@@ -185,36 +215,6 @@ components:
           type: boolean
         nextPage:
           type: string
-  parameters:
-    Order:
-      in: query
-      name: order
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-    After:
-      in: query
-      name: after
-      schema:
-        type: string
-    ProjectId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-    OrderBy:
-      in: query
-      name: orderBy
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
