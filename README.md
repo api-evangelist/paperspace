@@ -1,4 +1,4 @@
-# Paperspace (paperspace)
+# Paperspace
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,289 +66,212 @@
 
 Paperspace is a GPU cloud platform for AI, ML, and 3D rendering workloads, acquired by DigitalOcean in 2023. The platform combines on-demand GPU/CPU machines (Core), the Gradient ML workflow stack (Notebooks, Datasets, Models, Workflows), and container-as-a-service Deployments under a single team-scoped REST API at api.paperspace.com/v1. Compute is billed per second across H100, A100, A6000, V100, A5000, A4000, and P6000 SKUs, with Bearer-token authentication using team-scoped API keys.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/paperspace/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/paperspace/refs/heads/main/apis.yml)
+**Areas:** GPU · Cloud · Artificial Intelligence · Machine Learning · Deep Learning · Compute · DigitalOcean · Containers · Notebooks · Gradient
 
-## Scope
+## Paperspace on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Paperspace is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/paperspace/](https://apis.io/providers/paperspace/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (25)
 
-- GPU
-- Cloud
-- AI
-- Machine Learning
-- Deep Learning
-- Compute
-- DigitalOcean
-- Containers
-- Notebooks
-- Gradient
+- [Paperspace Machines API](https://apis.io/apis/paperspace/paperspace-machines-api/) — Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the machine lifecycle (create, start, stop, restart, delete),…
+- [Paperspace Deployments API](https://apis.io/apis/paperspace/paperspace-deployments-api/) — Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a managed endpoint, autoscaling, rolling updates, runs,…
+- [Paperspace Projects API](https://apis.io/apis/paperspace/paperspace-projects-api/) — Projects are the top-level organizing container in Paperspace. The Projects API covers project lifecycle, activity feeds, collaborator management,…
+- [Paperspace Datasets API](https://apis.io/apis/paperspace/paperspace-datasets-api/) — Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The Datasets API exposes the dataset lifecycle plus a…
+- [Paperspace Container Registries API](https://apis.io/apis/paperspace/paperspace-container-registries-api/) — Manage container registry credentials used by Paperspace Deployments to pull private images, including a test-connection endpoint that verifies the…
+- [Paperspace Models API](https://apis.io/apis/paperspace/paperspace-models-api/) — Register and manage trained ML models in the Paperspace Gradient model registry. Models can be associated with projects and consumed by Deployments.
+- [Paperspace Activity API](https://apis.io/apis/paperspace/paperspace-activity-api/) — The Activity API from Paperspace — 1 operation(s) for activity.
+- [Paperspace Authentication API](https://apis.io/apis/paperspace/paperspace-authentication-api/) — The Authentication API from Paperspace — 1 operation(s) for authentication.
+- [Paperspace Collaborators API](https://apis.io/apis/paperspace/paperspace-collaborators-api/) — The Collaborators API from Paperspace — 2 operation(s) for collaborators.
+- [Paperspace Custom Templates API](https://apis.io/apis/paperspace/paperspace-custom-templates-api/) — The Custom Templates API from Paperspace — 2 operation(s) for custom templates.
+- [Paperspace Dataset Versions API](https://apis.io/apis/paperspace/paperspace-dataset-versions-api/) — The Dataset Versions API from Paperspace — 2 operation(s) for dataset versions.
+- [Paperspace Machine Access API](https://apis.io/apis/paperspace/paperspace-machine-access-api/) — Team-member access grants on individual machines.
+- [Paperspace Machine Events API](https://apis.io/apis/paperspace/paperspace-machine-events-api/) — Machine-event history stream.
+- [Paperspace Machine Types API](https://apis.io/apis/paperspace/paperspace-machine-types-api/) — Region/availability lookups for machine types.
+- [Paperspace OS Templates API](https://apis.io/apis/paperspace/paperspace-os-templates-api/) — The OS Templates API from Paperspace — 1 operation(s) for os templates.
+- [Paperspace Private Networks API](https://apis.io/apis/paperspace/paperspace-private-networks-api/) — The Private Networks API from Paperspace — 2 operation(s) for private networks.
+- [Paperspace Public IPs API](https://apis.io/apis/paperspace/paperspace-public-ips-api/) — The Public IPs API from Paperspace — 2 operation(s) for public ips.
+- [Paperspace Secrets API](https://apis.io/apis/paperspace/paperspace-secrets-api/) — The Secrets API from Paperspace — 2 operation(s) for secrets.
+- [Paperspace Shared Drives API](https://apis.io/apis/paperspace/paperspace-shared-drives-api/) — The Shared Drives API from Paperspace — 2 operation(s) for shared drives.
+- [Paperspace Snapshots API](https://apis.io/apis/paperspace/paperspace-snapshots-api/) — The Snapshots API from Paperspace — 3 operation(s) for snapshots.
+- [Paperspace Startup Scripts API](https://apis.io/apis/paperspace/paperspace-startup-scripts-api/) — The Startup Scripts API from Paperspace — 4 operation(s) for startup scripts.
+- [Paperspace Storage Providers API](https://apis.io/apis/paperspace/paperspace-storage-providers-api/) — The Storage Providers API from Paperspace — 3 operation(s) for storage providers.
+- [Paperspace Tags API](https://apis.io/apis/paperspace/paperspace-tags-api/) — The Tags API from Paperspace — 1 operation(s) for tags.
+- [Paperspace Team Members API](https://apis.io/apis/paperspace/paperspace-team-members-api/) — The Team Members API from Paperspace — 2 operation(s) for team members.
+- [Paperspace Team Secrets API](https://apis.io/apis/paperspace/paperspace-team-secrets-api/) — The Team Secrets API from Paperspace — 2 operation(s) for team secrets.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25T00:00:00.000Z
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Paperspace Machines API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Programmatically manage Paperspace virtual machines — GPU and CPU compute instances. Covers the machine lifecycle (create, start, stop, restart, delete), machine events, team-member access grants per machine, desktop streaming configuration, and a region-keyed machine-availability lookup.
+- [Paperspace Agentic Access](https://apis.io/agentic-access/paperspace/paperspace-agentic-access/)
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/machine/](https://docs.digitalocean.com/reference/paperspace/api-reference/machine/)
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Compute
-- GPU
-- Machines
-- Cloud
+- [Paperspace Deployment](https://apis.io/schemas/paperspace/paperspace-deployment/)
+- [Paperspace Machine](https://apis.io/schemas/paperspace/paperspace-machine/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/machine/)
-- [OpenAPI](openapi/paperspace-machines-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-machines-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-machines-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paperspace-machine-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paperspace-machine-structure.json)
-- [JSON-LD](json-ld/paperspace-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-### Paperspace Deployments API
+- [Paperspace Machine Structure](https://apis.io/json-structure/paperspace/paperspace-machine-structure/)
 
-Container-as-a-service deployments that run user-provided images on Paperspace GPU machines with a managed endpoint, autoscaling, rolling updates, runs, metrics, logs, and revision history. Includes the project-scoped deployment listing.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/](https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Paperspace Context](https://apis.io/jsonld/paperspace/paperspace-context/)
 
-- Containers
-- Deployments
-- GPU
-- Inference
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/deployments/)
-- [OpenAPI](openapi/paperspace-deployments-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-deployments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-deployments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paperspace-deployment-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Paperspace Vocabulary](https://apis.io/vocabularies/paperspace/paperspace-vocabulary/)
 
-### Paperspace Projects API
+#### Examples (2)
 
-Projects are the top-level organizing container in Paperspace. The Projects API covers project lifecycle, activity feeds, collaborator management, project-scoped secrets, tags, and model linkage.
+Example requests and responses.
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/project/](https://docs.digitalocean.com/reference/paperspace/api-reference/project/)
+- [Paperspace Create Machine Example](https://apis.io/examples/paperspace/paperspace-create-machine-example/)
+- [Paperspace Upsert Deployment Example](https://apis.io/examples/paperspace/paperspace-upsert-deployment-example/)
 
-#### Tags
+#### Collections (54)
 
-- Organization
-- Projects
-- Collaboration
-- Secrets
+Postman and Open Collection request collections.
 
-#### Properties
+- [Paperspace Container Registries Activity API](https://apis.io/collections/paperspace/open-paperspace-activity-api/)
+- [Paperspace Container Registries Activity Authentication API](https://apis.io/collections/paperspace/open-paperspace-authentication-api/)
+- [Paperspace Container Registries Activity Collaborators API](https://apis.io/collections/paperspace/open-paperspace-collaborators-api/)
+- [Paperspace Activity Container Registries API](https://apis.io/collections/paperspace/open-paperspace-container-registries-api/)
+- [Paperspace Container Registries Activity Custom Templates API](https://apis.io/collections/paperspace/open-paperspace-custom-templates-api/)
+- [Paperspace Container Registries Activity Dataset Versions API](https://apis.io/collections/paperspace/open-paperspace-dataset-versions-api/)
+- [Paperspace Container Registries Activity Datasets API](https://apis.io/collections/paperspace/open-paperspace-datasets-api/)
+- [Paperspace Container Registries Activity Deployments API](https://apis.io/collections/paperspace/open-paperspace-deployments-api/)
+- [Paperspace Container Registries Activity Machine Access API](https://apis.io/collections/paperspace/open-paperspace-machine-access-api/)
+- [Paperspace Container Registries Activity Machine Events API](https://apis.io/collections/paperspace/open-paperspace-machine-events-api/)
+- [Paperspace Container Registries Activity Machine Types API](https://apis.io/collections/paperspace/open-paperspace-machine-types-api/)
+- [Paperspace Container Registries Activity Machines API](https://apis.io/collections/paperspace/open-paperspace-machines-api/)
+- [Paperspace Container Registries Activity Models API](https://apis.io/collections/paperspace/open-paperspace-models-api/)
+- [Paperspace Networking API](https://apis.io/collections/paperspace/open-paperspace-networking-api/)
+- [Paperspace Container Registries Activity OS Templates API](https://apis.io/collections/paperspace/open-paperspace-os-templates-api/)
+- [Paperspace Container Registries Activity Private Networks API](https://apis.io/collections/paperspace/open-paperspace-private-networks-api/)
+- [Paperspace Container Registries Activity Projects API](https://apis.io/collections/paperspace/open-paperspace-projects-api/)
+- [Paperspace Container Registries Activity Public IPs API](https://apis.io/collections/paperspace/open-paperspace-public-ips-api/)
+- [Paperspace Container Registries Activity Secrets API](https://apis.io/collections/paperspace/open-paperspace-secrets-api/)
+- [Paperspace Container Registries Activity Shared Drives API](https://apis.io/collections/paperspace/open-paperspace-shared-drives-api/)
+- [Paperspace Container Registries Activity Snapshots API](https://apis.io/collections/paperspace/open-paperspace-snapshots-api/)
+- [Paperspace Container Registries Activity Startup Scripts API](https://apis.io/collections/paperspace/open-paperspace-startup-scripts-api/)
+- [Paperspace Storage API](https://apis.io/collections/paperspace/open-paperspace-storage-api/)
+- [Paperspace Container Registries Activity Storage Providers API](https://apis.io/collections/paperspace/open-paperspace-storage-providers-api/)
+- [Paperspace Container Registries Activity Tags API](https://apis.io/collections/paperspace/open-paperspace-tags-api/)
+- …and 29 more published on APIs.io
 
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/project/)
-- [OpenAPI](openapi/paperspace-projects-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-projects-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-projects-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Paperspace Datasets API
+Spectral rulesets for the provider's contracts.
 
-Versioned data collections used by Paperspace Gradient notebooks, workflows, and deployments. The Datasets API exposes the dataset lifecycle plus a versioned data revision sub-resource.
+- [Paperspace — jsonschema rules](https://apis.io/rules/paperspace/paperspace-jsonschema-spectral-rules/)
+- [Paperspace API Rules](https://apis.io/rules/paperspace/paperspace-rules/)
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/](https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/)
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Data
-- Datasets
-- Versioning
-- Gradient
+- [Paperspace Authentication](https://apis.io/security/paperspace/paperspace-authentication/)
+- [Paperspace Domain Security](https://apis.io/security/paperspace/paperspace-domain-security/)
+- [Paperspace Trust Center](https://apis.io/security/paperspace/paperspace-trust-center/)
 
-#### Properties
+#### Plans and pricing (2)
 
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/dataset/)
-- [OpenAPI](openapi/paperspace-datasets-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-datasets-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-datasets-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Paperspace Networking API
+- [Paperspace Plans Pricing](https://apis.io/plans/paperspace/paperspace-plans-pricing/)
+- [Paperspace Price Estimates](https://apis.io/plans/paperspace/paperspace-price-estimates/)
 
-Networking primitives for Paperspace — private networks (VPCs) for east-west machine-to-machine traffic and a claim-assign-release lifecycle for public IPv4 addresses.
+#### Rate limits (1)
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/](https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/)
+Published request limits.
 
-#### Tags
+- [Paperspace Rate Limits](https://apis.io/rate-limits/paperspace/paperspace-rate-limits/)
 
-- Networking
-- VPC
-- Private Networks
-- Public IP
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/private-networks/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/public-ips/)
-- [OpenAPI](openapi/paperspace-networking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-networking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-networking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Paperspace Finops](https://apis.io/finops/paperspace/paperspace-finops/)
 
-### Paperspace Storage API
+## Where to find this API
 
-Storage primitives — shared drives attached to a private network, machine snapshots with point-in-time restore, and external storage provider credentials (S3, GCS, Azure Blob) plus a team utilization breakdown.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/](https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/)
-
-#### Tags
-
-- Storage
-- Shared Drives
-- Snapshots
-- Object Storage
-
-#### Properties
-
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/shared-drives/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/snapshots/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/storage/)
-- [OpenAPI](openapi/paperspace-storage-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-storage-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-storage-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paperspace Templates and Startup Scripts API
-
-OS templates, custom user-created machine templates, and startup scripts (with assign/unassign to machines) used to configure freshly provisioned Paperspace machines.
-
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/](https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/)
-
-#### Tags
-
-- Templates
-- Startup Scripts
-- OS Images
-- Custom Templates
-
-#### Properties
-
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/os-templates/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/custom-templates/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/startup-scripts/)
-- [OpenAPI](openapi/paperspace-templates-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-templates-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-templates-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paperspace Container Registries API
-
-Manage container registry credentials used by Paperspace Deployments to pull private images, including a test-connection endpoint that verifies the configured credentials.
-
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/](https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/)
-
-#### Tags
-
-- Containers
-- Registry
-- Credentials
-
-#### Properties
-
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/container-registries/)
-- [OpenAPI](openapi/paperspace-container-registries-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-container-registries-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-container-registries-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paperspace Models API
-
-Register and manage trained ML models in the Paperspace Gradient model registry. Models can be associated with projects and consumed by Deployments.
-
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/model/](https://docs.digitalocean.com/reference/paperspace/api-reference/model/)
-
-#### Tags
-
-- AI
-- ML
-- Model Registry
-- Gradient
-
-#### Properties
-
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/model/)
-- [OpenAPI](openapi/paperspace-models-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-models-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-models-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paperspace Team and Authentication API
-
-Session lookup (`/auth/session`), team-member roster with admin-status mutation, team-member removal, and the team-scoped secrets surface used to share credentials across projects in a team.
-
-- **Human URL:** [https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/](https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/)
-
-#### Tags
-
-- Identity
-- Teams
-- Members
-- Secrets
-- Session
-
-#### Properties
-
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/authentication/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/teams/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-keys/)
-- [OpenAPI](openapi/paperspace-team-auth-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paperspace-team-auth-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paperspace-team-auth-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://www.paperspace.com)
+- [Website](https://www.paperspace.com/)
 - [Documentation](https://docs.digitalocean.com/products/paperspace/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-reference/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/api-keys/)
-- [Documentation](https://docs.digitalocean.com/reference/paperspace/cli/)
 - [Pricing](https://www.paperspace.com/pricing)
-- [Sign Up](https://console.paperspace.com/signup)
-- [Console](https://console.paperspace.com)
-- [Blog](https://blog.paperspace.com)
-- [Forum](https://community.paperspace.com)
-- [Status Page](https://status.paperspace.com)
-- [Terms of Service](https://www.paperspace.com/legal/terms-of-service)
-- [Privacy Policy](https://www.paperspace.com/legal/privacy-policy)
 - [Support](https://www.paperspace.com/contact-sales)
-- [GitHub Organization](https://github.com/Paperspace)
-- [C L I](https://github.com/Paperspace/cli)
-- [Documentation](https://github.com/Paperspace/CORE-API-Docs)
-- [SDK](https://github.com/Paperspace/paperspace-node)
-- [SDK](https://github.com/Paperspace/paperspace-go)
-- [SDK](https://github.com/Paperspace/paperspace-python)
-- [C L I](https://github.com/Paperspace/gradient-cli)
-- [Tool](https://github.com/Paperspace/terraform-provider-paperspace)
-- [Tool](https://github.com/Paperspace/deploy-action)
-- [Tool](https://github.com/Paperspace/ml-in-a-box)
-- [Tool](https://github.com/Paperspace/fastai-docker)
-- [Code Examples](https://github.com/Paperspace/app-template)
-- [Code Examples](https://github.com/Paperspace/stable-diffusion-app)
-- [Code Examples](https://github.com/Paperspace/FastAPI-Template-App)
-- [Code Examples](https://github.com/Paperspace/FastAPI-Hugging-Face-Template-App)
-- [Code Examples](https://github.com/Paperspace/Flask-Template-App)
-- [Courses](https://github.com/Paperspace/PyTorch-101-Tutorial-Series)
-- [Code Examples](https://github.com/Paperspace/DataAugmentationForObjectDetection)
-- [X (Twitter)](https://x.com/HelloPaperspace)
-- [LinkedIn](https://www.linkedin.com/company/paperspace)
-- [Plans](plans/paperspace-plans-pricing.yml)
-- [Rate Limits](rate-limits/paperspace-rate-limits.yml)
-- [Fin Ops](finops/paperspace-finops.yml)
-- [Vocabulary](vocabulary/paperspace-vocabulary.yml)
-- [Spectral Rules](rules/paperspace-rules.yml)
-- [Features](undefined)
+- [Blog](https://blog.paperspace.com)
+- [Terms of service](https://www.paperspace.com/legal/terms-of-service)
+- [Privacy policy](https://www.paperspace.com/legal/privacy-policy)
+- [GitHub](https://github.com/Paperspace)
+- [Status](https://status.paperspace.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 64.2** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 61.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 63.1 |
+| Access clarity | 84.2 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/paperspace/](https://apis.io/providers/paperspace/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Paperspace: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/paperspace/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
